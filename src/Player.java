@@ -1,9 +1,8 @@
 public class Player {
 
+    int playerID; // generate up to four players max
+    int gameID;
     String playerName;
-    int position;
-    boolean isTurn;
-
 
     void setPlayerName(String newPlayerName){
         playerName = newPlayerName;
@@ -13,5 +12,12 @@ public class Player {
         return playerName;
     }
 
+    void setGameID(int newGameID){
+        gameID = newGameID;
+    }
+
+    int getGameID(){
+        return gameID;
+    }
 
 }
