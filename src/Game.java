@@ -1,9 +1,10 @@
+import java.util.List;
+
 public class Game {
 
-    int gameID;
-    String[] players;
+    List players;
     String currentTurn;
-    int[][] board;
+    List board;
 
 
 }
