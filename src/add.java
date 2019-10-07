@@ -6,8 +6,8 @@ public class add {
         Dice di = new Dice();
 
 
-        int position = di.roll();
-        if (ob.firstarray[position][1] == "0")
+        /*int position = di.roll();
+        if (ob.firstarray[position][0] == "0")
         {
             ob.firstarray[position][1] = ob.player3;
         }

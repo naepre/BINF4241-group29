@@ -8,10 +8,11 @@ public class main
             {"5"},{"6"},{"7->9"},{"8"},{"9"},{"10"},{"5<-11"},{"12"}};
 
     String player3 = "robin";
-    firstarray[0][1] = player3;
+
     public static void main(String[] args)
     {
         main obj = new main();
+
 
         add dis = new add();
         /*Player myPlayer1 = new Player();
