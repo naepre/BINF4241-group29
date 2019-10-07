@@ -49,7 +49,9 @@ public class main {
         Map currentBoard = game.getBoard();
         System.out.println(currentBoard);
 
-        //set players into first square
+        //set players into first square.
+
+        //start move of first player in
 
         //notify player to move.
         //main loop:
