@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class main
 {
@@ -24,6 +22,30 @@ public class main
         System.out.println(myDice.roll());
 
         System.out.println("This is the first array");
+
+        HashMap<Integer, ArrayList> map = new HashMap();
+        List MyList = new ArrayList();
+        MyList.add(0);
+        MyList.add("null");
+        List MyList2 = new ArrayList();
+        MyList2.add(-5);
+        MyList2.add("null");
+        List MyList3 = new ArrayList();
+        MyList3.add(0);
+        MyList3.add("sali");
+
+        map.put(1, (ArrayList) MyList);
+        map.put(2, (ArrayList) MyList);
+        map.put(3, (ArrayList) MyList);
+        map.put(4, (ArrayList) MyList3);
+        map.put(5, (ArrayList) MyList3);
+        map.put(6, (ArrayList) MyList2);
+        map.put(7, (ArrayList) MyList);
+        map.put(8, (ArrayList) MyList2);
+
+        System.out.println(map);
+        Move mov = new Move();
+        System.out.println(mov.move(2, 2, "bob", map));
 
 
        /* //create a square
