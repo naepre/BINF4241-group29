@@ -18,20 +18,4 @@ public class Square {
         return square;
     }
 
-
-/*
-    ArrayList[][] board;
-
-    public void setBoard(ArrayList[][] board) {
-        this.board = new ArrayList[][]{
-                {1},{2}
-        };
-
-    }
-
-    public String getBoard(){
-        return board;
-    }
-
-    */
 }

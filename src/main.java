@@ -1,4 +1,3 @@
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
 
 public class main {
@@ -43,30 +42,18 @@ public class main {
         board.put(2, squareThree);
         board.put(3, squareFour);
         board.put(4, squareFive);
+        board.put(5, squareSix);
 
-        System.out.println(board);
-        game.setBoard(board);
-        Map currentBoard = game.getBoard();
-        System.out.println(currentBoard);
-
-
-        
-
-
-        /*
-        Map board = new HashMap();
-        for(int i=0;i<12;i++){
-            board.put(i, squares.createSquare());
-        }
 
         game.setBoard(board);
         Map currentBoard = game.getBoard();
         System.out.println(currentBoard);
 
-        //read some square
-        ArrayList currentSquare = (ArrayList) currentBoard.get(0);
-        System.out.println(currentSquare);
-        */
+        //set players into first square
+
+        //notify player to move.
+        //main loop:
+        //loop over player list
 
     }
 }
