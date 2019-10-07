@@ -1,74 +1,46 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class main
-{
-    String [][] firstarray = new String[][] {{"1"},{"2->6"},{"3"},{"4"},
-            {"5"},{"6"},{"7->9"},{"8"},{"9"},{"10"},{"5<-11"},{"12"}};
+public class main {
+    public static void main(String[] args){
 
-    String player3 = "robin";
+        Scanner keyboard = new Scanner(System.in);
+        //Set up
+        //1. get player count
+        System.out.println("How many players are you [2-4]?");
+        int numberOfPlayers = keyboard.nextInt();
+        while(numberOfPlayers < 2 || numberOfPlayers > 4){
+            System.out.println("Choose a number between 2 and 4 only.");
+            numberOfPlayers = keyboard.nextInt();
+        }
 
-    public static void main(String[] args)
-    {
-        main obj = new main();
+        //2. get player names
+        List players = new ArrayList();
+        for(int i=0; i<numberOfPlayers; i++){
+            System.out.println("Enter a player name: ");
+            String name = keyboard.next();
+            players.add(name);
+        }
+
+        //3. set players to game object
+        Game game = new Game();
+        game.setPlayers(players);
+        game.setCurrentTurn((String) players.get(0));
 
 
-        add dis = new add();
-        /*Player myPlayer1 = new Player();
-        Player myPlayer2 = new Player();
-        myPlayer1.setPlayerName("Bob");
-        myPlayer2.setPlayerName("Lucy");
-        System.out.println(myPlayer1.getPlayerName());
-        System.out.println(myPlayer2.getPlayerName());*/
-
-        Dice myDice = new Dice();
-        System.out.println(myDice.roll());
-
-        System.out.println("This is the first array");
-
-        dis.test();
-
-       /* //create a square
+        //4. create squares
         Square squares = new Square();
+        Map board = new HashMap();
+        for(int i=0;i<12;i++){
+            board.put(i, squares.createSquare());
+        }
 
-        List squareOne = squares.createSquare();
-        List squareTwo = squares.createSquare();
-        List squareThree = squares.createSquare();
-        List squareFour = squares.createSquare();
-        List squareFive = squares.createSquare();
-        List squareSix = squares.createSquare();
-        List squareSeven = squares.createSquare();
-        List squareEight = squares.createSquare();
-        List squareNine = squares.createSquare();
-        List squareTen = squares.createSquare();
-        List squareEleven = squares.createSquare();
-        List squareTwelve = squares.createSquare();
+        game.setBoard(board);
+        Map currentBoard = game.getBoard();
 
-        List<List> board = new ArrayList();
-        board.add(squareOne);
-        board.add(squareTwo);
-        board.add(squareThree);
-        board.add(squareFour);
-        board.add(squareFive);
-        board.add(squareSix);
-        board.add(squareSeven);
-        board.add(squareEight);
-        board.add(squareNine);
-        board.add(squareTen);
-        board.add(squareEleven);
-        board.add(squareTwelve);
+        ArrayList firstSquare = (ArrayList) currentBoard.get(0);
+        firstSquare.set(1, players);
+        currentBoard.replace(0, firstSquare);
 
-        /*list ele = board.get();
-        System.out.println();*/
-        /*squareOne.add(myPlayer);*/
-
-        /*System.out.println(board);*/
-
-
-
+        System.out.println(currentBoard);
     }
-
-
 }
-
