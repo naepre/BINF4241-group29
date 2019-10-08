@@ -42,7 +42,6 @@ public class main
 
 //        System.out.println(MyList3);
 
-        MyList3.remove(1);
 
   //      System.out.println(MyList3);
 
@@ -55,13 +54,13 @@ public class main
         map.put(7, (ArrayList) MyList);
         map.put(8, (ArrayList) MyList);
 
-        //System.out.println(map);
+        System.out.println(map);
 
         Move mov = new Move();
         Game tryout = new Game();
 
         System.out.println(tryout.positioner(1, mov.move(1, 2, map), "sali", map));
-        System.out.println(tryout.positioner(1, mov.move(1, 4, map), "sali", map));
+        System.out.println(tryout.positioner(3, mov.move(3, 2, map), "sali", map));
 
         /*
         System.out.println(mov.move(1, 2, map)); // output = 3

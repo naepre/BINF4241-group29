@@ -20,7 +20,6 @@ public class Move {
         else {
             new_position = 1;
         }
-//        System.out.println(new_position);
         return new_position;
 
 

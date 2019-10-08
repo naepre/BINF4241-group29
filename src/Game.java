@@ -16,16 +16,27 @@ public class Game {
         newboard = board;
         List old_position = new ArrayList();
         List new_position = new ArrayList();
+        old_position = (List) board.get(turn_start_position);
         if (turn_end_position != 1) {
             new_position.add(0, 0);
             new_position.add(1, playername);
+            if (turn_start_position != 1) {
+                old_position.set(1, "null");
+            }
+            else {
+                old_position.remove(1);
+            }
         }
         else {
             new_position = (List) board.get(turn_end_position);
             new_position.add(playername);
+            if (turn_start_position != 1) {
+                old_position.set(1, "null");
+            }
+            else {
+                old_position.remove(1);
+            }
         }
-        old_position = (List) board.get(turn_start_position);
-        old_position.add(1, "null");
         newboard.put(turn_start_position, old_position);
         newboard.put(turn_end_position, new_position);
         return newboard;
