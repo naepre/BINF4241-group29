@@ -27,29 +27,50 @@ public class main
         List MyList = new ArrayList();
         MyList.add(0);
         MyList.add("null");
-        List MyList2 = new ArrayList();
+        List MyList2 = new ArrayList(); //snake
         MyList2.add(-3);
         MyList2.add("null");
-        List MyList3 = new ArrayList();
+        List MyList3 = new ArrayList(); //occupied list
         MyList3.add(0);
         MyList3.add("sali");
+        MyList3.add("brudi");
+        MyList3.add("junge");
 
-        map.put(1, (ArrayList) MyList);
+        List MyList4 = new ArrayList(); //ladder
+        MyList4.add(2);
+        MyList4.add("null");
+
+//        System.out.println(MyList3);
+
+        MyList3.remove(1);
+
+  //      System.out.println(MyList3);
+
+        map.put(1, (ArrayList) MyList3);
         map.put(2, (ArrayList) MyList);
         map.put(3, (ArrayList) MyList);
-        map.put(4, (ArrayList) MyList3);
-        map.put(5, (ArrayList) MyList2);
-        map.put(6, (ArrayList) MyList2);
-        map.put(7, (ArrayList) MyList2);
+        map.put(4, (ArrayList) MyList);
+        map.put(5, (ArrayList) MyList4);
+        map.put(6, (ArrayList) MyList);
+        map.put(7, (ArrayList) MyList);
         map.put(8, (ArrayList) MyList);
 
-        System.out.println(map);
+        //System.out.println(map);
+
         Move mov = new Move();
+        Game tryout = new Game();
+
+        System.out.println(tryout.positioner(1, mov.move(1, 2, map), "sali", map));
+        System.out.println(tryout.positioner(1, mov.move(1, 4, map), "sali", map));
+
+        /*
         System.out.println(mov.move(1, 2, map)); // output = 3
         System.out.println(mov.move(2, 4, map)); // output = 3
+        System.out.println(mov.move(2, 3, map)); // output = 7
         System.out.println(mov.move(3, 1, map)); // output = 1
-        System.out.println(mov.move(2, 5, map)); // output = 1
         System.out.println(mov.move(5, 3, map)); // output = 8
+
+        */
 
 
        /* //create a square

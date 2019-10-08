@@ -5,7 +5,6 @@ import java.util.List;
 public class Move {
 
     public int move(int position, int dicenumber, HashMap board) {
-        Game game = new Game();
         int index = position + dicenumber;
         int new_position = 0;
         List square = new ArrayList();
