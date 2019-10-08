@@ -6,6 +6,7 @@ import java.util.Map;
 public class Square {
 
 
+    /*
     ArrayList square = new ArrayList();
 
     public ArrayList createSquare(){
@@ -16,6 +17,19 @@ public class Square {
         square.add(1, null); //isOccupied
 
         return square;
+    }
+
+    */
+
+    public Object[][] createSquare(){
+
+        Object[][] board = new Object[][]{
+                {1, 0, null},{2, 0, null},{3, 0, null},{4, 0, "some name"},
+                {5, 0, null},{6, 0, null},{7, 0, null},{8, 0, null},
+                {9, 0, null},{10, 0, null},{11, 0, null},{12, 0, null}
+        };
+
+        return board;
     }
 
 }

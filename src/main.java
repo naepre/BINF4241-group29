@@ -38,33 +38,18 @@ public class main {
 
         //4. create squares
         Square squares = new Square();
-        ArrayList squareOne = squares.createSquare();
-        ArrayList squareTwo = squares.createSquare();
-        ArrayList squareThree = squares.createSquare();
-        ArrayList squareFour = squares.createSquare();
-        ArrayList squareFive = squares.createSquare();
-        ArrayList squareSix = squares.createSquare();
-
-        Map board = new HashMap();
-        board.clear();
-        board.put(0, squareOne);
-        board.put(1, squareTwo);
-        board.put(2, squareThree);
-        board.put(3, squareFour);
-        board.put(4, squareFive);
-        board.put(5, squareSix);
-
-
-        //set players into first square.
-        System.out.println("BASIC BOARD: " + board);
-        ArrayList firstSquare = (ArrayList) board.get(0); // [0, null]
-        System.out.println("BASIC FIRST SQUARE: "+firstSquare);
-        firstSquare.set(1, "plas"); //[0, ["player1","player2", ...]]
-        //System.out.println("FIRST SQUARE: "+firstSquare);
-        //board.replace(0, firstSquare);
-        System.out.println(board);
+        Object[][] board = squares.createSquare();
         game.setBoard(board);
 
+        //API to manipulate game board
+        Object[][] currentBoard = game.getBoard();
+        System.out.println("CURRENT BOARD:"+ Arrays.deepToString(game.getBoard()));
+        //read an element:
+        System.out.println(currentBoard[3][2]);
+        //modify an element
+        currentBoard[3][2] = "some new player name";
+        game.setBoard(currentBoard);
+        System.out.println("UPDATED BOARD:"+ Arrays.deepToString(game.getBoard()));
 
         /*
 

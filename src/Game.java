@@ -5,7 +5,7 @@ public class Game {
 
     List players;
     String currentTurn;
-    Map board;
+    Object[][] board;
 
     public void setPlayers(List players) {
         this.players = players;
@@ -23,11 +23,11 @@ public class Game {
         return currentTurn;
     }
 
-    public void setBoard(Map board) {
+    public void setBoard(Object[][] board) {
         this.board = board;
     }
 
-    public Map getBoard() {
+    public Object[][] getBoard() {
         return board;
     }
 
