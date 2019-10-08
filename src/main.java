@@ -30,6 +30,15 @@ public class main {
         game.setCurrentTurn((String) players.get(0));
 
 
+        //Map to track players current position
+        Map playerCurrentPositions = new HashMap();
+        for (Object player: players)
+        {
+            playerCurrentPositions.put(player, 0);
+        }
+        System.out.println("CURRENT PLAYER POSITIONS"+ playerCurrentPositions);
+
+
 
         //4. create squares
         Square squares = new Square();
@@ -54,7 +63,9 @@ public class main {
         Object[][] currentBoard = game.getBoard();
         System.out.println("CURRENT BOARD:"+ Arrays.deepToString(game.getBoard()));
         //read an element:
+
         System.out.println("START SQUARE: "+currentBoard[0][2]);
+
         //modify an element
         currentBoard[3][2] = "some new player name";
         game.setBoard(currentBoard);
@@ -62,10 +73,42 @@ public class main {
         //##EXAMPLE BOARD MANIPULATION OF 2D ARRAY###
 
 
+        // Initializing player to the game
+        currentBoard[0][2] = players;
+
+        System.out.println("UPDATED BOARD with player :"+ Arrays.deepToString(game.getBoard()));
+
+
+
 
         /*
         //########SETUP END############
+         Move mov = new Move();
+         System.out.println(mov.move(0, 2, board)); // output = 2
+         System.out.println(mov.move(0, 3, board)); // output = 0
+         System.out.println(mov.move(0, 4, board)); // output = 6
+         System.out.println(mov.move(5, 3, board)); // output = 5
+         System.out.println(mov.move(9, 1, board)); // output = 5
 
+
+         Game game1 = new Game();
+
+         game1.updatePlayerPos(2,"bob",board);
+
+         /*game1.playersCurrentPosition.put("bob" , 0);
+         game1.playersCurrentPosition.get("bob");
+
+         System.out.println("jajaj"+ game1.playersCurrentPosition);
+         System.out.println("jajaj ="+ game1.playersCurrentPosition.get("bob"));
+
+
+*/
+
+
+        /* game.updatePlayerPos(5, "bob", board);*/
+
+
+/*
         //START (need some loop)
         Move movePlayer = new Move();
         Dice dice = new Dice();
