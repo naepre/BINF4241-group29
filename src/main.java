@@ -4,8 +4,9 @@ public class main {
     public static void main(String[] args){
 
 
-
         Scanner keyboard = new Scanner(System.in);
+        Game game = new Game();
+
         //Set up
         //1. get player count
         System.out.println("How many players are you [2-4]?");
@@ -21,39 +22,48 @@ public class main {
             System.out.println("Enter a player name: ");
             String name = keyboard.next();
             players.add(name);
+            game.updatePlayersCurrentPosition(name, 0);
         }
 
         //3. set players to game object
-        Game game = new Game();
         game.setPlayers(players);
         game.setCurrentTurn((String) players.get(0));
 
-        //Map to track players current position
-        Map playerCurrentPositions = new HashMap();
-        for (Object player: players) {
-            playerCurrentPositions.put(player, 0);
-        }
-        System.out.println("CURRENT PLAYER POSITIONS"+ playerCurrentPositions);
 
 
         //4. create squares
         Square squares = new Square();
         Object[][] board = squares.createSquare();
+        //set players in start position
+        board[0][2] = players;
+
         game.setBoard(board);
 
+
+        //GET GAME STATE:
+        System.out.println("PLAYERS:"+game.players);
+        System.out.println("PLAYERS POSITIONS:"+game.getPlayersCurrentPosition());
+        System.out.println("CURRENT TURN:"+game.currentTurn);
+
+
+
+
+
+        //##EXAMPLE BOARD MANIPULATION OF 2D ARRAY###
         //API to manipulate game board
         Object[][] currentBoard = game.getBoard();
         System.out.println("CURRENT BOARD:"+ Arrays.deepToString(game.getBoard()));
         //read an element:
-        System.out.println(currentBoard[3][2]);
+        System.out.println("START SQUARE: "+currentBoard[0][2]);
         //modify an element
         currentBoard[3][2] = "some new player name";
         game.setBoard(currentBoard);
         System.out.println("UPDATED BOARD:"+ Arrays.deepToString(game.getBoard()));
+        //##EXAMPLE BOARD MANIPULATION OF 2D ARRAY###
+
+
 
         /*
-
-
         //########SETUP END############
 
         //START (need some loop)
