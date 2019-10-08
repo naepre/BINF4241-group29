@@ -28,7 +28,7 @@ public class main
         MyList.add(0);
         MyList.add("null");
         List MyList2 = new ArrayList();
-        MyList2.add(-5);
+        MyList2.add(-3);
         MyList2.add("null");
         List MyList3 = new ArrayList();
         MyList3.add(0);
@@ -38,14 +38,18 @@ public class main
         map.put(2, (ArrayList) MyList);
         map.put(3, (ArrayList) MyList);
         map.put(4, (ArrayList) MyList3);
-        map.put(5, (ArrayList) MyList3);
+        map.put(5, (ArrayList) MyList2);
         map.put(6, (ArrayList) MyList2);
-        map.put(7, (ArrayList) MyList);
-        map.put(8, (ArrayList) MyList2);
+        map.put(7, (ArrayList) MyList2);
+        map.put(8, (ArrayList) MyList);
 
         System.out.println(map);
         Move mov = new Move();
-        System.out.println(mov.move(2, 2, "bob", map));
+        System.out.println(mov.move(1, 2, map)); // output = 3
+        System.out.println(mov.move(2, 4, map)); // output = 3
+        System.out.println(mov.move(3, 1, map)); // output = 1
+        System.out.println(mov.move(2, 5, map)); // output = 1
+        System.out.println(mov.move(5, 3, map)); // output = 8
 
 
        /* //create a square
