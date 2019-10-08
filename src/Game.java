@@ -44,37 +44,11 @@ public class Game {
         return board;
     }
 
-    public Object[][] updatePlayerPos(int turn_end_position, String playername, Object[][] board) {
-        int playerCurrentPosition = getPlayersCurrentPosition(playername);
-        if (turn_end_position != 0) {
-            board[turn_end_position][2] = playername;
-            if (playerCurrentPosition != 0) {
-                board[playerCurrentPosition][2] = null;
-            }
-            else {
-               ArrayList playersStartSquare = (ArrayList) board[0][2];
-               playersStartSquare.remove(playername);
-               board[0][2] = playersStartSquare;
-            }
+    public boolean checkWinCondition(){
+        if(board[11][2] != null){
+            return true;
         }
-        else {
-            ArrayList playersStartSquare = (ArrayList) board[0][2];
-            playersStartSquare.add(playername);
-            board[0][2] = playersStartSquare;
-            if (playerCurrentPosition != 0) {
-                board[playerCurrentPosition][2] = null;
-            }else {
-                playersStartSquare.remove(playername);
-                board[0][2] = playersStartSquare;
-            }
-        }
-        System.out.println(board);
-        return board;
-
+        return false;
     }
-
-
-}
-
 
 }

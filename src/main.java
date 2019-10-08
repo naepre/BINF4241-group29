@@ -4,11 +4,14 @@ public class main {
     public static void main(String[] args){
 
 
-        Scanner keyboard = new Scanner(System.in);
+
         Game game = new Game();
+        Dice dice = new Dice();
+        Turn turn = new Turn();
 
         //Set up
         //1. get player count
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("How many players are you [2-4]?");
         int numberOfPlayers = keyboard.nextInt();
         while(numberOfPlayers < 2 || numberOfPlayers > 4){
@@ -17,7 +20,7 @@ public class main {
         }
 
         //2. get player names
-        List players = new ArrayList();
+        ArrayList<String> players = new ArrayList();
         for(int i=0; i<numberOfPlayers; i++){
             System.out.println("Enter a player name: ");
             String name = keyboard.next();
@@ -25,11 +28,60 @@ public class main {
             game.updatePlayersCurrentPosition(name, 0);
         }
 
+
+
         //3. set players to game object
         game.setPlayers(players);
         game.setCurrentTurn((String) players.get(0));
 
+        //4. create squares
+        Square squares = new Square();
+        Object[][] board = squares.createSquare();
+        //set players in start position
+        board[0][2] = players;
+        game.setBoard(board);
 
+
+
+
+        Boolean won = false;
+
+  //      while (won == false)
+   //     {
+            for (int j = 0; j < 100; j++)
+            {
+                for (int i = 0; i < players.size(); i++)
+                {
+                    int playerCurrentPosition = game.getPlayersCurrentPosition(players.get(i));
+                    Object[][] currentBoard = game.getBoard();
+                    int currentRoll = dice.roll();
+                    int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
+                    System.out.println("CURRENT PLAYER: " + players.get(i));
+                    System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
+                    System.out.println("CURRENT ROLL: " + currentRoll);
+                    System.out.println("NEW POSITION: " + newPosition);
+                    Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, players.get(i), currentBoard);
+                    System.out.println("CURRENT BOARD: " + Arrays.deepToString(newBoard));
+                    game.setBoard(newBoard);
+                    System.out.println(Arrays.deepToString(game.getBoard()));
+                    won = game.checkWinCondition();
+                    if(won == true){
+                        break;
+                    }
+                    System.out.println(won);
+                }
+                if(won == true){
+                    break;
+                }
+            }
+   //     }
+
+
+
+
+
+
+/*
         //Map to track players current position
         Map playerCurrentPositions = new HashMap();
         for (Object player: players)
@@ -37,21 +89,14 @@ public class main {
             playerCurrentPositions.put(player, 0);
         }
         System.out.println("CURRENT PLAYER POSITIONS"+ playerCurrentPositions);
+*/
 
 
-
-        //4. create squares
-        Square squares = new Square();
-        Object[][] board = squares.createSquare();
-        //set players in start position
-        board[0][2] = players;
-
-        game.setBoard(board);
-
+/*
 
         //GET GAME STATE:
         System.out.println("PLAYERS:"+game.players);
-        System.out.println("PLAYERS POSITIONS:"+game.getPlayersCurrentPosition());
+        //System.out.println("PLAYERS POSITIONS:"+game.getPlayersCurrentPosition());
         System.out.println("CURRENT TURN:"+game.currentTurn);
 
 
@@ -75,9 +120,16 @@ public class main {
 
         // Initializing player to the game
         currentBoard[0][2] = players;
+        */
 
+
+/*
         System.out.println("UPDATED BOARD with player :"+ Arrays.deepToString(game.getBoard()));
 
+        Object x = game.updatePlayerPos(6, "bob", board);
+        System.out.println(Arrays.deepToString((Object[]) x));
+        System.out.println("PLAYER POSITION MAP:" + game.playersCurrentPosition);
+*/
 
 
 
@@ -124,4 +176,5 @@ public class main {
 
 */
     }
+
 }
