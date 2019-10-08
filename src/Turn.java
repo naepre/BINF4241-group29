@@ -25,16 +25,21 @@ public class Turn {
         return newPosition;
     }
 
-    public Object[][] updatePlayerPos(int playerCurrentPosition, int turn_end_position, String playername, Object[][] board) {
+
+
+    public Object[][] updatePlayerPos(int playerCurrentPosition, int newPosition, String playername, Object[][] board) {
         //int playerCurrentPosition = getPlayersCurrentPosition(playername);
-        if (turn_end_position != 0) {
-            board[turn_end_position-1][2] = playername;
+        if (newPosition != 0) {
+            board[newPosition][2] = playername;
             if (playerCurrentPosition != 0) {
                 board[playerCurrentPosition][2] = null;
             }
             else {
                 ArrayList playersStartSquare = (ArrayList) board[0][2];
-                playersStartSquare.remove(playername);
+                System.out.println(playername);
+                System.out.println(playersStartSquare);
+                playersStartSquare.remove(playername); //??
+                System.out.println(playersStartSquare);
                 board[0][2] = playersStartSquare;
             }
         }
@@ -49,7 +54,7 @@ public class Turn {
                 board[0][2] = playersStartSquare;
             }
         }
-        game.updatePlayersCurrentPosition(playername, turn_end_position);
+        game.updatePlayersCurrentPosition(playername, newPosition);
         return board;
 
     }

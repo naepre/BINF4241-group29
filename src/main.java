@@ -3,80 +3,78 @@ import java.util.*;
 public class main {
     public static void main(String[] args){
 
-
-
         Game game = new Game();
+        Square squares = new Square();
+        Player player = new Player();
         Dice dice = new Dice();
         Turn turn = new Turn();
 
-        //Set up
-        //1. get player count
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("How many players are you [2-4]?");
-        int numberOfPlayers = keyboard.nextInt();
-        while(numberOfPlayers < 2 || numberOfPlayers > 4){
-            System.out.println("Choose a number between 2 and 4 only.");
-            numberOfPlayers = keyboard.nextInt();
+        int numberOfPlayers = player.getPlayerCounter();
+        ArrayList players = player.getPlayerNames(numberOfPlayers);
+        for (Object p: players) {
+            game.updatePlayersCurrentPosition((String) p, 0);
         }
 
-        //2. get player names
-        ArrayList<String> players = new ArrayList();
-        for(int i=0; i<numberOfPlayers; i++){
-            System.out.println("Enter a player name: ");
-            String name = keyboard.next();
-            players.add(name);
-            game.updatePlayersCurrentPosition(name, 0);
-        }
-
-
-
-        //3. set players to game object
         game.setPlayers(players);
         game.setCurrentTurn((String) players.get(0));
 
         //4. create squares
-        Square squares = new Square();
         Object[][] board = squares.createSquare();
         //set players in start position
         board[0][2] = players;
         game.setBoard(board);
 
 
+        Boolean won = false;
 
+        ArrayList<String> playOrder = game.getPlayers();
+        System.out.println("PLAY ORDER: " + playOrder);
+
+        while (won == false){
+            for (int i = 0; i < playOrder.size(); i++){
+                System.out.println("PLAY ORDER: " + playOrder);
+                System.out.println("CURRENT PLAYER: " + playOrder.get(i));
+                int playerCurrentPosition = game.getPlayersCurrentPosition(playOrder.get(i));
+                Object[][] currentBoard = game.getBoard();
+                System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
+                int currentRoll = dice.roll();
+                int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
+                System.out.println(newPosition);
+                Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, playOrder.get(i), currentBoard); //playOrder removes current player from list for some reason!?!?
+                System.out.println("PLAY ORDER: " + playOrder);
+                System.out.println("NEW BOARD: " + Arrays.deepToString(newBoard));
+            }
+            won = true;
+        }
+
+
+/*
 
         Boolean won = false;
 
-  //      while (won == false)
-   //     {
-            for (int j = 0; j < 100; j++)
-            {
-                for (int i = 0; i < players.size(); i++)
-                {
-                    int playerCurrentPosition = game.getPlayersCurrentPosition(players.get(i));
-                    Object[][] currentBoard = game.getBoard();
-                    int currentRoll = dice.roll();
-                    int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
-                    System.out.println("CURRENT PLAYER: " + players.get(i));
-                    System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
-                    System.out.println("CURRENT ROLL: " + currentRoll);
-                    System.out.println("NEW POSITION: " + newPosition);
-                    Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, players.get(i), currentBoard);
-                    System.out.println("CURRENT BOARD: " + Arrays.deepToString(newBoard));
-                    game.setBoard(newBoard);
-                    System.out.println(Arrays.deepToString(game.getBoard()));
-                    won = game.checkWinCondition();
-                    if(won == true){
-                        break;
-                    }
-                    System.out.println(won);
-                }
-                if(won == true){
-                    break;
-                }
+        while (won == false) {
+            for (int i = 0; i < players.size(); i++){
+                System.out.println(players);
+                int playerCurrentPosition = game.getPlayersCurrentPosition(players.get(i));
+                Object[][] currentBoard = game.getBoard();
+                int currentRoll = dice.roll();
+                int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
+                System.out.println("CURRENT PLAYER: " + players.get(i));
+                System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
+                System.out.println("CURRENT ROLL: " + currentRoll);
+                System.out.println("NEW POSITION: " + newPosition);
+                Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, players.get(i), currentBoard);
+                System.out.println("CURRENT BOARD: " + Arrays.deepToString(newBoard));
+                game.setBoard(newBoard);
+                System.out.println(Arrays.deepToString(game.getBoard()));
+                won = game.checkWinCondition();
+                System.out.println(players);
+                System.out.println(won);
             }
-   //     }
 
+        }
 
+*/
 
 
 

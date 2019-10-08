@@ -5,16 +5,16 @@ import java.util.Map;
 
 public class Game {
 
-    List players;
+    ArrayList players;
     Map playersCurrentPosition = new HashMap();
     String currentTurn;
     Object[][] board;
 
-    public void setPlayers(List players) {
+    public void setPlayers(ArrayList players) {
         this.players = players;
     }
 
-    public List getPlayers() {
+    public ArrayList getPlayers() {
         return players;
     }
 
