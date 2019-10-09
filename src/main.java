@@ -21,30 +21,42 @@ public class main {
         //4. create squares
         Object[][] board = squares.createSquare();
         //set players in start position
-        board[0][2] = players;
+
+        ArrayList<String> copyPlayer = (ArrayList<String>) players.clone();
+        board[0][2] = copyPlayer;
         game.setBoard(board);
 
 
         Boolean won = false;
 
         ArrayList<String> playOrder = game.getPlayers();
-        System.out.println("PLAY ORDER: " + playOrder);
 
-        while (won == false){
-            for (int i = 0; i < playOrder.size(); i++){
-                System.out.println("PLAY ORDER: " + playOrder);
-                System.out.println("CURRENT PLAYER: " + playOrder.get(i));
-                int playerCurrentPosition = game.getPlayersCurrentPosition(playOrder.get(i));
-                Object[][] currentBoard = game.getBoard();
-                System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
-                int currentRoll = dice.roll();
-                int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
-                System.out.println(newPosition);
-                Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, playOrder.get(i), currentBoard); //playOrder removes current player from list for some reason!?!?
-                System.out.println("PLAY ORDER: " + playOrder);
-                System.out.println("NEW BOARD: " + Arrays.deepToString(newBoard));
-            }
-            won = true;
+        while (won == false)
+        {
+            for (int i = 0; i < playOrder.size(); i++)
+            {
+                    System.out.println("PLAY ORDER: " + playOrder);
+                    int playerCurrentPosition = game.getPlayersCurrentPosition(playOrder.get(i));
+                    System.out.println("CURRENT Player Pos : " + playerCurrentPosition + " Current player : " + playOrder.get(i));
+                    Object[][] currentBoard = game.getBoard();
+                    System.out.println("CURRENT BOARD: " + Arrays.deepToString(currentBoard));
+                    int currentRoll = dice.roll();
+                    int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
+                    System.out.println("dice roll :"+currentRoll);
+                    System.out.println("new pos :"+ newPosition);
+                    Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, playOrder.get(i), currentBoard); //playOrder removes current player from list for some reason!?!?
+                    System.out.println("NEW BOARD: " + Arrays.deepToString(newBoard));
+                    game.updatePlayersCurrentPosition(playOrder.get(i), newPosition);
+                    won = game.checkWinCondition();
+                    if ( won == true )
+                    {
+                        break;
+                    }
+
+                }
+        }
+            System.out.println(" Player "+ board[12][2] + " has won ");
+
         }
 
 
@@ -175,4 +187,3 @@ public class main {
 */
     }
 
-}

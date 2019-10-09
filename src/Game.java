@@ -18,11 +18,13 @@ public class Game {
         return players;
     }
 
-    public void updatePlayersCurrentPosition(String playerName, int newPosition){
+    public void updatePlayersCurrentPosition(String playerName, int newPosition)
+    {
         playersCurrentPosition.put(playerName, newPosition);
     }
 
-    public int getPlayersCurrentPosition(String playername){
+    public int getPlayersCurrentPosition(String playername)
+    {
         int pcp = (int) playersCurrentPosition.get(playername);
         return pcp;
     }
@@ -45,7 +47,7 @@ public class Game {
     }
 
     public boolean checkWinCondition(){
-        if(board[11][2] != null){
+        if(board[12][2] != null){
             return true;
         }
         return false;
