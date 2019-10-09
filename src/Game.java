@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Game {
-
+public class Game
+{
     ArrayList players;
     Map playersCurrentPosition = new HashMap();
     String currentTurn;

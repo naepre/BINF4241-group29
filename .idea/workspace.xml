@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eb1e1dde-a716-4487-be7e-9460221756d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BINF4241-group29/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BINF4241-group29/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BINF4241-group29/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BINF4241-group29/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BINF4241-group29/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BINF4241-group29/Square.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BINF4241-group29/Turn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BINF4241-group29/Turn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BINF4241-group29/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BINF4241-group29/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Turn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />

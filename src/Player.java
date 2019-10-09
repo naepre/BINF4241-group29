@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player {
-
-    String playerName;
+public class Player
+{
     Scanner keyboard = new Scanner(System.in);
+    String playerName;
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public int getPlayerCounter(){
+    public int getPlayerCounter()
+    {
         System.out.println("How many players are you [2-4]?");
         int numberOfPlayers = keyboard.nextInt();
         while(numberOfPlayers < 2 || numberOfPlayers > 4){
@@ -24,13 +17,15 @@ public class Player {
         return numberOfPlayers;
     }
 
-    public ArrayList getPlayerNames(int numberOfPlayers){
+    public ArrayList getPlayerNames(int numberOfPlayers)
+    {
         ArrayList<String> players = new ArrayList();
         for(int i=0; i<numberOfPlayers; i++){
             System.out.println("Enter a player name: ");
             String name = keyboard.next();
             players.add(name);
         }
+        System.out.println("\n");
         return players;
     }
 

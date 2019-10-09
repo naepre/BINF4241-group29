@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
-public class Turn {
+public class Turn
+{
 
     Game game = new Game();
-
-
+/// moving the player
     public int move(int position, int dicenumber, Object[][] board)
     {
-
         int targetPosition = 0;
         int newPosition = 0;
         int squaresInFront = 12-position;
@@ -20,13 +19,13 @@ public class Turn {
             targetPosition = position + (2*squaresInFront -dicenumber);
         }
         int square_type = (int) board[targetPosition][1];
-        //System.out.println("SQUARE TYPE"+square_type);
         String occupation = (String) board[targetPosition][2];
-        //System.out.println("OCCUPATION"+occupation);
-        if (square_type != 0) {
+        if (square_type != 0)
+        {
             newPosition = move(targetPosition, square_type, board);
         }
-        else if (square_type == 0 && occupation == null) {
+        else if (square_type == 0 && occupation == null)
+        {
             newPosition = targetPosition;
         }
         else {
@@ -35,10 +34,10 @@ public class Turn {
         return newPosition;
     }
 
+////// updating player position
 
-
-    public Object[][] updatePlayerPos(int playerCurrentPosition, int newPosition, String playername, Object[][] board) {
-        //int playerCurrentPosition = getPlayersCurrentPosition(playername);
+    public Object[][] updatePlayerPos(int playerCurrentPosition, int newPosition, String playername, Object[][] board)
+    {
         if (newPosition != 0) {
             board[newPosition][2] = playername;
             if (playerCurrentPosition != 0)
@@ -48,10 +47,7 @@ public class Turn {
             else
                 {
                 ArrayList playersStartSquare = (ArrayList) board[0][2];
-                //System.out.println("player name::" + playername);
-                //System.out.println("player start square ::" + playersStartSquare);
-                playersStartSquare.remove(playername); //??
-                //System.out.println(playersStartSquare);
+                playersStartSquare.remove(playername);
                 board[0][2] = playersStartSquare;
             }
         }
@@ -60,7 +56,8 @@ public class Turn {
             ArrayList playersStartSquare = (ArrayList) board[0][2];
             playersStartSquare.add(playername);
             board[0][2] = playersStartSquare;
-            if (playerCurrentPosition != 0) {
+            if (playerCurrentPosition != 0)
+            {
                 board[playerCurrentPosition][2] = null;
             }
             else
@@ -69,10 +66,7 @@ public class Turn {
                 board[0][2] = playersStartSquare;
             }
         }
-
         return board;
-
     }
-
 
 }
