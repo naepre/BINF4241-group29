@@ -5,7 +5,6 @@ public class Figures {
     }
 
 
-
     public boolean checkOutOfBounds(){
         return false;
     }

@@ -1,13 +1,23 @@
 public class Rook extends Figures{
 
-    String color;
-    int x;
-    int y;
+    private String name;
+    private String color;
+    private int x;
+    private int y;
 
-    public Rook(String color, int x, int y){
+    public Rook(String name, String color, int x, int y){
+        this.name = name;
         this.color = color;
         this.x = x;
         this.y = y;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getColor(){
+        return this.color;
     }
 
 }

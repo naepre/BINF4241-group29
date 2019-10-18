@@ -1,8 +1,8 @@
 public class Queen extends Figures{
 
-    String color;
-    int x;
-    int y;
+    private String color;
+    private int x;
+    private int y;
 
     public Queen(String color, int x, int y){
         this.color = color;
@@ -10,6 +10,9 @@ public class Queen extends Figures{
         this.y = y;
     }
 
+    public String getColor(){
+        return this.color;
+    }
 
 
 }

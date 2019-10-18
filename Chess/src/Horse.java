@@ -1,8 +1,8 @@
 public class Horse extends Figures{
 
-    String color;
-    int x;
-    int y;
+    private String color;
+    private int x;
+    private int y;
 
     public Horse(String color, int x, int y){
         this.color = color;
@@ -10,5 +10,8 @@ public class Horse extends Figures{
         this.y = y;
     }
 
+    public String getColor(){
+        return this.color;
+    }
 
 }
