@@ -15,7 +15,15 @@ public class Main {
 
 
         Game game = new Game();
-        System.out.println(Arrays.deepToString(game.getBoard()));
+        String[][] board = game.getBoard();
+
+        for(int i = 0; i < board.length; i++){
+            if (i % 8 == 0) {
+                System.out.println();
+            }
+            System.out.print(Arrays.deepToString(board[i]));
+        }
+
     }
 
 
