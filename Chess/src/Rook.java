@@ -23,28 +23,32 @@ public class Rook extends Figures{
         return this.color;
     }
 
-    public List move (int x, int y, List [][] board)
+    public ArrayList move (int x, int y, List [][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1; i <= 7; i++) {
-            if (board[y][i].isOccupied == true){
+            if (board[y][i] != null){
                 possibleMoves.add(board[y][i]);
+                break;
             }
 
         }
         for (int i = x-1; i >= 0; i--) {
-            if (board[y][i].isOccupied == true) {
+            if (board[y][i] != null) {
                 possibleMoves.add(board[y][i]);
+                break;
             }
         }
         for (int i = y+1; i <= 7; i++) {
-            if (board[i][x].isOccupied == true) {
+            if (board[i][x] != null) {
                 possibleMoves.add(board[i][x]);
+                break;
             }
         }
         for (int i = y-1; i >= 0; i--) {
-            if (board[i][x].isOccupied == true) {
+            if (board[i][x] != null) {
                 possibleMoves.add(board[i][x]);
+                break;
             }
         }
         return possibleMoves;

@@ -9,10 +9,10 @@ public class Game {
     private Rook bR1 = new Rook("R","w", 7, 0);
     private Rook bR2 = new Rook("R","w", 7, 7);
 
-    private Horse wH1 = new Horse("H","b", 0, 1);
-    private Horse wH2 = new Horse("H","b", 0, 6);
-    private Horse bH1 = new Horse("H","w", 7, 1);
-    private Horse bH2 = new Horse("H","w", 7, 6);
+    private Horse wH1 = new Horse("N","b", 0, 1);
+    private Horse wH2 = new Horse("N","b", 0, 6);
+    private Horse bH1 = new Horse("N","w", 7, 1);
+    private Horse bH2 = new Horse("N","w", 7, 6);
 
     private Bishop wB1 = new Bishop("B","b", 0, 3);
     private Bishop wB2 = new Bishop("B","b", 0, 5);
@@ -73,44 +73,37 @@ public class Game {
         }
     }
 
-    public Object getFigureAtSpace(String figureName){
-        return nameMap.get(figureName);
+
+
+
+    private void validateMove (char playerColor, char figureType, char x, char y){
+
+        if(figureType == 'K'){
+            King king = new King("genericKing", "genericColor", 10, 10);
+            //king.move(x, y, board);
+        }else if(figureType == 'Q'){
+            Queen queen = new Queen("genericQueen", "genericColor", 10, 10);
+            queen.move(x, y, board);
+        }else if(figureType == 'B'){
+            Bishop bishop = new Bishop("genericBishop", "genericColor", 10, 10);
+            bishop.move(x, y, board);
+        }else if(figureType == 'N'){
+            Horse horse = new Horse("genericHorse", "genericColor", 10, 10);
+            //horse.move(x, y, board);
+        }else if(figureType == 'R'){
+            Rook rook = new Rook("genericRook", "genericColor", 10, 10);
+            //rook.move(x, y, board);
+        } else if(figureType == 'p'){
+            Pawn pawn = new Pawn("genericPawn", "genericColor", 10, 10);
+            //pawn.move(x, y, board);
+        }
     }
 
-    public void validateMove (char playercolor, char figuretype, char x, char y, List[][] board){
-
-        //List reverseStartPosition = board[x][y];
-        Object currentFigure = null;
-        try {
-            currentFigure = Class.forName(objectNameMap.get(figuretype).toString()).newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Queen queen = new Queen("",  0,0);
-        queen.move();
-
-        currentFigure.move();
-
-    }
-    public boolean isOccupied(int x, int y, List[][] board){
-        boolean verifier;
-        if (board[x][y] != null){
-            verifier = false;
-        }
-        else {
-            verifier = true;
-        }
-        return verifier;
-    }
-}
+    
 
 
 }
+
 
 
 

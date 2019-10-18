@@ -24,27 +24,31 @@ public class Bishop extends Figures{
     }
 
 
-    public List move (int x, int y, List [][] board)
+    public List move (int x, int y, String[][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
-            if (board[y][i].isOccupied == true){
+            if (board[y][i] != null){
                 possibleMoves.add(board[j][i]);
+                break;
             }
         }
         for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
-            if (board[y][i].isOccupied == true){
+            if (board[y][i]!= null){
                 possibleMoves.add(board[j][i]);
+                break;
             }
         }
         for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
-            if (board[y][i].isOccupied == true){
+            if (board[y][i]!= null){
                 possibleMoves.add(board[j][i]);
+                break;
             }
         }
         for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
-            if (board[y][i].isOccupied == true){
+            if (board[y][i]!= null){
                 possibleMoves.add(board[j][i]);
+                break;
             }
         }
         return possibleMoves;
