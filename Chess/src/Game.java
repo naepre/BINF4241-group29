@@ -73,6 +73,42 @@ public class Game {
         }
     }
 
+    public Object getFigureAtSpace(String figureName){
+        return nameMap.get(figureName);
+    }
+
+    public void validateMove (char playercolor, char figuretype, char x, char y, List[][] board){
+
+        //List reverseStartPosition = board[x][y];
+        Object currentFigure = null;
+        try {
+            currentFigure = Class.forName(objectNameMap.get(figuretype).toString()).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Queen queen = new Queen("",  0,0);
+        queen.move();
+
+        currentFigure.move();
+
+    }
+    public boolean isOccupied(int x, int y, List[][] board){
+        boolean verifier;
+        if (board[x][y] != null){
+            verifier = false;
+        }
+        else {
+            verifier = true;
+        }
+        return verifier;
+    }
+}
+
 
 }
 
