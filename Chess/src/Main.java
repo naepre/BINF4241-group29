@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
 
@@ -13,11 +15,8 @@ public class Main {
 
 
         Game game = new Game();
-
-        String eightA = game.getField(0,0);
-        System.out.println(eightA);
-        Object rook = game.getFigureAtSpace(eightA);
-        System.out.println(rook);
+        System.out.println(Arrays.deepToString(game.getBoard()));
     }
+
 
 }
