@@ -7,7 +7,7 @@ public class Main {
 
         Player player1 = new Player("Alice", "white");
         Player player2 = new Player("Bob", "black");
-
+/*
         System.out.println(player1.getName());
         System.out.println(player1.getColor());
 
@@ -24,7 +24,11 @@ public class Main {
             System.out.print(Arrays.deepToString(board[i]));
         }
 
-    }
 
+ */
+        Game game = new Game();
+        String[][][] board = game.getBoard();
+        game.validateMove('W', 'N', 2, 2);
+    }
 
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Horse extends Figures{
@@ -23,32 +24,33 @@ public class Horse extends Figures{
         return this.color;
     }
 
-    public List move (int x, int y, List [][] board) {
+    public ArrayList move (int x, int y, String [][][] board) { //.length != 0)
         ArrayList possibleMoves = new ArrayList<>();
-        if (board[y-1][x+2] != null) {
-            possibleMoves.add(board[y-1][x+2]);
+        if (board[y-1][x+2].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y-1][x+2]));
         }
-        else if (board[y+1][x+2] != null){
-            possibleMoves.add(board[y+1][x+2]);
+        if (board[y+1][x+2].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y+1][x+2]));
         }
-        else if (board[y-1][x-2] != null){
-            possibleMoves.add(board[y-1][x-2]);
+        if (board[y-1][x-2].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y-1][x-2]));
         }
-        else if (board[y+1][x-2] != null){
-            possibleMoves.add(board[y+1][x-2]);
+        if (board[y+1][x-2].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y+1][x-2]));
         }
-        else if (board[y+2][x+1] != null){
-            possibleMoves.add(board[y+2][x+1]);
+        if (board[y+2][x+1].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y+2][x+1]));
         }
-        else if (board[y+2][x-1] != null){
-            possibleMoves.add(board[y+2][x-1]);
+        if (board[y+2][x-1].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y+2][x-1]));
         }
-        else if (board[y-2][x+1] != null){
-            possibleMoves.add(board[y-21][x+1]);
+        if (board[y-2][x+1].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y-2][x+1]));
         }
-        else if (board[y-2][x+1] != null){
-            possibleMoves.add(board[y-2][x+1]);
+        if (board[y-2][x-1].length != 0){
+            possibleMoves.add(Arrays.deepToString(board[y-2][x-1]));
         }
+        //System.out.println(possibleMoves);
         return possibleMoves;
     }
 }
