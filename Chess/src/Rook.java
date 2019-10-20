@@ -4,32 +4,33 @@ import java.util.List;
 
 public class Rook extends Figures{
 
-    private String name;
-    private String color;
+    private char name;
+    private char color;
     private int x;
     private int y;
 
-    public Rook(String name, String color, int x, int y){
+    public Rook(char name, char color, int x, int y){
         this.name = name;
         this.color = color;
         this.x = x;
         this.y = y;
+
     }
 
-    public String getName(){
+    public char getName(){
         return this.name;
     }
 
-    public String getColor(){
+    public char getColor(){
         return this.color;
     }
 
-    public ArrayList move (int x, int y, String [][][] board)
+    public ArrayList move (int x, int y, ArrayList [][][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1; i <= 7; i++) {
             if (board[y][i].length != 0){
-                possibleMoves.add(Arrays.deepToString(board[y][i]));
+                possibleMoves.add(board[y][i]);
                 break;
             }
 

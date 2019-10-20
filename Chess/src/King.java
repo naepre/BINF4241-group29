@@ -4,32 +4,35 @@ import java.util.List;
 
 public class King extends Figures {
 
-    private String name;
-    private String color;
+    private char name;
+    private char color;
     private int x;
     private int y;
 
-    public King(String name, String color, int x, int y) {
+
+    public King(char name, char color, int x, int y){
         this.name = name;
         this.color = color;
         this.x = x;
         this.y = y;
+
     }
 
-    public String getName() {
+    public char getName(){
         return this.name;
     }
 
-    public String getColor() {
+    public char getColor(){
         return this.color;
     }
+
 
     public void changePosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public ArrayList move(int x, int y, String[][][] board) {
+    public ArrayList move(int x, int y, ArrayList[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
         if (board[x][y - 1].length != 0) {

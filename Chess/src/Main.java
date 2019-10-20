@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -26,9 +28,34 @@ public class Main {
 
 
  */
+        //ArrayList[][][] board = game.getBoard();
+        //System.out.println("THis" + Arrays.deepToString(board[0][1]));
+
+        //game.validateMove('W', 'N', 2, 2);
+
+
+        // CHANGE CELL 0,0 OF BOARD
         Game game = new Game();
-        String[][][] board = game.getBoard();
-        game.validateMove('W', 'N', 2, 2);
+        char[][][] board = game.getBoard();
+        char[] topLeft = Arrays.copyOf(board[0][0], 2);
+        System.out.println(topLeft[0]);
+        System.out.println(topLeft[1]);
+
+        topLeft[0] = 'z';
+        System.out.println(topLeft[0]);
+        System.out.println(topLeft[1]);
+
+        board[0][0] = topLeft;
+        System.out.println(Arrays.deepToString(board));
+
+
+
+        //#######STRING TRANSLATION REGEX########
+        System.out.print(Pattern.matches("[KQBNR][a-h|x]", "Kx")); //main move
+        System.out.print(Pattern.matches("[KQBNR][x][a-h][1-8]", "Kxb6")); //main eat
+        System.out.print(Pattern.matches("[a-h][1-8]", "d8")); //move pawn
+        System.out.print(Pattern.matches("[x][a-h][1-8]", "xb8")); //eat pawn
+
     }
 
 }
