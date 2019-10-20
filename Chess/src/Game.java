@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Game {
@@ -78,6 +79,11 @@ public class Game {
 
     private void validateMove (char playerColor, char figureType, char x, char y){
 
+        ArrayList reverseStartPosition = new ArrayList<>();
+        reverseStartPosition.add(x);
+        reverseStartPosition.add(y);
+        ArrayList actualPositions = new ArrayList<>();
+
         if(figureType == 'K'){
             King king = new King("genericKing", "genericColor", 10, 10);
             //king.move(x, y, board);
@@ -97,6 +103,11 @@ public class Game {
             Pawn pawn = new Pawn("genericPawn", "genericColor", 10, 10);
             //pawn.move(x, y, board);
         }
+
+
+
+
+
     }
 
     
