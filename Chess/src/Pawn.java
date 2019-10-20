@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pawn extends Figures {
 
     private String name;
@@ -18,6 +21,21 @@ public class Pawn extends Figures {
 
     public String getColor(){
         return this.color;
+    }
+
+    public List Move(int x, int y, List[][] board)
+    {
+        ArrayList possibleMoves = new ArrayList<>();
+
+        if (board[x][y-1] != null)
+        {
+            possibleMoves.add(board[x][y-1]);
+        }
+        else if (board[x][y+1] != null)
+        {
+            possibleMoves.add(board[x][y+1]);
+        }
+        return possibleMoves;
     }
 
 }

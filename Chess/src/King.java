@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class King extends Figures{
 
     private String name;
@@ -25,4 +28,43 @@ public class King extends Figures{
         this.y = y;
     }
 
-}
+    public List Move(int x, int y, List[][] board)
+    {
+        ArrayList possibleMoves = new ArrayList<>();
+
+        if (board[x][y-1] != null)
+        {
+            possibleMoves.add(board[x][y-1]);
+        }
+        else if (board[x][y+1] != null)
+        {
+            possibleMoves.add(board[x][y+1]);
+        }
+        else if (board[x+1][y] != null)
+        {
+            possibleMoves.add(board[x+1][y]);
+        }
+        else if (board[x-1][y] != null)
+        {
+            possibleMoves.add(board[x-1][y]);
+        }
+        else if (board[x+1][y+1] != null)
+        {
+            possibleMoves.add(board[x+1][y+1]);
+        }
+        else if (board[x+1][y-1] != null)
+        {
+            possibleMoves.add(board[x+1][y-1]);
+        }
+        else if (board[x-1][y-1] != null)
+        {
+            possibleMoves.add(board[x-1][y-1]);
+        }
+        else if (board[x-1][y+1] != null)
+        {
+            possibleMoves.add(board[x-1][y+1]);
+        }
+        return possibleMoves;
+
+
+    }
