@@ -11,6 +11,7 @@ public class Main {
         Game game = new Game();
         char[][][] board = game.getBoard();
 
+
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter a player one name (white): ");
         Player player1 = new Player(keyboard.next(), 'w');
@@ -40,6 +41,7 @@ public class Main {
                 ArrayList currentPlayer = (ArrayList) playOrder.get(i);
                 String playerName = (String) currentPlayer.get(0);
                 char playerColor = (char) currentPlayer.get(1);
+
 
 
                 System.out.println(playerName + ", please enter your move: ");
@@ -91,7 +93,6 @@ public class Main {
                     char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
                     int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
 
-                    //!! GET THIS FROM TRANSLATION FUNCTION
                     int[] targetPosition = {targetX, targetY};
 
                     game.updateBoard(figureData, figureXY, targetPosition);
