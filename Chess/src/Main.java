@@ -33,24 +33,27 @@ public class Main {
 
         //#######STRING TRANSLATION REGEX########
         /*
-        System.out.print(Pattern.matches("[KQBNR][a-h|x]", "Kx")); //main move
-        System.out.print(Pattern.matches("[KQBNR][x][a-h][1-8]", "Kxb6")); //main eat
-        System.out.print(Pattern.matches("[a-h][1-8]", "d8")); //move pawn
-        System.out.print(Pattern.matches("[x][a-h][1-8]", "xb8")); //eat pawn
-*/
-        //find coordinate mapping from letter literal
-
-
         System.out.println("Please enter your move: ");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         boolean validInputString = Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput);
-
         if(!validInputString){
             System.out.println("Please enter a valid move: ");
         }else{
-            
+
         }
+*/
+
+        String myString = "Ka2";
+        char[] charArray = myString.toCharArray();
+        int l = charArray.length;
+        char xCoordinate = charArray[l-2]; //needs to convert letter to number
+        char yCoordinate = charArray[l-1];
+
+        System.out.println(xCoordinate);
+        System.out.println(yCoordinate);
+
+
 
         //######################################
 
