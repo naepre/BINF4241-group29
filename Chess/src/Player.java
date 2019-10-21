@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Player {
 
     private String name;
-    private String color;
+    private char color;
 
 
-    public Player(String name, String color){
+    public Player(String name, char color){
         this.color = color;
         this.name = name;
     }
@@ -15,8 +18,10 @@ public class Player {
         return this.name;
     }
 
-    public String getColor(){
+    public char getColor(){
         return this.color;
     }
+
+
 
 }
