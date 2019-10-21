@@ -72,6 +72,17 @@ public class Pawn extends Figures {
                     possibleMoves.add(cell);
                 }
             } else if (playercolor == 'w') {
+                try {
+                    if (board[y + 1][x - 1].length != 0) {
+                        int[] figPos = {y + 1, x - 1};
+                        Object[] cell = {board[y + 1][x - 1], figPos};
+                        possibleMoves.add(cell);
+                    }
+                } catch (ArrayIndexOutOfBoundsException a) {
+
+                }
+
+
                 if (board[y + 1][x - 1].length != 0) {
                     int[] figPos = {y + 1, x - 1};
                     Object[] cell = {board[y + 1][x - 1], figPos};
