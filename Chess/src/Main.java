@@ -30,9 +30,13 @@ public class Main {
 
  */
 
+        Game game = new Game();
+
 
         //#######STRING TRANSLATION REGEX########
-        /*
+
+
+
         System.out.println("Please enter your move: ");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
@@ -40,18 +44,11 @@ public class Main {
         if(!validInputString){
             System.out.println("Please enter a valid move: ");
         }else{
-
+            game.translate(userInput);
+            System.out.println(game.translate(userInput));
         }
-*/
 
-        String myString = "Ka2";
-        char[] charArray = myString.toCharArray();
-        int l = charArray.length;
-        char xCoordinate = charArray[l-2]; //needs to convert letter to number
-        char yCoordinate = charArray[l-1];
 
-        System.out.println(xCoordinate);
-        System.out.println(yCoordinate);
 
 
 
