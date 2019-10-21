@@ -28,53 +28,74 @@ public class Queen extends Figures{
 
 
     public ArrayList move (int x, int y, char[][][] board) {
+
         ArrayList possibleMoves = new ArrayList<>();
-        for (int i = x + 1, j = y + 1; i <= 7 && j <= 7; i++, j++) {
-            if (board[y][i].length != 0) {
-                possibleMoves.add(board[j][i]);
+
+        for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
-        for (int i = x + 1, j = y - 1; i <= 7 && j >= 0; i++, j--) {
-            if (board[y][i].length != 0) {
-                possibleMoves.add(board[j][i]);
+        for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
-        for (int i = x - 1, j = y + 1; i <= 0 && j <= 7; i--, j++) {
-            if (board[y][i].length != 0) {
-                possibleMoves.add(board[j][i]);
+        for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
-        for (int i = x - 1, j = y - 1; i <= 0 && j <= 0; i--, j--) {
-            if (board[y][i].length != 0) {
-                possibleMoves.add(board[j][i]);
+        for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
-        for (int i = x + 1; i <= 7; i++) {
-            if (board[y][i].length != 0) {
-                possibleMoves.add(board[y][i]);
+        for (int i = x+1; i <= 7; i++) {
+            if (board[y][i].length != 0){
+                int[] figPos = {y, i};
+                Object[] cell = {board[y][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
 
         }
-        for (int i = x - 1; i >= 0; i--) {
+        for (int i = x-1; i >= 0; i--) {
             if (board[y][i].length != 0) {
-                possibleMoves.add(board[y][i]);
+                int[] figPos = {y, i};
+                Object[] cell = {board[y][i], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }
-        for (int i = y + 1; i <= 7; i++) {
+        for (int i = y+1; i <= 7; i++) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(board[i][x]);
+                int[] figPos = {i, x};
+                Object[] cell = {board[i][x], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }
-        for (int i = y - 1; i >= 0; i--) {
+        for (int i = y-1; i >= 0; i--) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(board[i][x]);
+                int[] figPos = {i, x};
+                Object[] cell = {board[i][x], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }

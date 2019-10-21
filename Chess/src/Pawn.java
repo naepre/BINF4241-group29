@@ -31,22 +31,26 @@ public class Pawn extends Figures {
 
         if (board[y - 1][x].length != 0) {
 
-            char[] cellData = board[y-1][x];
             int[] figPos = {y-1, x};
             Object[] cell = {board[y-1][x], figPos};
-            //System.out.println(cell);
-
             possibleMoves.add(cell);
 
         }
         if (board[y + 1][x].length != 0) {
-            possibleMoves.add(board[y + 1][x]);
+
+            int[] figPos = {y+1, x};
+            Object[] cell = {board[y+1][x], figPos};
+            possibleMoves.add(cell);
         }
         if (y == 3 && board[y - 1][x].length == 0 && board[y - 2][x].length != 0) { //a black pawn start two space move
-            possibleMoves.add(board[y + 2][x]);
+            int[] figPos = {y-2, x};
+            Object[] cell = {board[y-2][x], figPos};
+            possibleMoves.add(cell);
         }
         if (y == 4 && board[y + 1][x].length == 0 && board[y + 2][x].length != 0) { //a white pawn start two space move
-            possibleMoves.add(board[y + 2][x]);
+            int[] figPos = {y+2, x};
+            Object[] cell = {board[y+2][x], figPos};
+            possibleMoves.add(cell);
         }
         return possibleMoves;
     }

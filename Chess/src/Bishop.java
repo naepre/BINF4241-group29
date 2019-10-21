@@ -30,26 +30,34 @@ public class Bishop extends Figures{
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
-            if (board[y][i].length != 0){
-                possibleMoves.add(board[j][i]);
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
         for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
-            if (board[y][i].length != 0){
-                possibleMoves.add(board[j][i]);
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
         for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
-            if (board[y][i].length != 0){
-                possibleMoves.add(board[j][i]);
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }
         for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
-            if (board[y][i].length != 0){
-                possibleMoves.add(board[j][i]);
+            if (board[j][i].length != 0){
+                int[] figPos = {j, i};
+                Object[] cell = {board[j][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
         }

@@ -30,26 +30,37 @@ public class Rook extends Figures{
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1; i <= 7; i++) {
             if (board[y][i].length != 0){
-                possibleMoves.add(board[y][i]);
+                int[] figPos = {y, i};
+                Object[] cell = {board[y][i], figPos};
+                possibleMoves.add(cell);
                 break;
             }
 
         }
         for (int i = x-1; i >= 0; i--) {
             if (board[y][i].length != 0) {
-                possibleMoves.add(board[y][i]);
+                int[] figPos = {y, i};
+                Object[] cell = {board[y][i], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }
         for (int i = y+1; i <= 7; i++) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(board[i][x]);
+                int[] figPos = {i, x};
+                Object[] cell = {board[i][x], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }
         for (int i = y-1; i >= 0; i--) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(board[i][x]);
+                int[] figPos = {i, x};
+                Object[] cell = {board[i][x], figPos};
+                possibleMoves.add(cell);
+
                 break;
             }
         }

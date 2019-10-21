@@ -35,29 +35,47 @@ public class King extends Figures {
     public ArrayList move(int x, int y, char[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
-        if (board[x][y - 1].length != 0) {
-            possibleMoves.add(board[x][y - 1]);
+        if (board[y-1][x].length != 0) {
+
+            int[] figPos = {y-1, x};
+            Object[] cell = {board[y-1][x], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x][y + 1].length != 0) {
-            possibleMoves.add(board[x][y + 1]);
+        if (board[y+1][x].length != 0) {
+            int[] figPos = {y+1, x};
+            Object[] cell = {board[y+1][x], figPos};
+            possibleMoves.add(cell);
+
         }
-        if (board[x + 1][y].length != 0) {
-            possibleMoves.add(board[x + 1][y]);
+        if (board[y][x+1].length != 0) {
+            int[] figPos = {y, x+1};
+            Object[] cell = {board[y][x+1], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x - 1][y].length != 0) {
-            possibleMoves.add(board[x - 1][y]);
+        if (board[y][x-1].length != 0) {
+            int[] figPos = {y, x-1};
+            Object[] cell = {board[y][x-1], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x + 1][y + 1].length != 0) {
-            possibleMoves.add(board[x + 1][y + 1]);
+        if (board[y + 1][x + 1].length != 0) {
+            int[] figPos = {y+1, x+1};
+            Object[] cell = {board[y+1][x+1], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x + 1][y - 1].length != 0) {
-            possibleMoves.add(board[x + 1][y - 1]);
+        if (board[y - 1][x + 1].length != 0) {
+            int[] figPos = {y-1, x+1};
+            Object[] cell = {board[y -1][x+1], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x - 1][y - 1].length != 0) {
-            possibleMoves.add(board[x - 1][y - 1]);
+        if (board[y - 1][x - 1].length != 0) {
+            int[] figPos = {y-1, x-1};
+            Object[] cell = {board[y-1][x-1], figPos};
+            possibleMoves.add(cell);
         }
-        if (board[x - 1][y + 1].length != 0) {
-            possibleMoves.add(board[x - 1][y + 1]);
+        if (board[y + 1][x - 1].length != 0) {
+            int[] figPos = {y+1, x-1};
+            Object[] cell = {board[y+1][x-1], figPos};
+            possibleMoves.add(cell);
         }
         return possibleMoves;
 
