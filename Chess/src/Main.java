@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main {
@@ -39,40 +40,60 @@ public class Main {
 */
         //find coordinate mapping from letter literal
 
+
+        System.out.println("Please enter your move: ");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+        boolean validInputString = Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput);
+
+        if(!validInputString){
+            System.out.println("Please enter a valid move: ");
+        }else{
+            
+        }
+
         //######################################
 
 
 
-
+/*
         //######VALIDATE MOVE##########
         Game game = new Game();
         char[][][] boardBeforeMove = game.getBoard();
         System.out.println(Arrays.deepToString(boardBeforeMove));
 
-        //char[] topLeft = Arrays.copyOf(board[0][0], 2);
-        //System.out.println(topLeft[0]);
-        //System.out.println(topLeft[1]);
-        //topLeft[0] = 'z';
-        //System.out.println(topLeft[0]);
-        //System.out.println(topLeft[1]);
-        //board[0][0] = topLeft;
-        //System.out.println(Arrays.deepToString(board));
-
-        char playerColor = 'w';
+        //!! GET THIS FROM TRANSLATION FUNCTION
+        char playerColor = 'b';
         char figureType = 'N';
         int targetX = 2;
         int targetY = 2;
 
-        boolean isValidMove = game.validateMove(playerColor, figureType, targetX, targetY);
-        System.out.println("IS VALID MOVE: " + isValidMove);
+        ArrayList isValidMove = game.validateMove(playerColor, figureType, targetX, targetY);
 
-        int[] startPosition = {0, 1}; //how to get this and from where?? either translation function or calculated move
-        int[] targetPosition = {targetX, targetY};
-        game.updateBoard(playerColor, figureType, startPosition, targetPosition);
+        if(isValidMove.size() < 1){
+            System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE: ");
+            //restart turn
 
+        }else if(isValidMove.size() > 1){
+            System.out.println("DISAMBIGUOUS MOVE! PLEASE SPECIFY START FIELD: ");
+            //read starting pos again with position list
 
-        char[][][] boardAfterMove = game.getBoard();
-        System.out.println(Arrays.deepToString(boardAfterMove));
+        }else{
+            System.out.println("VALID MOVE");
+
+            Object[] cell = Arrays.copyOf((Object[]) isValidMove.get(0), 2);
+            char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
+            int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
+
+            //!! GET THIS FROM TRANSLATION FUNCTION
+            int[] targetPosition = {targetX, targetY};
+
+            game.updateBoard(figureData, figureXY, targetPosition);
+
+            char[][][] boardAfterMove = game.getBoard();
+            System.out.println(Arrays.deepToString(boardAfterMove));
+        }
+*/
     }
 
 }

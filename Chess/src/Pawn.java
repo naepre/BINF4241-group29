@@ -10,7 +10,7 @@ public class Pawn extends Figures {
     private int y;
 
 
-    public Pawn(char name, char color, int x, int y){
+    public Pawn(char name, char color, int x, int y) {
         this.name = name;
         this.color = color;
         this.x = x;
@@ -18,25 +18,37 @@ public class Pawn extends Figures {
 
     }
 
-    public char getName(){
+    public char getName() {
         return this.name;
     }
 
-    public char getColor(){
+    public char getColor() {
         return this.color;
     }
 
-    public ArrayList move(int x, int y, char[][][] board)
-    {
+    public ArrayList move(int x, int y, char[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
-        if (board[x][y-1].length != 0) {
-            possibleMoves.add(board[x][y-1]);
+        if (board[y - 1][x].length != 0) {
+
+            char[] cellData = board[y-1][x];
+            int[] figPos = {y-1, x};
+            Object[] cell = {board[y-1][x], figPos};
+            //System.out.println(cell);
+
+            possibleMoves.add(cell);
+
         }
-        else if (board[x][y+1].length != 0) {
-            possibleMoves.add(board[x][y+1]);
+        if (board[y + 1][x].length != 0) {
+            possibleMoves.add(board[y + 1][x]);
+        }
+        if (y == 3 && board[y - 1][x].length == 0 && board[y - 2][x].length != 0) { //a black pawn start two space move
+            possibleMoves.add(board[y + 2][x]);
+        }
+        if (y == 4 && board[y + 1][x].length == 0 && board[y + 2][x].length != 0) { //a white pawn start two space move
+            possibleMoves.add(board[y + 2][x]);
         }
         return possibleMoves;
     }
-
 }
+

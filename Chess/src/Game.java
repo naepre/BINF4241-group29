@@ -54,7 +54,7 @@ public class Game {
                         {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
                         {{bP1.getName(), bP1.getColor()}, {bP2.getName(), bP2.getColor()}, {bP3.getName(), bP3.getColor()}, {bP4.getName(), bP4.getColor()}, {bP5.getName(), bP5.getColor()}, {bP6.getName(), bP6.getColor()}, {bP7.getName(), bP7.getColor()}, {bP8.getName(), bP8.getColor()}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
-                        {{}, {}, {}, {'3'}, {}, {}, {}, {}},
+                        {{}, {}, {}, {}, {}, {}, {}, {}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
                         {{wP1.getName(), wP1.getColor()}, {wP2.getName(), wP2.getColor()}, {wP3.getName(), wP3.getColor()}, {wP4.getName(), wP4.getColor()}, {wP5.getName(), wP5.getColor()}, {wP6.getName(), wP6.getColor()}, {wP7.getName(), wP7.getColor()}, {wP8.getName(), wP8.getColor()}},
@@ -68,7 +68,7 @@ public class Game {
     }
 
 
-    public boolean validateMove(char playerColor, char figureType, int x, int y) {
+    public ArrayList validateMove(char playerColor, char figureType, int x, int y) {
 
         ArrayList actualPositions = new ArrayList();
 
@@ -99,27 +99,37 @@ public class Game {
         }
 
 
-        boolean validMove = false;
+        ArrayList finalFigures = new ArrayList();
 
         for(int i=0;i<actualPositions.size();i++){
-            char[] cell = Arrays.copyOf((char[]) actualPositions.get(i), 2);
-            System.out.println("FIGURE TYPE: "+cell[0] + " COLOR: " + cell[1]);
-            if(cell[0] == figureType && cell[1] == playerColor){
-                System.out.println("FIGURE FOUND");
-                validMove = true;
+
+            Object[] cell = Arrays.copyOf((Object[]) actualPositions.get(i), 2);
+            char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
+            int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
+
+            System.out.println("FIGURE: "+ Arrays.toString(figureData) + " FIGURE XY: " + Arrays.toString(figureXY));
+
+            System.out.println(figureData[0]); //Get figure type
+            System.out.println(figureData[1]); //Get figure color
+
+
+
+            if(figureData[0] == figureType && figureData[1] == playerColor){
+                finalFigures.add(cell); //Remove cell with wrong figures from actual positions
             }
         }
 
-        return validMove;
+        System.out.println(finalFigures);
+        return finalFigures;
     }
 
-    public void updateBoard(char playerColor, char figureType, int[] startPosition, int[] targetPosition){
+    public void updateBoard(char[] figureData, int[] startPosition, int[] targetPosition){
 
         System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
         System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
 
         //create new  figure cell
-        char[] newFigureCell = {figureType, playerColor};
+        char[] newFigureCell = {figureData[0], figureData[1]};
         //create new empty cell
         char[] newEmptyCell = {};
 
