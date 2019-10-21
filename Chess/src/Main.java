@@ -35,22 +35,17 @@ public class Main {
 
         //#######STRING TRANSLATION REGEX########
 
-
-
         System.out.println("Please enter your move: ");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
-        boolean validInputString = Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput);
-        if(!validInputString){
-            System.out.println("Please enter a valid move: ");
-        }else{
-            game.translate(userInput);
-            System.out.println(game.translate(userInput));
+        while (!Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput)){
+            System.out.println("Please enter a valid move:  (MORE INDICATION FOR USER NEEDED)");
+            scanner = new Scanner(System.in);
+            userInput = scanner.nextLine();
         }
 
-        
-
-
+        ArrayList userCommand = game.translate(userInput);
+        System.out.println(userCommand);
 
         //######################################
 
