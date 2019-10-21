@@ -26,30 +26,30 @@ public class Bishop extends Figures{
         return this.color;
     }
 
-    public ArrayList move (int x, int y, ArrayList[][][] board)
+    public ArrayList move (int x, int y, char[][][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
             if (board[y][i].length != 0){
-                possibleMoves.add(Arrays.deepToString(board[j][i]));
+                possibleMoves.add(board[j][i]);
                 break;
             }
         }
         for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
             if (board[y][i].length != 0){
-                possibleMoves.add(Arrays.deepToString(board[j][i]));
+                possibleMoves.add(board[j][i]);
                 break;
             }
         }
         for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
             if (board[y][i].length != 0){
-                possibleMoves.add(Arrays.deepToString(board[j][i]));
+                possibleMoves.add(board[j][i]);
                 break;
             }
         }
         for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
             if (board[y][i].length != 0){
-                possibleMoves.add(Arrays.deepToString(board[j][i]));
+                possibleMoves.add(board[j][i]);
                 break;
             }
         }

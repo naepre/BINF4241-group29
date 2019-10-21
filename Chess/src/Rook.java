@@ -25,7 +25,7 @@ public class Rook extends Figures{
         return this.color;
     }
 
-    public ArrayList move (int x, int y, ArrayList [][][] board)
+    public ArrayList move (int x, int y, char[][][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
         for (int i = x+1; i <= 7; i++) {
@@ -37,19 +37,19 @@ public class Rook extends Figures{
         }
         for (int i = x-1; i >= 0; i--) {
             if (board[y][i].length != 0) {
-                possibleMoves.add(Arrays.deepToString(board[y][i]));
+                possibleMoves.add(board[y][i]);
                 break;
             }
         }
         for (int i = y+1; i <= 7; i++) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(Arrays.deepToString(board[i][x]));
+                possibleMoves.add(board[i][x]);
                 break;
             }
         }
         for (int i = y-1; i >= 0; i--) {
             if (board[i][x].length != 0) {
-                possibleMoves.add(Arrays.deepToString(board[i][x]));
+                possibleMoves.add(board[i][x]);
                 break;
             }
         }

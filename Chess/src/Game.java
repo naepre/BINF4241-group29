@@ -13,10 +13,10 @@ public class Game {
     private Rook wR1 = new Rook('R', 'w', 7, 0);
     private Rook wR2 = new Rook('R', 'w', 7, 7);
 
-    private Horse bH1 = new Horse('N', 'b', 0, 1);
-    private Horse bH2 = new Horse('N', 'b', 0, 6);
-    private Horse wH1 = new Horse('N', 'w', 7, 1);
-    private Horse wH2 = new Horse('N', 'w', 7, 6);
+    private Horse bN1 = new Horse('N', 'b', 0, 1);
+    private Horse bN2 = new Horse('N', 'b', 0, 6);
+    private Horse wN1 = new Horse('N', 'w', 7, 1);
+    private Horse wN2 = new Horse('N', 'w', 7, 6);
 
     private Bishop bB1 = new Bishop('B', 'b', 0, 3);
     private Bishop bB2 = new Bishop('B', 'b', 0, 5);
@@ -51,69 +51,82 @@ public class Game {
     public Game() {
         board = new char[][][]
                 {
-                        {{wR1.getName(), wR1.getColor()}, {wH1.getName(), wH1.getColor()}, {wB1.getName(), wB1.getColor()}, {wQ1.getName(), wQ1.getColor()}, {wK1.getName(), wK1.getColor()}, {wB2.getName(), wB2.getColor()}, {wH2.getName(), wH2.getColor()}, {wR2.getName(), wR2.getColor()}},
+                        {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
                         {{bP1.getName(), bP1.getColor()}, {bP2.getName(), bP2.getColor()}, {bP3.getName(), bP3.getColor()}, {bP4.getName(), bP4.getColor()}, {bP5.getName(), bP5.getColor()}, {bP6.getName(), bP6.getColor()}, {bP7.getName(), bP7.getColor()}, {bP8.getName(), bP8.getColor()}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
-                        {{}, {}, {}, {}, {}, {}, {}, {}},
+                        {{}, {}, {}, {'3'}, {}, {}, {}, {}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
                         {{}, {}, {}, {}, {}, {}, {}, {}},
                         {{wP1.getName(), wP1.getColor()}, {wP2.getName(), wP2.getColor()}, {wP3.getName(), wP3.getColor()}, {wP4.getName(), wP4.getColor()}, {wP5.getName(), wP5.getColor()}, {wP6.getName(), wP6.getColor()}, {wP7.getName(), wP7.getColor()}, {wP8.getName(), wP8.getColor()}},
-                        {{bR1.getName(), bR1.getColor()}, {bH1.getName(), bH1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bH2.getName(), bH2.getColor()}, {bR2.getName(), bR2.getColor()}}
+                        {{wR1.getName(), wR1.getColor()}, {wN1.getName(), wN1.getColor()}, {wB1.getName(), wB1.getColor()}, {wQ1.getName(), wQ1.getColor()}, {wK1.getName(), wK1.getColor()}, {wB2.getName(), wB2.getColor()}, {wN2.getName(), wN2.getColor()}, {wR2.getName(), wR2.getColor()}}
                 };
+
     }
 
     public char[][][] getBoard() {
         return board;
     }
 
-/*
-    public void validateMove(char playerColor, char figureType, int x, int y) {
 
-        //ArrayList reverseStartPosition = new ArrayList<>();
-        //reverseStartPosition.add(x);
-        //reverseStartPosition.add(y);
+    public boolean validateMove(char playerColor, char figureType, int x, int y) {
+
         ArrayList actualPositions = new ArrayList();
 
         if (figureType == 'K') {
             King king = new King('K', 'C', 10, 10);
-            king.move(x, y, board);
+            //king.move(x, y, board);
             actualPositions = king.move(x, y, board);
         } else if (figureType == 'Q') {
             Queen queen = new Queen('Q', 'C', 10, 10);
-            queen.move(x, y, board);
+            //queen.move(x, y, board);
             actualPositions = queen.move(x, y, board);
         } else if (figureType == 'B') {
             Bishop bishop = new Bishop('B', 'C', 10, 10);
-            bishop.move(x, y, board);
+            //bishop.move(x, y, board);
             actualPositions = bishop.move(x, y, board);
         } else if (figureType == 'N') {
             Horse horse = new Horse('N', 'C', 10, 10);
-            horse.move(x, y, board);
+            //horse.move(x, y, board);
             actualPositions = horse.move(x, y, board);
         } else if (figureType == 'R') {
             Rook rook = new Rook('R', 'C', 10, 10);
-            rook.move(x, y, board);
+            //rook.move(x, y, board);
             actualPositions = rook.move(x, y, board);
         } else if (figureType == 'p') {
             Pawn pawn = new Pawn('P', 'C', 10, 10);
-            pawn.move(x, y, board);
+            //pawn.move(x, y, board);
             actualPositions = pawn.move(x, y, board);
         }
 
 
-        System.out.println(actualPositions);
-        System.out.println(actualPositions.get(0));
-        System.out.println(((Array) actualPositions.get(0)));
+        boolean validMove = false;
 
-        
-
-
-
-        /*for (int i= 0; i <= actualPositions.size(); i++)
-        {
-
+        for(int i=0;i<actualPositions.size();i++){
+            char[] cell = Arrays.copyOf((char[]) actualPositions.get(i), 2);
+            System.out.println("FIGURE TYPE: "+cell[0] + " COLOR: " + cell[1]);
+            if(cell[0] == figureType && cell[1] == playerColor){
+                System.out.println("FIGURE FOUND");
+                validMove = true;
+            }
         }
 
+        return validMove;
     }
-    */
+
+    public void updateBoard(char playerColor, char figureType, int[] startPosition, int[] targetPosition){
+
+        System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
+        System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+
+        //create new  figure cell
+        char[] newFigureCell = {figureType, playerColor};
+        //create new empty cell
+        char[] newEmptyCell = {};
+
+        //Affect changes to board
+        board[targetPosition[0]][targetPosition[1]] = newFigureCell;
+        board[startPosition[0]][startPosition[1]] = newEmptyCell;
+
+    }
+
 }

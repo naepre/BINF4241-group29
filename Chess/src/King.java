@@ -32,32 +32,32 @@ public class King extends Figures {
         this.y = y;
     }
 
-    public ArrayList move(int x, int y, ArrayList[][][] board) {
+    public ArrayList move(int x, int y, char[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
         if (board[x][y - 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x][y - 1]));
+            possibleMoves.add(board[x][y - 1]);
         }
         if (board[x][y + 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x][y + 1]));
+            possibleMoves.add(board[x][y + 1]);
         }
         if (board[x + 1][y].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x + 1][y]));
+            possibleMoves.add(board[x + 1][y]);
         }
         if (board[x - 1][y].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x - 1][y]));
+            possibleMoves.add(board[x - 1][y]);
         }
         if (board[x + 1][y + 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x + 1][y + 1]));
+            possibleMoves.add(board[x + 1][y + 1]);
         }
         if (board[x + 1][y - 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x + 1][y - 1]));
+            possibleMoves.add(board[x + 1][y - 1]);
         }
         if (board[x - 1][y - 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x - 1][y - 1]));
+            possibleMoves.add(board[x - 1][y - 1]);
         }
         if (board[x - 1][y + 1].length != 0) {
-            possibleMoves.add(Arrays.deepToString(board[x - 1][y + 1]));
+            possibleMoves.add(board[x - 1][y + 1]);
         }
         return possibleMoves;
 

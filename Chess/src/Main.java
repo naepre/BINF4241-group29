@@ -28,34 +28,51 @@ public class Main {
 
 
  */
-        //ArrayList[][][] board = game.getBoard();
-        //System.out.println("THis" + Arrays.deepToString(board[0][1]));
-
-        //game.validateMove('W', 'N', 2, 2);
-
-
-        // CHANGE CELL 0,0 OF BOARD
-        Game game = new Game();
-        char[][][] board = game.getBoard();
-        char[] topLeft = Arrays.copyOf(board[0][0], 2);
-        System.out.println(topLeft[0]);
-        System.out.println(topLeft[1]);
-
-        topLeft[0] = 'z';
-        System.out.println(topLeft[0]);
-        System.out.println(topLeft[1]);
-
-        board[0][0] = topLeft;
-        System.out.println(Arrays.deepToString(board));
-
 
 
         //#######STRING TRANSLATION REGEX########
+        /*
         System.out.print(Pattern.matches("[KQBNR][a-h|x]", "Kx")); //main move
         System.out.print(Pattern.matches("[KQBNR][x][a-h][1-8]", "Kxb6")); //main eat
         System.out.print(Pattern.matches("[a-h][1-8]", "d8")); //move pawn
         System.out.print(Pattern.matches("[x][a-h][1-8]", "xb8")); //eat pawn
+*/
+        //find coordinate mapping from letter literal
 
+        //######################################
+
+
+
+
+        //######VALIDATE MOVE##########
+        Game game = new Game();
+        char[][][] boardBeforeMove = game.getBoard();
+        System.out.println(Arrays.deepToString(boardBeforeMove));
+
+        //char[] topLeft = Arrays.copyOf(board[0][0], 2);
+        //System.out.println(topLeft[0]);
+        //System.out.println(topLeft[1]);
+        //topLeft[0] = 'z';
+        //System.out.println(topLeft[0]);
+        //System.out.println(topLeft[1]);
+        //board[0][0] = topLeft;
+        //System.out.println(Arrays.deepToString(board));
+
+        char playerColor = 'w';
+        char figureType = 'N';
+        int targetX = 2;
+        int targetY = 2;
+
+        boolean isValidMove = game.validateMove(playerColor, figureType, targetX, targetY);
+        System.out.println("IS VALID MOVE: " + isValidMove);
+
+        int[] startPosition = {0, 1}; //how to get this and from where?? either translation function or calculated move
+        int[] targetPosition = {targetX, targetY};
+        game.updateBoard(playerColor, figureType, startPosition, targetPosition);
+
+
+        char[][][] boardAfterMove = game.getBoard();
+        System.out.println(Arrays.deepToString(boardAfterMove));
     }
 
 }
