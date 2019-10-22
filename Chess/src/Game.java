@@ -94,15 +94,15 @@ public class Game {
             actualPositions = rook.move(x, y, board);
         } else if (figureType == 'p') {
             Pawn pawn = new Pawn('P', 'C', 10, 10);
-            //pawn.move(x, y, board);
-            //actualPositions = pawn.move(x, y, board);
+            pawn.move(x, y,playerColor, board);
+            actualPositions = pawn.move(x, y, playerColor, board);
         }
 
 
         ArrayList finalFigures = new ArrayList();
 
-        for(int i=0;i<actualPositions.size();i++){
-
+        for(int i=0;i<actualPositions.size();i++)
+        {
             Object[] cell = Arrays.copyOf((Object[]) actualPositions.get(i), 2);
             char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
             int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
@@ -134,7 +134,7 @@ public class Game {
         char[] newEmptyCell = {};
 
         //Affect changes to board
-        board[targetPosition[0]][targetPosition[1]] = newFigureCell;
+        board[targetPosition[1]][targetPosition[0]] = newFigureCell;
         board[startPosition[0]][startPosition[1]] = newEmptyCell;
 
     }

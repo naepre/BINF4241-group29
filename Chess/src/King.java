@@ -35,44 +35,44 @@ public class King extends Figures {
     public ArrayList move(int x, int y, char[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
-        if (board[y-1][x].length != 0) {
+        if (y > 0 && board[y-1][x].length != 0) {
 
             int[] figPos = {y-1, x};
             Object[] cell = {board[y-1][x], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y+1][x].length != 0) {
+        if (y < 7 && board[y+1][x].length != 0) {
             int[] figPos = {y+1, x};
             Object[] cell = {board[y+1][x], figPos};
             possibleMoves.add(cell);
 
         }
-        if (board[y][x+1].length != 0) {
+        if (x < 7 && board[y][x+1].length != 0) {
             int[] figPos = {y, x+1};
             Object[] cell = {board[y][x+1], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y][x-1].length != 0) {
+        if (x > 0 && board[y][x-1].length != 0) {
             int[] figPos = {y, x-1};
             Object[] cell = {board[y][x-1], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y + 1][x + 1].length != 0) {
+        if (y < 7 && x < 7 && board[y + 1][x + 1].length != 0) {
             int[] figPos = {y+1, x+1};
             Object[] cell = {board[y+1][x+1], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y - 1][x + 1].length != 0) {
+        if (x < 7 && y > 0 && board[y - 1][x + 1].length != 0) {
             int[] figPos = {y-1, x+1};
             Object[] cell = {board[y -1][x+1], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y - 1][x - 1].length != 0) {
+        if (x > 0 && y > 0 && board[y - 1][x - 1].length != 0) {
             int[] figPos = {y-1, x-1};
             Object[] cell = {board[y-1][x-1], figPos};
             possibleMoves.add(cell);
         }
-        if (board[y + 1][x - 1].length != 0) {
+        if (x > 0 && y < 7 && board[y + 1][x - 1].length != 0) {
             int[] figPos = {y+1, x-1};
             Object[] cell = {board[y+1][x-1], figPos};
             possibleMoves.add(cell);

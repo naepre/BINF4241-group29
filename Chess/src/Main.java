@@ -101,8 +101,7 @@ public class Main {
 
                     game.updateBoard(figureData, figureXY, targetPosition);
 
-                   char[][][] boardAfterMove = game.getBoard();
-                    //System.out.println(Arrays.deepToString(boardAfterMove));
+                    char[][][] boardAfterMove = game.getBoard();
                     printboard(boardAfterMove);
                 }
             }
