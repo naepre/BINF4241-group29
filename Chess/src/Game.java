@@ -95,7 +95,7 @@ public class Game {
         } else if (figureType == 'p') {
             Pawn pawn = new Pawn('P', 'C', 10, 10);
             //pawn.move(x, y, board);
-            actualPositions = pawn.move(x, y, board);
+            //actualPositions = pawn.move(x, y, board);
         }
 
 

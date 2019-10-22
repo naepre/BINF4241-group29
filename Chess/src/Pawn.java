@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Pawn extends Figures {
 
@@ -26,7 +24,7 @@ public class Pawn extends Figures {
         return this.color;
     }
 
-    public ArrayList move(int x, int y, char playercolor, int movetype, char[][][] board) {
+    public void move(int x, int y, char playercolor, int movetype, char[][][] board) {
         ArrayList possibleMoves = new ArrayList<>();
 
         if (movetype == 0) {
@@ -95,7 +93,7 @@ public class Pawn extends Figures {
                 }
             }
 
-            return possibleMoves;
+            //return possibleMoves;
         }
     }
 }
