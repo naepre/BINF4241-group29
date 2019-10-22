@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Game game = new Game();
         char[][][] board = game.getBoard();
@@ -34,75 +31,87 @@ public class Main {
 
         printboard(board);
 
+        Boolean checkmate = false;
+        Boolean check = false;
 
-        Boolean won = false;
-
-        while (won == false){
-
-
-            for (int i = 0; i < playOrder.size(); i++){
-                ArrayList currentPlayer = (ArrayList) playOrder.get(i);
-                String playerName = (String) currentPlayer.get(0);
-                char playerColor = (char) currentPlayer.get(1);
+        while (checkmate == false) {
+            while (check == false) {
 
 
+                for (int i = 0; i < playOrder.size(); i++) {
+                    ArrayList currentPlayer = (ArrayList) playOrder.get(i);
+                    String playerName = (String) currentPlayer.get(0);
+                    char playerColor = (char) currentPlayer.get(1);
 
-                System.out.println(playerName + ", please enter your move: ");
-                Scanner scanner = new Scanner(System.in);
-                String userInput = scanner.nextLine();
-                while (!Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput)){
-                    System.out.println(playerName + ", please enter a valid move of the form: Kxa6");
-                    System.out.println("KQBNR, only target space for pawn and x to eat.");
-                    scanner = new Scanner(System.in);
-                    userInput = scanner.nextLine();
-                }
 
-                ArrayList userCommand = game.translate(userInput);
+                    System.out.println(playerName + ", please enter your move: ");
+                    Scanner scanner = new Scanner(System.in);
+                    String userInput = scanner.nextLine();
+                    while (!Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8]))", userInput)) {
+                        System.out.println(playerName + ", please enter a valid move of the form: Kxa6");
+                        System.out.println("KQBNR, only target space for pawn and x to eat.");
+                        scanner = new Scanner(System.in);
+                        userInput = scanner.nextLine();
+                    }
 
-                //deconstruct the userCommand
-                int moveType = (int) userCommand.get(0);
-                char figureType = (char) userCommand.get(1);
-                int targetX  = (int) userCommand.get(2);
-                int targetY  = (int) userCommand.get(3);
+                    ArrayList userCommand = game.translate(userInput);
 
-                ArrayList isValidMove = new ArrayList();
+                    //deconstruct the userCommand
+                    int moveType = (int) userCommand.get(0);
+                    char figureType = (char) userCommand.get(1);
+                    int targetX = (int) userCommand.get(2);
+                    int targetY = (int) userCommand.get(3);
 
-                if(moveType == 1){
-                    if(board[targetX][targetY].length == 0 | board[targetX][targetY][1] == playerColor){
-                        System.out.println("INVALID EAT: FIELD IS EMPTY OR THE FIGURE IS NOT BELONGING TO THE OPPOSITE PLAYER!");
-                        //loop back to new user input
-                        i = i-1;
-                    }else{
+                    ArrayList isValidMove = new ArrayList();
+
+                    if (moveType == 1) {
+                        if (board[targetX][targetY].length == 0 | board[targetX][targetY][1] == playerColor) {
+                            System.out.println("INVALID EAT: FIELD IS EMPTY OR THE FIGURE IS NOT BELONGING TO THE OPPOSITE PLAYER!");
+                            //loop back to new user input
+                            i = i - 1;
+                        } else {
+                            isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
+                        }
+
+                    } else {
                         isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
                     }
 
-                }else{
-                    isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
+                    //VALIDATE MOVE IS EITHER VALID, DISAMBIGUOUS OR INVALID, THEN UPDATE BOARD IF VALID.
+                    if (isValidMove.size() < 1) {
+                        System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE: ");
+                        //restart turn
+                        i = i - 1;
+
+                    } else if (isValidMove.size() > 1) {
+                        System.out.println("DISAMBIGUOUS MOVE! PLEASE SPECIFY START FIELD: ");
+                        //read starting pos again with position list
+
+                    } else {
+                        System.out.println("VALID MOVE");
+
+                        Object[] cell = Arrays.copyOf((Object[]) isValidMove.get(0), 2);
+                        char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
+                        int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
+
+                        int[] targetPosition = {targetX, targetY};
+
+                        game.updateBoard(figureData, figureXY, targetPosition);
+
+                        char[][][] boardAfterMove = game.getBoard();
+                        printboard(boardAfterMove);
+                    }
+                ArrayList kingPosition = new ArrayList();
+                kingPosition.add(3);
+                kingPosition.add(4);
+
+                check = game.isCheck(kingPosition, playerColor);
+                System.out.println(check);
+
+                if (check == true) {
+                    break;
                 }
 
-                //VALIDATE MOVE IS EITHER VALID, DISAMBIGUOUS OR INVALID, THEN UPDATE BOARD IF VALID.
-                if(isValidMove.size() < 1){
-                    System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE: ");
-                    //restart turn
-                    i=i-1;
-
-                }else if(isValidMove.size() > 1){
-                    System.out.println("DISAMBIGUOUS MOVE! PLEASE SPECIFY START FIELD: ");
-                    //read starting pos again with position list
-
-                }else{
-                    System.out.println("VALID MOVE");
-
-                    Object[] cell = Arrays.copyOf((Object[]) isValidMove.get(0), 2);
-                    char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
-                    int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
-
-                    int[] targetPosition = {targetX, targetY};
-
-                    game.updateBoard(figureData, figureXY, targetPosition);
-
-                    char[][][] boardAfterMove = game.getBoard();
-                    printboard(boardAfterMove);
                 }
             }
         }

@@ -107,10 +107,10 @@ public class Game {
             char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
             int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
 
-            System.out.println("FIGURE: "+ Arrays.toString(figureData) + " FIGURE XY: " + Arrays.toString(figureXY));
+            //System.out.println("FIGURE: "+ Arrays.toString(figureData) + " FIGURE XY: " + Arrays.toString(figureXY));
 
-            System.out.println(figureData[0]); //Get figure type
-            System.out.println(figureData[1]); //Get figure color
+            //System.out.println(figureData[0]); //Get figure type
+            //System.out.println(figureData[1]); //Get figure color
 
 
 
@@ -119,7 +119,7 @@ public class Game {
             }
         }
 
-        System.out.println(finalFigures);
+        //System.out.println(finalFigures);
         return finalFigures;
     }
 
@@ -205,5 +205,22 @@ public class Game {
         return inputList;
     }
 
+    public boolean isCheck(ArrayList kingPos, char playerColor) {
+
+        boolean isCheck = false;
+        int x = (int) kingPos.get(0);
+        int y = (int) kingPos.get(1);
+        ArrayList checkList = new ArrayList();
+        checkList.add(validateMove(playerColor, 'p', x, y, 1));
+        checkList.add(validateMove(playerColor, 'K', x, y, 1));
+        checkList.add(validateMove(playerColor, 'Q', x, y, 1));
+        checkList.add(validateMove(playerColor, 'N', x, y, 1));
+        checkList.add(validateMove(playerColor, 'R', x, y, 1));
+        checkList.add(validateMove(playerColor, 'B', x, y, 1));
+        if (checkList.size() != 0){
+            isCheck = true;
+        }
+        return isCheck;
+    }
 
 }
