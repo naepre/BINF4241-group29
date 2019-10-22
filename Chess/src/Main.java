@@ -32,17 +32,12 @@ public class Main {
         playOrder.add(playerOne);
         playOrder.add(playerTwo);
 
+        printboard(board);
+
 
         Boolean won = false;
 
         while (won == false){
-
-            //print board
-            char[][][] boardAfterMove = game.getBoard();
-            System.out.println("####a#######b#######c#######d#######e#######f#######g#######h###");
-            for ( Object row: boardAfterMove) {
-                System.out.println(Arrays.deepToString((Object[]) row));
-            }
 
 
             for (int i = 0; i < playOrder.size(); i++){
@@ -106,12 +101,34 @@ public class Main {
 
                     game.updateBoard(figureData, figureXY, targetPosition);
 
-                   // char[][][] boardAfterMove = game.getBoard();
+                   char[][][] boardAfterMove = game.getBoard();
                     //System.out.println(Arrays.deepToString(boardAfterMove));
+                    printboard(boardAfterMove);
                 }
             }
         }
     }
+
+    public static void printboard(char[][][] board) {
+        char[][] prntboard;
+        System.out.println(" \t a   b   c   d   e   f   g   h");
+        System.out.println(" \t_______________________________");
+
+        for (int p = 0; p < 8; p++)
+        {
+            for ( int j = 0; j < 1; j++)
+            {
+                prntboard = board[p];
+                System.out.print(8-p+"\t");
+                System.out.print(Arrays.deepToString(prntboard));
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+
+
 }
 
 
