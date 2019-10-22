@@ -228,8 +228,18 @@ public class Game {
     public boolean isCheck(ArrayList kingPos, char playerColor) {
 
         boolean isCheck = false;
-        int x = (int) kingPos.get(0);
-        int y = (int) kingPos.get(1);
+        int x;
+        int y;
+        if(playerColor == 'w'){
+            int[] blackKingPos = (int[]) kingPos.get(1);
+            x = blackKingPos[0];
+            y = blackKingPos[1];
+        }else {
+            int[] whiteKingPos = (int[]) kingPos.get(0);
+            x = whiteKingPos[0];
+            y = whiteKingPos[1];
+        }
+
         ArrayList checkList = new ArrayList();
         checkList.add(validateMove(playerColor, 'p', x, y, 1));
         checkList.add(validateMove(playerColor, 'K', x, y, 1));
@@ -238,8 +248,11 @@ public class Game {
         checkList.add(validateMove(playerColor, 'R', x, y, 1));
         checkList.add(validateMove(playerColor, 'B', x, y, 1));
         System.out.println("Checklist:" + checkList);
-        if (checkList.size() != 0){
-            isCheck = true;
+        for(int i=0;i<checkList.size();i++){
+            ArrayList l = (ArrayList) checkList.get(i);
+            if (!l.isEmpty()) {
+                isCheck = true;
+            }
         }
         return isCheck;
     }

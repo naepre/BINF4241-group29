@@ -28,40 +28,49 @@ public class Rook extends Figures{
     public ArrayList move (int x, int y, char[][][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
-        for (int i = x+1; i <= 6; i++) {
-            if (board[y][i].length != 0){
-                int[] figPos = {y, i};
-                Object[] cell = {board[y][i], figPos};
-                possibleMoves.add(cell);
-                break;
-            }
 
-        }
-        for (int i = x-1; i >= 1; i--) {
-            if (board[y][i].length != 0) {
-                int[] figPos = {y, i};
-                Object[] cell = {board[y][i], figPos};
-                possibleMoves.add(cell);
+        if(x <= 6) {
+            for (int i = x + 1; i <= 7; i++) {
+                if (board[y][i].length != 0) {
+                    int[] figPos = {y, i};
+                    Object[] cell = {board[y][i], figPos};
+                    possibleMoves.add(cell);
+                    break;
+                }
 
-                break;
             }
         }
-        for (int i = y+1; i <= 6; i++) {
-            if (board[i][x].length != 0) {
-                int[] figPos = {i, x};
-                Object[] cell = {board[i][x], figPos};
-                possibleMoves.add(cell);
+        if(x <= 1) {
+            for (int i = x - 1; i >= 0; i--) {
+                if (board[y][i].length != 0) {
+                    int[] figPos = {y, i};
+                    Object[] cell = {board[y][i], figPos};
+                    possibleMoves.add(cell);
 
-                break;
+                    break;
+                }
             }
         }
-        for (int i = y-1; i >= 1; i--) {
-            if (board[i][x].length != 0) {
-                int[] figPos = {i, x};
-                Object[] cell = {board[i][x], figPos};
-                possibleMoves.add(cell);
+        if(y <= 6) {
+            for (int i = y + 1; i <= 7; i++) {
+                if (board[i][x].length != 0) {
+                    int[] figPos = {i, x};
+                    Object[] cell = {board[i][x], figPos};
+                    possibleMoves.add(cell);
 
-                break;
+                    break;
+                }
+            }
+        }
+        if(y >= 1) {
+            for (int i = y - 1; i >= 0; i--) {
+                if (board[i][x].length != 0) {
+                    int[] figPos = {i, x};
+                    Object[] cell = {board[i][x], figPos};
+                    possibleMoves.add(cell);
+
+                    break;
+                }
             }
         }
         return possibleMoves;

@@ -102,16 +102,31 @@ public class Main {
                         ArrayList hitListAfterMove = game.getHitList();
                         printboard(boardAfterMove, hitListAfterMove);
                     }
-                ArrayList kingPosition = new ArrayList();
-                kingPosition.add(3);
-                kingPosition.add(4);
 
-                check = game.isCheck(kingPosition, playerColor);
+                    int[] whiteKingPos= new int[]{4, 7};
+                    int[] blackKingPos = new int[]{4, 0};
 
-                if (check == true) {
-                    System.out.println("Check BRA!!");
-                    break;
-                }
+                    if(figureType == 'K' && playerColor == 'b'){
+                        blackKingPos[0] = targetX;
+                        blackKingPos[1] = targetY;
+                    }else if(figureType == 'K' && playerColor == 'w'){
+                        whiteKingPos[0] = targetX;
+                        whiteKingPos[1] = targetY;
+                    }
+
+                    ArrayList kingPosition = new ArrayList(){};
+                    kingPosition.add(whiteKingPos);
+                    kingPosition.add(blackKingPos);
+
+                    System.out.println(whiteKingPos);
+                    System.out.println(blackKingPos);
+
+                    check = game.isCheck(kingPosition, playerColor);
+
+                    if (check == true) {
+                        System.out.println("Check BRA!!");
+                        break;
+                    }
 
                 }
             }
@@ -123,7 +138,8 @@ public class Main {
         ArrayList blackHitList = (ArrayList) hitList.get(1);
         System.out.print("BLACK HIT LIST: ");
         for(int i=0;i<blackHitList.size();i++){
-            System.out.print(blackHitList.get(i)+" ");
+            char[] x = (char[]) blackHitList.get(i);
+            System.out.print(new String(x)+" ");
         }
         System.out.println();
         System.out.println(" \t a   b   c   d   e   f   g   h");
@@ -142,7 +158,8 @@ public class Main {
         ArrayList whiteHitList = (ArrayList) hitList.get(0);
         System.out.print("WHITE HIT LIST: ");
         for(int i=0;i<whiteHitList.size();i++){
-            System.out.print(whiteHitList.get(i)+" ");
+            char[] x = (char[]) whiteHitList.get(i);
+            System.out.print(new String(x)+" ");
         }
 
         System.out.println();
