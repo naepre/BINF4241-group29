@@ -55,7 +55,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y-1][x-2]);
         }
-        if (x >= 2 && board[y+1][x-2].length != 0){
+        if (y <= 6 && x >= 2 && board[y+1][x-2].length != 0){
 
             int[] figPos = {y+1, x-2};
             Object[] cell = {board[y+1][x-2], figPos};

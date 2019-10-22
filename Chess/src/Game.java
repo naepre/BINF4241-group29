@@ -68,7 +68,7 @@ public class Game {
     }
 
 
-    public ArrayList validateMove(char playerColor, char figureType, int x, int y) {
+    public ArrayList validateMove(char playerColor, char figureType, int x, int y, int moveType) {
 
         ArrayList actualPositions = new ArrayList();
 
@@ -94,8 +94,8 @@ public class Game {
             actualPositions = rook.move(x, y, board);
         } else if (figureType == 'p') {
             Pawn pawn = new Pawn('P', 'C', 10, 10);
-            pawn.move(x, y,playerColor, board);
-            actualPositions = pawn.move(x, y, playerColor, board);
+            pawn.move(x, y, moveType, playerColor, board);
+            actualPositions = pawn.move(x, y, moveType, playerColor, board);
         }
 
 

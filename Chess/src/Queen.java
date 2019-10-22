@@ -31,7 +31,7 @@ public class Queen extends Figures{
 
         ArrayList possibleMoves = new ArrayList<>();
 
-        for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
+        for (int i = x+1, j = y+1; i <= 6 && j <= 6; i++, j++) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -39,7 +39,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
+        for (int i = x+1, j = y-1; i <= 6 && j >= 1; i++, j--) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -47,7 +47,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
+        for (int i = x-1, j = y+1; i <= 1 && j <= 6; i--, j++) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -55,7 +55,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
+        for (int i = x-1, j = y-1; i <= 1 && j <= 1; i--, j--) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -63,7 +63,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = x+1; i <= 7; i++) {
+        for (int i = x+1; i <= 6; i++) {
             if (board[y][i].length != 0){
                 int[] figPos = {y, i};
                 Object[] cell = {board[y][i], figPos};
@@ -72,7 +72,7 @@ public class Queen extends Figures{
             }
 
         }
-        for (int i = x-1; i >= 0; i--) {
+        for (int i = x-1; i >= 1; i--) {
             if (board[y][i].length != 0) {
                 int[] figPos = {y, i};
                 Object[] cell = {board[y][i], figPos};
@@ -81,7 +81,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = y+1; i <= 7; i++) {
+        for (int i = y+1; i <= 6; i++) {
             if (board[i][x].length != 0) {
                 int[] figPos = {i, x};
                 Object[] cell = {board[i][x], figPos};
@@ -90,7 +90,7 @@ public class Queen extends Figures{
                 break;
             }
         }
-        for (int i = y-1; i >= 0; i--) {
+        for (int i = y-1; i >= 1; i--) {
             if (board[i][x].length != 0) {
                 int[] figPos = {i, x};
                 Object[] cell = {board[i][x], figPos};

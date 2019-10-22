@@ -73,11 +73,11 @@ public class Main {
                         //loop back to new user input
                         i = i-1;
                     }else{
-                        isValidMove = game.validateMove(playerColor, figureType, targetX, targetY);
+                        isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
                     }
 
                 }else{
-                    isValidMove = game.validateMove(playerColor, figureType, targetX, targetY);
+                    isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
                 }
 
                 //VALIDATE MOVE IS EITHER VALID, DISAMBIGUOUS OR INVALID, THEN UPDATE BOARD IF VALID.

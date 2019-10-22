@@ -29,7 +29,7 @@ public class Bishop extends Figures{
     public ArrayList move (int x, int y, char[][][] board)
     {
         ArrayList possibleMoves = new ArrayList<>();
-        for (int i = x+1, j = y+1; i <= 7 && j <= 7; i++, j++) {
+        for (int i = x+1, j = y+1; i <= 6 && j <= 6; i++, j++) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -37,7 +37,7 @@ public class Bishop extends Figures{
                 break;
             }
         }
-        for (int i = x+1, j = y-1; i <= 7 && j >= 0; i++, j--) {
+        for (int i = x+1, j = y-1; i <= 6 && j >= 1; i++, j--) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -45,7 +45,7 @@ public class Bishop extends Figures{
                 break;
             }
         }
-        for (int i = x-1, j = y+1; i <= 0 && j <= 7; i--, j++) {
+        for (int i = x-1, j = y+1; i <= 1 && j <= 6; i--, j++) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
@@ -53,7 +53,7 @@ public class Bishop extends Figures{
                 break;
             }
         }
-        for (int i = x-1, j = y-1; i <= 0 && j <= 0; i--, j--) {
+        for (int i = x-1, j = y-1; i <= 1 && j <= 1; i--, j--) {
             if (board[j][i].length != 0){
                 int[] figPos = {j, i};
                 Object[] cell = {board[j][i], figPos};
