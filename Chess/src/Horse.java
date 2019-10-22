@@ -32,14 +32,14 @@ public class Horse extends Figures{
 
         ArrayList possibleMoves = new ArrayList<>();
 
-        if (board[y-1][x+2].length != 0){
+        if (y >= 1 && x <= 5 && board[y-1][x+2].length != 0){
 
             int[] figPos = {y-1, x+2};
             Object[] cell = {board[y-1][x+2], figPos};
             possibleMoves.add(cell);
 
         }
-        if (board[y+1][x+2].length != 0){
+        if (y <= 6 && x <= 5 && board[y+1][x+2].length != 0){
 
             int[] figPos = {y+1, x+2};
             Object[] cell = {board[y+1][x+2], figPos};
@@ -47,7 +47,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y+1][x+2]);
         }
-        if (board[y-1][x-2].length != 0){
+        if (y >= 1 &&  x >= 2 && board[y-1][x-2].length != 0){ //0-2 is out of bounds
 
             int[] figPos = {y-1, x-2};
             Object[] cell = {board[y-1][x-2], figPos};
@@ -55,7 +55,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y-1][x-2]);
         }
-        if (board[y+1][x-2].length != 0){
+        if (x >= 2 && board[y+1][x-2].length != 0){
 
             int[] figPos = {y+1, x-2};
             Object[] cell = {board[y+1][x-2], figPos};
@@ -63,7 +63,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y+1][x-2]);
         }
-        if (board[y+2][x+1].length != 0){
+        if (y <= 5 && x <= 6 && board[y+2][x+1].length != 0){
 
             int[] figPos = {y+2, x+1};
             Object[] cell = {board[y+2][x+1], figPos};
@@ -71,7 +71,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y+2][x+1]);
         }
-        if (board[y+2][x-1].length != 0){
+        if (y <= 5 && x >= 1 && board[y+2][x-1].length != 0){
 
             int[] figPos = {y+2, x-1};
             Object[] cell = {board[y+2][x-1], figPos};
@@ -79,7 +79,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y+2][x-1]);
         }
-        if (board[y-2][x+1].length != 0){
+        if (x <= 6 && y >= 2 && board[y-2][x+1].length != 0){
 
             int[] figPos = {y-2, x+1};
             Object[] cell = {board[y-2][x+1], figPos};
@@ -87,7 +87,7 @@ public class Horse extends Figures{
 
             //possibleMoves.add(board[y-2][x+1]);
         }
-        if (board[y-2][x-1].length != 0){
+        if (y >= 2 && x >= 1 && board[y-2][x-1].length != 0){
 
             int[] figPos = {y-2, x-1};
             Object[] cell = {board[y-2][x-1], figPos};
