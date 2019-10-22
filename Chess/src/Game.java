@@ -7,6 +7,8 @@ import java.util.List;
 public class Game {
 
     private char[][][] board;
+    private ArrayList whiteHitList = new ArrayList();
+    private ArrayList blackHitList = new ArrayList();
 
     private Rook bR1 = new Rook('R', 'b', 0, 0);
     private Rook bR2 = new Rook('R', 'b', 0, 7);
@@ -67,6 +69,12 @@ public class Game {
         return board;
     }
 
+    public ArrayList getHitList(){
+        ArrayList hitList = new ArrayList();
+        hitList.add(whiteHitList);
+        hitList.add(blackHitList);
+        return hitList;
+    }
 
     public ArrayList validateMove(char playerColor, char figureType, int x, int y, int moveType) {
 
@@ -125,8 +133,20 @@ public class Game {
 
     public void updateBoard(char[] figureData, int[] startPosition, int[] targetPosition){
 
-        System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
-        System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+        //System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
+        //System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+
+        //UPDATE HIT LISTS
+        char[] targetCell = board[targetPosition[1]][targetPosition[0]];
+        if(targetCell.length != 0){
+            //add targetCell data to hit list not equal to moving figure color: figureData[1]
+            if(figureData[1] == 'w'){
+                whiteHitList.add(targetCell);
+            }else if(figureData[1] == 'b'){
+                blackHitList.add(targetCell);
+            }
+        }
+
 
         //create new  figure cell
         char[] newFigureCell = {figureData[0], figureData[1]};
@@ -217,6 +237,7 @@ public class Game {
         checkList.add(validateMove(playerColor, 'N', x, y, 1));
         checkList.add(validateMove(playerColor, 'R', x, y, 1));
         checkList.add(validateMove(playerColor, 'B', x, y, 1));
+        System.out.println("Checklist:" + checkList);
         if (checkList.size() != 0){
             isCheck = true;
         }

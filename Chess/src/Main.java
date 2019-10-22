@@ -7,7 +7,7 @@ public class Main {
 
         Game game = new Game();
         char[][][] board = game.getBoard();
-
+        ArrayList hitList = game.getHitList();
 
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter a player one name (white): ");
@@ -29,7 +29,7 @@ public class Main {
         playOrder.add(playerOne);
         playOrder.add(playerTwo);
 
-        printboard(board);
+        printboard(board, hitList);
 
         Boolean checkmate = false;
         Boolean check = false;
@@ -99,16 +99,17 @@ public class Main {
                         game.updateBoard(figureData, figureXY, targetPosition);
 
                         char[][][] boardAfterMove = game.getBoard();
-                        printboard(boardAfterMove);
+                        ArrayList hitListAfterMove = game.getHitList();
+                        printboard(boardAfterMove, hitListAfterMove);
                     }
                 ArrayList kingPosition = new ArrayList();
                 kingPosition.add(3);
                 kingPosition.add(4);
 
                 check = game.isCheck(kingPosition, playerColor);
-                System.out.println(check);
 
                 if (check == true) {
+                    System.out.println("Check BRA!!");
                     break;
                 }
 
@@ -117,10 +118,16 @@ public class Main {
         }
     }
 
-    public static void printboard(char[][][] board) {
+    public static void printboard(char[][][] board, ArrayList hitList) {
         char[][] prntboard;
+        ArrayList blackHitList = (ArrayList) hitList.get(1);
+        System.out.print("BLACK HIT LIST: ");
+        for(int i=0;i<blackHitList.size();i++){
+            System.out.print(blackHitList.get(i)+" ");
+        }
+        System.out.println();
         System.out.println(" \t a   b   c   d   e   f   g   h");
-        System.out.println(" \t_______________________________");
+        System.out.println(" \t___________");
 
         for (int p = 0; p < 8; p++)
         {
@@ -132,9 +139,14 @@ public class Main {
             }
             System.out.println();
         }
+        ArrayList whiteHitList = (ArrayList) hitList.get(0);
+        System.out.print("WHITE HIT LIST: ");
+        for(int i=0;i<whiteHitList.size();i++){
+            System.out.print(whiteHitList.get(i)+" ");
+        }
+
         System.out.println();
     }
-
 
 
 }
