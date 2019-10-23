@@ -33,6 +33,8 @@ public class Main {
 
         Boolean checkmate = false;
         Boolean check = false;
+        int[] whiteKingPos= new int[]{4, 7};
+        int[] blackKingPos = new int[]{4, 0};
 
         while (checkmate == false) {
             while (check == false) {
@@ -104,8 +106,6 @@ public class Main {
                         printboard(boardAfterMove, hitListAfterMove);
                     }
 
-                    int[] whiteKingPos= new int[]{4, 7};
-                    int[] blackKingPos = new int[]{4, 0};
 
                     if(figureType == 'K' && playerColor == 'b'){
                         blackKingPos[0] = targetX;
@@ -126,7 +126,6 @@ public class Main {
 
                     if (check == true) {
                         System.out.println("Check BRA!!");
-                        break;
                     }
 
                 }
