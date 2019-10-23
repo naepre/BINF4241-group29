@@ -55,10 +55,10 @@ public class Game {
                 {
                         {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
                         {{bP1.getName(), bP1.getColor()}, {bP2.getName(), bP2.getColor()}, {bP3.getName(), bP3.getColor()}, {bP4.getName(), bP4.getColor()}, {bP5.getName(), bP5.getColor()}, {bP6.getName(), bP6.getColor()}, {bP7.getName(), bP7.getColor()}, {bP8.getName(), bP8.getColor()}},
-                        {{}, {}, {}, {}, {}, {}, {}, {}},
-                        {{}, {}, {}, {}, {}, {}, {}, {}},
-                        {{}, {}, {}, {}, {}, {}, {}, {}},
-                        {{}, {}, {}, {}, {}, {}, {}, {}},
+                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
+                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
+                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
+                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
                         {{wP1.getName(), wP1.getColor()}, {wP2.getName(), wP2.getColor()}, {wP3.getName(), wP3.getColor()}, {wP4.getName(), wP4.getColor()}, {wP5.getName(), wP5.getColor()}, {wP6.getName(), wP6.getColor()}, {wP7.getName(), wP7.getColor()}, {wP8.getName(), wP8.getColor()}},
                         {{wR1.getName(), wR1.getColor()}, {wN1.getName(), wN1.getColor()}, {wB1.getName(), wB1.getColor()}, {wQ1.getName(), wQ1.getColor()}, {wK1.getName(), wK1.getColor()}, {wB2.getName(), wB2.getColor()}, {wN2.getName(), wN2.getColor()}, {wR2.getName(), wR2.getColor()}}
                 };
@@ -151,7 +151,7 @@ public class Game {
         //create new  figure cell
         char[] newFigureCell = {figureData[0], figureData[1]};
         //create new empty cell
-        char[] newEmptyCell = {};
+        char[] newEmptyCell = {' ',' '};
 
         //Affect changes to board
         board[targetPosition[1]][targetPosition[0]] = newFigureCell;

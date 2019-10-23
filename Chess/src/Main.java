@@ -86,7 +86,8 @@ public class Main {
                     } else if (isValidMove.size() > 1) {
                         System.out.println("DISAMBIGUOUS MOVE! PLEASE SPECIFY START FIELD: ");
                         //read starting pos again with position list
-
+                        //ask for input with start field.
+                        //
                     } else {
                         System.out.println("VALID MOVE");
 
@@ -142,8 +143,8 @@ public class Main {
             System.out.print(new String(x)+" ");
         }
         System.out.println();
-        System.out.println(" \t a   b   c   d   e   f   g   h");
-        System.out.println(" \t___________");
+        System.out.println(" \t   a       b       c       d       e       f       g       h");
+        System.out.println(" \t_______________________________________________________________");
 
         for (int p = 0; p < 8; p++)
         {
