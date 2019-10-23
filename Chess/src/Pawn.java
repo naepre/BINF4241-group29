@@ -30,25 +30,25 @@ public class Pawn extends Figures {
         if (moveType == 0) {
 
             if (playercolor == 'b') {
-                if (y > 0 && board[y - 1][x].length != 0) {
+                if (y > 0 && board[y - 1][x][0] != ' ') {
                     int[] figPos = {y - 1, x};
                     Object[] cell = {board[y - 1][x], figPos};
                     possibleMoves.add(cell);
                 }
-                if (y == 3 && board[y - 1][x].length == 0 && board[y - 2][x].length != 0) { //a black pawn start two space move
+                if (y == 3 && board[y - 1][x][0] != ' ' && board[y - 2][x][0] != ' ') { //a black pawn start two space move
                     int[] figPos = {y - 2, x};
                     Object[] cell = {board[y - 2][x], figPos};
                     possibleMoves.add(cell);
                 }
             }
             if (playercolor == 'w') {
-                if (y < 7 && board[y + 1][x].length != 0) {
+                if (y < 7 && board[y + 1][x][0] != ' ') {
                     int[] figPos = {y + 1, x};
                     Object[] cell = {board[y + 1][x], figPos};
                     possibleMoves.add(cell);
                 }
 
-                if (y == 4 && board[y + 1][x].length == 0 && board[y + 2][x].length != 0) { //a white pawn start two space move
+                if (y == 4 && board[y + 1][x][0] != ' ' && board[y + 2][x][0] != ' ') { //a white pawn start two space move
                     int[] figPos = {y + 2, x};
                     Object[] cell = {board[y + 2][x], figPos};
                     possibleMoves.add(cell);
@@ -58,24 +58,24 @@ public class Pawn extends Figures {
 
         else {
             if (playercolor == 'b') {
-                if (x > 0 && y > 0 && board[y - 1][x - 1].length != 0) {
+                if (x > 0 && y > 0 && board[y - 1][x - 1][0] != ' ') {
                     int[] figPos = {y - 1, x - 1};
                     Object[] cell = {board[y - 1][x - 1], figPos};
                     possibleMoves.add(cell);
                 }
-                if (x <= 6 && y > 0 && board[y - 1][x + 1].length != 0) {
+                if (x <= 6 && y > 0 && board[y - 1][x + 1][0] != ' ') {
                     int[] figPos = {y - 1, x + 1};
                     Object[] cell = {board[y - 1][x + 1], figPos};
                     possibleMoves.add(cell);
                 }
             }
             if (playercolor == 'w') {
-                if (x > 0 && y <= 6 && board[y + 1][x - 1].length != 0) {
+                if (x > 0 && y <= 6 && board[y + 1][x - 1][0] != ' ') {
                     int[] figPos = {y + 1, x - 1};
                     Object[] cell = {board[y + 1][x - 1], figPos};
                     possibleMoves.add(cell);
                 }
-                if (x <= 6 && y <= 6 && board[y + 1][x + 1].length != 0) {
+                if (x <= 6 && y <= 6 && board[y + 1][x + 1][0] != ' ') {
                     int[] figPos = {y + 1, x + 1};
                     Object[] cell = {board[y + 1][x + 1], figPos};
                     possibleMoves.add(cell);

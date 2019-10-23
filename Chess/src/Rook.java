@@ -31,7 +31,7 @@ public class Rook extends Figures{
 
         if(x <= 6) {
             for (int i = x + 1; i <= 7; i++) {
-                if (board[y][i].length != 0) {
+                if (board[y][i][0] != ' ') {
                     int[] figPos = {y, i};
                     Object[] cell = {board[y][i], figPos};
                     possibleMoves.add(cell);
@@ -42,7 +42,7 @@ public class Rook extends Figures{
         }
         if(x <= 1) {
             for (int i = x - 1; i >= 0; i--) {
-                if (board[y][i].length != 0) {
+                if (board[y][i][0] != ' ') {
                     int[] figPos = {y, i};
                     Object[] cell = {board[y][i], figPos};
                     possibleMoves.add(cell);
@@ -53,7 +53,7 @@ public class Rook extends Figures{
         }
         if(y <= 6) {
             for (int i = y + 1; i <= 7; i++) {
-                if (board[i][x].length != 0) {
+                if (board[i][x][0] != ' ') {
                     int[] figPos = {i, x};
                     Object[] cell = {board[i][x], figPos};
                     possibleMoves.add(cell);
@@ -64,7 +64,7 @@ public class Rook extends Figures{
         }
         if(y >= 1) {
             for (int i = y - 1; i >= 0; i--) {
-                if (board[i][x].length != 0) {
+                if (board[i][x][0] != ' ') {
                     int[] figPos = {i, x};
                     Object[] cell = {board[i][x], figPos};
                     possibleMoves.add(cell);
