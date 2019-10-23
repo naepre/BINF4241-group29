@@ -53,7 +53,7 @@ public class Queen extends Figures{
         }
         if(x >= 1 && y <= 6) {
 
-            for (int i = x - 1, j = y + 1; i <= 0 && j <= 7; i--, j++) {
+            for (int i = x - 1, j = y + 1; i >= 0 && j <= 7; i--, j++) {
                 if (board[j][i][0] != ' ') {
                     int[] figPos = {j, i};
                     Object[] cell = {board[j][i], figPos};
@@ -64,7 +64,7 @@ public class Queen extends Figures{
         }
         if(x >= 1 && y >= 1) {
 
-            for (int i = x - 1, j = y - 1; i <= 0 && j <= 0; i--, j--) {
+            for (int i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--) {
                 if (board[j][i][0] != ' ') {
                     int[] figPos = {j, i};
                     Object[] cell = {board[j][i], figPos};
