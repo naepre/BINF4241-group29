@@ -91,7 +91,6 @@ public class Main {
                         //ask for input with start field.
                         //
                     } else {
-                        System.out.println("VALID MOVE");
 
                         Object[] cell = Arrays.copyOf((Object[]) isValidMove.get(0), 2);
                         char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
@@ -101,9 +100,31 @@ public class Main {
 
                         game.updateBoard(figureData, figureXY, targetPosition);
 
-                        char[][][] boardAfterMove = game.getBoard();
-                        ArrayList hitListAfterMove = game.getHitList();
-                        printboard(boardAfterMove, hitListAfterMove);
+                        if(figureType == 'K' && playerColor == 'b'){
+                            blackKingPos[0] = targetX;
+                            blackKingPos[1] = targetY;
+                        }else if(figureType == 'K' && playerColor == 'w'){
+                            whiteKingPos[0] = targetX;
+                            whiteKingPos[1] = targetY;
+                        }
+
+                        ArrayList kingPosition = new ArrayList(){};
+                        kingPosition.add(whiteKingPos);
+                        kingPosition.add(blackKingPos);
+
+                        check = game.isCheck(kingPosition, playerColor); //check if you're checked
+
+                        if(check == true){
+                            System.out.println("INVALID MOVE! YOUR KING IS IN CHECK ");
+                            //revert board and restart turn
+                            game.updateBoard(figureData, targetPosition, figureXY);
+                            i = i - 1;
+                        }else{
+                            System.out.println("VALID MOVE");
+                            char[][][] boardAfterMove = game.getBoard();
+                            ArrayList hitListAfterMove = game.getHitList();
+                            printboard(boardAfterMove, hitListAfterMove);
+                        }
                     }
 
 
