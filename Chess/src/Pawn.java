@@ -35,7 +35,7 @@ public class Pawn extends Figures {
                     Object[] cell = {board[y - 1][x], figPos};
                     possibleMoves.add(cell);
                 }
-                if (y == 3 && board[y - 1][x][0] != ' ' && board[y - 2][x][0] != ' ') { //a black pawn start two space move
+                if (y == 3 && board[y - 1][x][0] == ' ' && board[y - 2][x][0] != ' ') { //a black pawn start two space move
                     int[] figPos = {y - 2, x};
                     Object[] cell = {board[y - 2][x], figPos};
                     possibleMoves.add(cell);
@@ -48,7 +48,7 @@ public class Pawn extends Figures {
                     possibleMoves.add(cell);
                 }
 
-                if (y == 4 && board[y + 1][x][0] != ' ' && board[y + 2][x][0] != ' ') { //a white pawn start two space move
+                if (y == 4 && board[y + 1][x][0] == ' ' && board[y + 2][x][0] != ' ') { //a white pawn start two space move
                     int[] figPos = {y + 2, x};
                     Object[] cell = {board[y + 2][x], figPos};
                     possibleMoves.add(cell);
