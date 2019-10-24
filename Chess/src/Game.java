@@ -2,6 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.List;
 
 public class Game {
@@ -135,6 +136,29 @@ public class Game {
 
         System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
         System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+
+        //****************PAWN PROMOTION ********************
+        if (figureData[0] == 'p' && targetPosition[1] == 0 && figureData[1] == 'w' || targetPosition[1] == 7 && figureData[1] == 'b' ) {
+            System.out.println("Your Pawn got promoted: Please enter one of these 4 characters in the single quotes " +
+                    "'R'= Rook 'N'= Knight 'B'= Bishop 'Q'=Queen  to promote your PAWN");
+            while (true) {
+                Scanner keyboard = new Scanner(System.in);
+                String str = keyboard.next();
+                if (str.length() > 1) {
+                    System.out.println("Input can not consist of more than 1 character: ");
+                    continue;
+                }
+                char c = str.charAt(0);
+                if (c == 'R' || c == 'N' || c == 'B' || c == 'Q') {
+                    figureData[0] = c;
+                    break;
+                } else {
+                    System.out.println("Invalid Input: Please enter one of these 4 characters in single quotes " +
+                            "'R'= Rook 'N'= Knight 'B'= Bishop 'Q'=Queen ");
+                    continue;
+                }
+            }
+        }
 
         //UPDATE HIT LISTS
         char[] targetCell = board[targetPosition[0]][targetPosition[1]];
