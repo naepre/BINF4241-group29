@@ -138,7 +138,7 @@ public class Game {
         System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
 
         //****************PAWN PROMOTION ********************
-        if (figureData[0] == 'p' && targetPosition[1] == 0 && figureData[1] == 'w' || targetPosition[1] == 7 && figureData[1] == 'b' ) {
+        if (figureData[0] == 'p' && targetPosition[1] == 5 && figureData[1] == 'w' || targetPosition[1] == 7 && figureData[1] == 'b' ) {
             System.out.println("Your Pawn got promoted: Please enter one of these 4 characters in the single quotes " +
                     "'R'= Rook 'N'= Knight 'B'= Bishop 'Q'=Queen  to promote your PAWN");
             while (true) {
