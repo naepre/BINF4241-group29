@@ -55,7 +55,7 @@ public class Main {
                     copyPlayOrder.add(i, currentPlayer);
 
 
-                    System.out.println("CURRENT PLAYER: " + playerName + " i: " + i);
+                 //   System.out.println("CURRENT PLAYER: " + playerName + " i: " + i);
 
                     System.out.println(playerName + ", please enter your move: ");
                     Scanner scanner = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Main {
                         userInput = scanner.nextLine();
                     }
 
-                    System.out.println(userInput.getClass());
+                    // System.out.println(userInput.getClass());
 
                     if (userInput.equals("O-O-O")) { //Queenside Castling
 
@@ -172,7 +172,7 @@ public class Main {
                                 boolean opponentKingIsCheck = (boolean) isCheckMap.get(opponentColor);
                                 if (opponentKingIsCheck == true) {
                                     System.out.println("##CHECK##");
-                                    check = true;
+                                    //check = true;
                                     i++;
                                     printboard(game);
                                 }

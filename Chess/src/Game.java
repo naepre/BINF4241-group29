@@ -134,13 +134,13 @@ public class Game {
 
     public void updateBoard(char[] figureData, int[] startPosition, int[] targetPosition){
 
-        System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
-        System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+        // System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
+        // System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
 
         //****************PAWN PROMOTION ********************
-        if (figureData[0] == 'p' && targetPosition[1] == 5 && figureData[1] == 'w' || targetPosition[1] == 7 && figureData[1] == 'b' ) {
+        if (figureData[0] == 'p' && targetPosition[0] == 0 && figureData[1] == 'w' || targetPosition[0] == 7 && figureData[1] == 'b' ) {
             System.out.println("Your Pawn got promoted: Please enter one of these 4 characters in the single quotes " +
-                    "'R'= Rook 'N'= Knight 'B'= Bishop 'Q'=Queen  to promote your PAWN");
+                    "'R'= Rook 'N'= Knight 'B'= Bishop 'Q'= Queen  to promote your PAWN");
             while (true) {
                 Scanner keyboard = new Scanner(System.in);
                 String str = keyboard.next();
@@ -275,8 +275,8 @@ public class Game {
             }
         }
 
-        System.out.println("WHITE CHECK LIST: "+whiteCheckList);
-        System.out.println("BLACK CHECK LIST: "+blackCheckList);
+       // System.out.println("WHITE CHECK LIST: "+whiteCheckList);
+       // System.out.println("BLACK CHECK LIST: "+blackCheckList);
 
         return isCheckMap;
     }
