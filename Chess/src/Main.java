@@ -29,22 +29,25 @@ public class Main {
         playOrder.add(playerOne);
         playOrder.add(playerTwo);
 
-        printboard(board, hitList);
+        printboard(game);
 
         Boolean checkmate = false;
         Boolean check = false;
         int[] whiteKingPos= new int[]{4, 7};
         int[] blackKingPos = new int[]{4, 0};
 
+
+
         while (checkmate == false) {
             while (check == false) {
 
 
-                for (int i = 0; i < playOrder.size(); i++) {
+                for (int i = 0; i < playOrder.size();) {
                     ArrayList currentPlayer = (ArrayList) playOrder.get(i);
                     String playerName = (String) currentPlayer.get(0);
                     char playerColor = (char) currentPlayer.get(1);
 
+                    System.out.println("CURRENT PLAYER: " + playerName + " i: " + i);
 
                     System.out.println(playerName + ", please enter your move: ");
                     Scanner scanner = new Scanner(System.in);
@@ -67,10 +70,11 @@ public class Main {
                     ArrayList isValidMove = new ArrayList();
 
                     if (moveType == 1) {
-                        if (board[targetX][targetY].length == 0 | board[targetX][targetY][1] == playerColor) {
+                        if (board[targetX][targetY][0] == ' ' | board[targetX][targetY][1] == playerColor) {
                             System.out.println("INVALID EAT: FIELD IS EMPTY OR THE FIGURE IS NOT BELONGING TO THE OPPOSITE PLAYER!");
                             //loop back to new user input
-                            i = i - 1;
+                            printboard(game);
+                            continue;
                         } else {
                             isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
                         }
@@ -81,9 +85,10 @@ public class Main {
 
                     //VALIDATE MOVE IS EITHER VALID, DISAMBIGUOUS OR INVALID, THEN UPDATE BOARD IF VALID.
                     if (isValidMove.size() < 1) {
-                        System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE: ");
+                        System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE");
                         //restart turn
-                        i = i - 1;
+                        printboard(game);
+                        continue;
 
                     } else if (isValidMove.size() > 1) {
                         System.out.println("DISAMBIGUOUS MOVE! PLEASE SPECIFY START FIELD: ");
@@ -96,7 +101,7 @@ public class Main {
                         char[] figureData = Arrays.copyOf((char[]) cell[0], 2); //figure data
                         int[] figureXY = Arrays.copyOf((int[]) cell[1], 2); // figure coordinate
 
-                        int[] targetPosition = {targetX, targetY};
+                        int[] targetPosition = {targetY, targetX};
 
                         game.updateBoard(figureData, figureXY, targetPosition);
 
@@ -108,53 +113,50 @@ public class Main {
                             whiteKingPos[1] = targetY;
                         }
 
-                        ArrayList kingPosition = new ArrayList(){};
-                        kingPosition.add(whiteKingPos);
-                        kingPosition.add(blackKingPos);
+                        ArrayList kingPositions = new ArrayList(){};
+                        kingPositions.add(whiteKingPos);
+                        kingPositions.add(blackKingPos);
 
-                        check = game.isCheck(kingPosition, playerColor); //check if you're checked
 
-                        if(check == true){
-                            System.out.println("INVALID MOVE! YOUR KING IS IN CHECK ");
-                            //revert board and restart turn
-                            game.updateBoard(figureData, targetPosition, figureXY);
-                            i = i - 1;
+                        //check = game.isCheck(kingPosition, playerColor); //check if you're checked
+                        HashMap isCheckMap = game.isCheck(kingPositions, playerColor);
+                        boolean currentPlayerKingIsCheck = (boolean) isCheckMap.get(playerColor);
+
+                        //if current player is in check after moving
+                        if (currentPlayerKingIsCheck == true) {
+                            System.out.println("INVALID MOVE! YOUR KING IS IN CHECK");
+                            game.updateBoard(figureData, targetPosition, figureXY); //Reverse update the move
+                            printboard(game);
+                            continue;
                         }else{
-                            System.out.println("VALID MOVE");
-                            char[][][] boardAfterMove = game.getBoard();
-                            ArrayList hitListAfterMove = game.getHitList();
-                            printboard(boardAfterMove, hitListAfterMove);
+                            //If opponent king is in check after moving
+                            char opponentColor;
+                            if(playerColor == 'w'){
+                                opponentColor = 'b';
+                            }else {
+                                opponentColor = 'w';
+                            }
+                            boolean opponentKingIsCheck = (boolean) isCheckMap.get(opponentColor);
+                            if (opponentKingIsCheck == true) {
+                                System.out.println("##CHECK##");
+                                check = true;
+                                i++;
+                                printboard(game);
+                            }
                         }
+                        i++;
+                        printboard(game);
                     }
-
-
-                    if(figureType == 'K' && playerColor == 'b'){
-                        blackKingPos[0] = targetX;
-                        blackKingPos[1] = targetY;
-                    }else if(figureType == 'K' && playerColor == 'w'){
-                        whiteKingPos[0] = targetX;
-                        whiteKingPos[1] = targetY;
-                    }
-
-                    ArrayList kingPosition = new ArrayList(){};
-                    kingPosition.add(whiteKingPos);
-                    kingPosition.add(blackKingPos);
-
-                    System.out.println(whiteKingPos);
-                    System.out.println(blackKingPos);
-
-                    check = game.isCheck(kingPosition, playerColor);
-
-                    if (check == true) {
-                        System.out.println("Check BRA!!");
-                    }
-
                 }
             }
         }
     }
 
-    public static void printboard(char[][][] board, ArrayList hitList) {
+    public static void printboard(Game game) {
+
+        char[][][] board = game.getBoard();
+        ArrayList hitList = game.getHitList();
+
         char[][] prntboard;
         ArrayList blackHitList = (ArrayList) hitList.get(1);
         System.out.print("BLACK HIT LIST: ");

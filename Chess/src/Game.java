@@ -133,11 +133,11 @@ public class Game {
 
     public void updateBoard(char[] figureData, int[] startPosition, int[] targetPosition){
 
-        //System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
-        //System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
+        System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
+        System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
 
         //UPDATE HIT LISTS
-        char[] targetCell = board[targetPosition[1]][targetPosition[0]];
+        char[] targetCell = board[targetPosition[0]][targetPosition[1]];
         if(targetCell.length != 0){
             //add targetCell data to hit list not equal to moving figure color: figureData[1]
             if(figureData[1] == 'w'){
@@ -154,7 +154,7 @@ public class Game {
         char[] newEmptyCell = {' ',' '};
 
         //Affect changes to board
-        board[targetPosition[1]][targetPosition[0]] = newFigureCell;
+        board[targetPosition[0]][targetPosition[1]] = newFigureCell;
         board[startPosition[0]][startPosition[1]] = newEmptyCell;
 
     }
@@ -225,21 +225,42 @@ public class Game {
         return inputList;
     }
 
-    public boolean isCheck(ArrayList kingPos, char playerColor) {
+    public HashMap isCheck(ArrayList kingPos, char playerColor) {
 
-        boolean isCheck = false;
-        int x;
-        int y;
-        if(playerColor == 'w'){
-            int[] blackKingPos = (int[]) kingPos.get(1);
-            x = blackKingPos[0];
-            y = blackKingPos[1];
-        }else {
-            int[] whiteKingPos = (int[]) kingPos.get(0);
-            x = whiteKingPos[0];
-            y = whiteKingPos[1];
+
+        HashMap isCheckMap = new HashMap();
+        isCheckMap.put('w', false);
+        isCheckMap.put('b', false);
+
+        int[] whiteKingPos = (int[]) kingPos.get(0);
+        ArrayList whiteCheckList = isCheckableKing('b', whiteKingPos[0], whiteKingPos[1]);
+        for(int i=0;i<whiteCheckList.size();i++){
+            ArrayList l = (ArrayList) whiteCheckList.get(i);
+            if (!l.isEmpty()) {
+                isCheckMap.put('w', true);
+            }
         }
 
+
+        int[] blackKingPos = (int[]) kingPos.get(1);
+        ArrayList blackCheckList = isCheckableKing('w', blackKingPos[0], blackKingPos[1]);
+        for(int i=0;i<blackCheckList.size();i++){
+            ArrayList l = (ArrayList) blackCheckList.get(i);
+            if (!l.isEmpty()) {
+                isCheckMap.put('b', true);
+            }
+        }
+
+        System.out.println("WHITE CHECK LIST: "+whiteCheckList);
+        System.out.println("BLACK CHECK LIST: "+blackCheckList);
+
+        return isCheckMap;
+    }
+
+    private ArrayList isCheckableKing(char playerColor, int x, int y){
+
+
+        //Add to checkList any piece that could move onto the space that the king is currently on.
         ArrayList checkList = new ArrayList();
         checkList.add(validateMove(playerColor, 'p', x, y, 1));
         checkList.add(validateMove(playerColor, 'K', x, y, 1));
@@ -247,14 +268,8 @@ public class Game {
         checkList.add(validateMove(playerColor, 'N', x, y, 1));
         checkList.add(validateMove(playerColor, 'R', x, y, 1));
         checkList.add(validateMove(playerColor, 'B', x, y, 1));
-        System.out.println("Checklist:" + checkList);
-        for(int i=0;i<checkList.size();i++){
-            ArrayList l = (ArrayList) checkList.get(i);
-            if (!l.isEmpty()) {
-                isCheck = true;
-            }
-        }
-        return isCheck;
+
+        return checkList;
     }
 
 }
