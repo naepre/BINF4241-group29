@@ -102,7 +102,7 @@ public class Main {
                         ArrayList isValidMove = new ArrayList();
 
                         if (moveType == 1) {
-                            if (board[targetX][targetY][0] == ' ' | board[targetX][targetY][1] == playerColor) {
+                            if (board[targetY][targetX][0] == ' ' || board[targetY][targetX][1] == playerColor) {
                                 System.out.println("INVALID EAT: FIELD IS EMPTY OR THE FIGURE IS NOT BELONGING TO THE OPPOSITE PLAYER!");
                                 //loop back to new user input
                                 printboard(game);
@@ -111,8 +111,15 @@ public class Main {
                                 isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
                             }
 
-                        } else {
-                            isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
+                        } else if (moveType == 0) {
+                            if (board[targetY][targetX][0] != ' ') {
+                                System.out.println("INVALID MOVE: OCCUPIED BY YOUR PIECE OR DID NOT SPECIFY EAT!");
+                                //loop back to new user input
+                                printboard(game);
+                                continue;
+                            } else {
+                                isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
+                            }
                         }
 
                         //VALIDATE MOVE IS EITHER VALID, DISAMBIGUOUS OR INVALID, THEN UPDATE BOARD IF VALID.
@@ -172,7 +179,7 @@ public class Main {
                                 boolean opponentKingIsCheck = (boolean) isCheckMap.get(opponentColor);
                                 if (opponentKingIsCheck == true) {
                                     System.out.println("##CHECK##");
-                                    //check = true;
+                                    //check = true
                                     i++;
                                     printboard(game);
                                 }

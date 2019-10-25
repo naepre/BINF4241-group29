@@ -103,7 +103,7 @@ public class Game {
             actualPositions = rook.move(x, y, board);
         } else if (figureType == 'p') {
             Pawn pawn = new Pawn('P', 'C', 10, 10);
-            pawn.move(x, y, moveType, playerColor, board);
+            //pawn.move(x, y, moveType, playerColor, board);
             actualPositions = pawn.move(x, y, moveType, playerColor, board);
         }
 
@@ -137,6 +137,7 @@ public class Game {
         // System.out.println("START POSITION: "+ startPosition[0] + " " + startPosition[1]);
         // System.out.println("TARGET POSITION: " + targetPosition[0]+ " " + targetPosition[1]);
 
+        /*
         //****************PAWN PROMOTION ********************
         if (figureData[0] == 'p' && targetPosition[0] == 0 && figureData[1] == 'w' || targetPosition[0] == 7 && figureData[1] == 'b' ) {
             System.out.println("Your Pawn got promoted: Please enter one of these 4 characters in the single quotes " +
@@ -159,6 +160,7 @@ public class Game {
                 }
             }
         }
+        */
 
         //UPDATE HIT LISTS
         char[] targetCell = board[targetPosition[0]][targetPosition[1]];
