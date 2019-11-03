@@ -7,6 +7,11 @@ import java.util.List;
 
 public class Game {
 
+    //Unique game instance private variable
+    private static Game uniqueGame;
+
+    private Channel channel = new Channel();
+
     private char[][][] board;
     private ArrayList whiteHitList = new ArrayList();
     private ArrayList blackHitList = new ArrayList();
@@ -53,7 +58,6 @@ public class Game {
 
     public Game() {
         board = new char[][][]
-                /*
                 {
                         {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
                         {{bP1.getName(), bP1.getColor()}, {bP2.getName(), bP2.getColor()}, {bP3.getName(), bP3.getColor()}, {bP4.getName(), bP4.getColor()}, {bP5.getName(), bP5.getColor()}, {bP6.getName(), bP6.getColor()}, {bP7.getName(), bP7.getColor()}, {bP8.getName(), bP8.getColor()}},
@@ -64,18 +68,15 @@ public class Game {
                         {{wP1.getName(), wP1.getColor()}, {wP2.getName(), wP2.getColor()}, {wP3.getName(), wP3.getColor()}, {wP4.getName(), wP4.getColor()}, {wP5.getName(), wP5.getColor()}, {wP6.getName(), wP6.getColor()}, {wP7.getName(), wP7.getColor()}, {wP8.getName(), wP8.getColor()}},
                         {{wR1.getName(), wR1.getColor()}, {wN1.getName(), wN1.getColor()}, {wB1.getName(), wB1.getColor()}, {wQ1.getName(), wQ1.getColor()}, {wK1.getName(), wK1.getColor()}, {wB2.getName(), wB2.getColor()}, {wN2.getName(), wN2.getColor()}, {wR2.getName(), wR2.getColor()}}
                 };
-                */
-                {
-                        {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
-                        {{bP1.getName(), bP1.getColor()}, {bP2.getName(), bP2.getColor()}, {bP3.getName(), bP3.getColor()}, {bP4.getName(), bP4.getColor()}, {bP5.getName(), bP5.getColor()}, {bP6.getName(), bP6.getColor()}, {bP7.getName(), bP7.getColor()}, {bP8.getName(), bP8.getColor()}},
-                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
-                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
-                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
-                        {{' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}, {' ',' '}},
-                        {{wP1.getName(), wP1.getColor()}, {wP2.getName(), wP2.getColor()}, {wP3.getName(), wP3.getColor()}, {wP4.getName(), wP4.getColor()}, {wP5.getName(), wP5.getColor()}, {wP6.getName(), wP6.getColor()}, {wP7.getName(), wP7.getColor()}, {wP8.getName(), wP8.getColor()}},
-                        {{wR1.getName(), wR1.getColor()}, {wN1.getName(), wN1.getColor()}, {wB1.getName(), wB1.getColor()}, {wQ1.getName(), wQ1.getColor()}, {wK1.getName(), wK1.getColor()}, {' ',' '}, {' ',' '}, {wR2.getName(), wR2.getColor()}}
-                };
 
+    }
+
+    //single entry point to unique game instance
+    public static synchronized Game getInstance(){
+        if(uniqueGame == null){
+            uniqueGame = new Game();
+        }
+        return uniqueGame;
     }
 
     public char[][][] getBoard() {
@@ -308,6 +309,13 @@ public class Game {
         checkList.add(validateMove(playerColor, 'B', x, y, 1));
 
         return checkList;
+    }
+
+
+    //call notifyGameChange at the end of a turn in the main.
+    public void notifyGameChange(){
+        channel.updateBoard(getBoard());
+        channel.updateHitLists(getHitList());
     }
 
 }

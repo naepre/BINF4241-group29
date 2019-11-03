@@ -5,7 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
+        //Game game = new Game();
+        Game game = Game.getInstance();
         char[][][] board = game.getBoard();
         ArrayList hitList = game.getHitList();
         int counter = 0;
@@ -30,7 +31,8 @@ public class Main {
         playOrder.add(playerOne);
         playOrder.add(playerTwo);
 
-        printboard(game);
+        //printboard(game);
+        game.notifyGameChange();
 
         Boolean checkmate = false;
         Boolean check = false;
@@ -68,7 +70,7 @@ public class Main {
                         scanner = new Scanner(System.in);
                         userInput = scanner.nextLine();
                     }
-
+/*
                     // System.out.println(userInput.getClass());
                     if (userInput.equals("O-O-O") && playerColor == 'w') {
                         if (counter == 0) {
@@ -82,7 +84,7 @@ public class Main {
                                 game.updateBoard(KingData, KstartPosition, KingMove);
                                 if (board[7][1].length == 0 && board[7][2][0] == 'K' && board[7][3].length == 0) {
                                     game.updateBoard(RookData, RstartPosition, RookMove);
-                                    printboard(game);
+                                    //printboard(game);
                                 }
                             } else {
                                 if (board[0][2].length == 0 && board[0][3].length == 0) {
@@ -95,7 +97,7 @@ public class Main {
                                     game.updateBoard(KingData, KstartPosition, KingMove);
                                     if (board[0][3].length == 0 && board[0][2][0] == 'K' && board[0][1].length == 0)
                                         game.updateBoard(RookData, RstartPosition, RookMove);
-                                    printboard(game);
+                                    //printboard(game);
                                 }
                             }
                         }
@@ -113,7 +115,8 @@ public class Main {
                                 game.updateBoard(KingData, KstartPosition, KingMove);
                                 if (board[7][6][0] == 'K' && board[7][5][0] == ' ')
                                     game.updateBoard(RookData, RstartPosition, RookMove);
-                                printboard(game);
+                                //printboard(game);
+                                game.notifyGameChange();
                             } else {
                                 if (board[0][5][0] == ' ' && board[0][6][0] == ' ') {
                                     int[] KingMove = {0, 6};
@@ -125,7 +128,8 @@ public class Main {
                                     game.updateBoard(KingData, KstartPosition, KingMove);
                                     if (board[0][6][0] == 'K' && board[0][5].length == 0)
                                         game.updateBoard(RookData, RstartPosition, RookMove);
-                                    printboard(game);
+                                    //printboard(game);
+                                    game.notifyGameChange();
                                 }
                             }
                         }
@@ -134,7 +138,7 @@ public class Main {
                         break;
                     }
 
-
+*/
                     if (userInput.equals("=")) {
                         System.out.println(oppositePlayerName + "! " + playerName + " offers you a draw! Do you want to accept it? [y/n]");
                         Scanner drawResponse = new Scanner(System.in);
@@ -166,7 +170,8 @@ public class Main {
                             if (board[targetY][targetX][0] == ' ' || board[targetY][targetX][1] == playerColor) {
                                 System.out.println("INVALID EAT: FIELD IS EMPTY OR THE FIGURE IS NOT BELONGING TO THE OPPOSITE PLAYER!");
                                 //loop back to new user input
-                                printboard(game);
+                                //printboard(game);
+                                game.notifyGameChange();
                                 continue;
                             } else {
                                 isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
@@ -176,7 +181,8 @@ public class Main {
                             if (board[targetY][targetX][0] != ' ') {
                                 System.out.println("INVALID MOVE: OCCUPIED BY YOUR PIECE OR DID NOT SPECIFY EAT!");
                                 //loop back to new user input
-                                printboard(game);
+                                //printboard(game);
+                                game.notifyGameChange();
                                 continue;
                             } else {
                                 isValidMove = game.validateMove(playerColor, figureType, targetX, targetY, moveType);
@@ -187,7 +193,8 @@ public class Main {
                         if (isValidMove.size() < 1) {
                             System.out.println("INVALID MOVE! PLEASE ENTER A CORRECT MOVE");
                             //restart turn
-                            printboard(game);
+                            //printboard(game);
+                            game.notifyGameChange();
                             continue;
 
                         } else if (isValidMove.size() > 1) {
@@ -244,7 +251,8 @@ public class Main {
                             if (currentPlayerKingIsCheck == true) {
                                 System.out.println("INVALID MOVE! YOUR KING IS IN CHECK");
                                 game.updateBoard(figureData, targetPosition, figureXY); //Reverse update the move
-                                printboard(game);
+                                //printboard(game);
+                                game.notifyGameChange();
                                 continue;
                             } else {
                                 //If opponent king is in check after moving
@@ -259,56 +267,19 @@ public class Main {
                                     System.out.println("##CHECK##");
                                     //check = true
                                     i++;
-                                    printboard(game);
+                                    //printboard(game);
+                                    game.notifyGameChange();
                                 }
                             }
                             i++;
-                            printboard(game);
+                            //printboard(game);
+                            game.notifyGameChange();
                         }
                     }
                 }
             }
         }
     }
-
-
-    public static void printboard(Game game) {
-
-        char[][][] board = game.getBoard();
-        ArrayList hitList = game.getHitList();
-
-        char[][] prntboard;
-        ArrayList blackHitList = (ArrayList) hitList.get(1);
-        System.out.print("BLACK HIT LIST: ");
-        for(int i=0;i<blackHitList.size();i++){
-            char[] x = (char[]) blackHitList.get(i);
-            System.out.print(new String(x)+" ");
-        }
-        System.out.println();
-        System.out.println(" \t   a       b       c       d       e       f       g       h");
-        System.out.println(" \t_______________________________________________________________");
-
-        for (int p = 0; p < 8; p++)
-        {
-            for ( int j = 0; j < 1; j++)
-            {
-                prntboard = board[p];
-                System.out.print(8-p+"\t");
-                System.out.print(Arrays.deepToString(prntboard));
-            }
-            System.out.println();
-        }
-        ArrayList whiteHitList = (ArrayList) hitList.get(0);
-        System.out.print("WHITE HIT LIST: ");
-        for(int i=0;i<whiteHitList.size();i++){
-            char[] x = (char[]) whiteHitList.get(i);
-            System.out.print(new String(x)+" ");
-        }
-
-        System.out.println();
-    }
-
-
 }
 
 
