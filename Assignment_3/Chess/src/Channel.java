@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Channel {
 
     PrintOutToTerminal printOutToTerminal = new PrintOutToTerminal();
@@ -8,7 +10,7 @@ public class Channel {
         printOutToTerminal.updateBoard(board);
     }
 
-    public void updateHitLists(Object hitLists){
+    public void updateHitLists(ArrayList hitLists){
         scoreboard.updateHitLists(hitLists);
     }
 
