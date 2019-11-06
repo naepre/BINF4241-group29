@@ -10,6 +10,7 @@ public class Game {
     //Unique game instance private variable
     private static Game uniqueGame;
 
+    //Channel for observer
     private Channel channel = new Channel();
 
     private char[][][] board;
@@ -56,7 +57,7 @@ public class Game {
     private Pawn bP8 = new Pawn('p', 'b', 1, 7);
 
 
-    public Game() {
+    private Game() {
         board = new char[][][]
                 {
                         {{bR1.getName(), bR1.getColor()}, {bN1.getName(), bN1.getColor()}, {bB1.getName(), bB1.getColor()}, {bQ1.getName(), bQ1.getColor()}, {bK1.getName(), bK1.getColor()}, {bB2.getName(), bB2.getColor()}, {bN2.getName(), bN2.getColor()}, {bR2.getName(), bR2.getColor()}},
@@ -176,8 +177,8 @@ public class Game {
 
 
         //UPDATE HIT LISTS
-        char[] targetCell = board[targetPosition[0]][targetPosition[1]];
-        if(targetCell.length != 0){
+        char targetCell = board[targetPosition[0]][targetPosition[1]][0];
+        if(targetCell != ' '){
             //add targetCell data to hit list not equal to moving figure color: figureData[1]
             if(figureData[1] == 'w'){
                 whiteHitList.add(targetCell);

@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e4c8e9a-6c3e-4b99-a5d5-8d3374844833" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chess/Channel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chess/Channel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chess/ChannelInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chess/PrintOutToTerminal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chess/PrintOutToTerminal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChannelInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PrintOutToTerminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrintOutToTerminal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chess/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="17">
+              <caret line="157" column="28" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -26,19 +31,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-653">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="333">
+              <caret line="148" column="89" selection-start-line="148" selection-start-column="89" selection-end-line="148" selection-end-column="89" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1975#3680#0" />
-                <element signature="e#3723#3830#0" />
-                <element signature="method#getHitList#0;class#Game#0" />
-                <element signature="method#validateMove#0;class#Game#0" />
-                <element signature="method#updateBoard#0;class#Game#0" />
-                <element signature="method#translate#0;class#Game#0" />
-                <element signature="method#isCheck#0;class#Game#0" />
-                <element signature="method#isCheckableKing#0;class#Game#0" />
-                <element signature="e#12154#12335#0" />
+                <element signature="e#2083#3788#0" />
+                <element signature="e#3794#4001#0" />
+                <element signature="e#4071#4246#0" />
+                <element signature="e#4252#6471#0" />
+                <element signature="e#6477#8721#0" />
+                <element signature="e#8728#10766#0" />
+                <element signature="e#10772#11831#0" />
+                <element signature="e#11837#12468#0" />
+                <element signature="e#12475#12661#0" />
               </folding>
             </state>
           </provider>
@@ -47,26 +52,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Channel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
+              <folding>
+                <element signature="e#214#215#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#434#435#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ChannelInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/PrintOutToTerminal.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PrintOutToTerminal.java">
+        <entry file="file://$PROJECT_DIR$/src/Scoreboard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,18 +98,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/ChannelInterface.java" />
-        <option value="$PROJECT_DIR$/src/PrintOutToTerminal.java" />
-        <option value="$PROJECT_DIR$/src/Channel.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Channel.java" />
+        <option value="$PROJECT_DIR$/src/PrintOutToTerminal.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Scoreboard.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1905" />
-    <option name="y" value="-15" />
-    <option name="width" value="1955" />
-    <option name="height" value="2095" />
+    <option name="x" value="-15" />
+    <option name="width" value="1948" />
+    <option name="height" value="2075" />
   </component>
   <component name="ProjectId" id="1SZSagCPWCOTvgSxR3PxyrnwwBi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -113,7 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,6 +137,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,16 +209,19 @@
       <workItem from="1572013645392" duration="8288000" />
       <workItem from="1572715568250" duration="2092000" />
       <workItem from="1572791940185" duration="7204000" />
+      <workItem from="1572954646818" duration="2401000" />
+      <workItem from="1573050723622" duration="5657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17456000" />
+    <option name="totallyTimeSpent" value="25514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25217974" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3212609" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -347,60 +357,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChannelInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="157" column="28" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Horse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        <state relative-caret-position="186">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-653">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="333">
+          <caret line="148" column="89" selection-start-line="148" selection-start-column="89" selection-end-line="148" selection-end-column="89" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1975#3680#0" />
-            <element signature="e#3723#3830#0" />
-            <element signature="method#getHitList#0;class#Game#0" />
-            <element signature="method#validateMove#0;class#Game#0" />
-            <element signature="method#updateBoard#0;class#Game#0" />
-            <element signature="method#translate#0;class#Game#0" />
-            <element signature="method#isCheck#0;class#Game#0" />
-            <element signature="method#isCheckableKing#0;class#Game#0" />
-            <element signature="e#12154#12335#0" />
+            <element signature="e#2083#3788#0" />
+            <element signature="e#3794#4001#0" />
+            <element signature="e#4071#4246#0" />
+            <element signature="e#4252#6471#0" />
+            <element signature="e#6477#8721#0" />
+            <element signature="e#8728#10766#0" />
+            <element signature="e#10772#11831#0" />
+            <element signature="e#11837#12468#0" />
+            <element signature="e#12475#12661#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Channel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChannelInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+          <folding>
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PrintOutToTerminal.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scoreboard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,16 +1,13 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PrintOutToTerminal{
 
     private static char[][][] board;
-    private Object hitLists;
 
     public void updateBoard(char[][][] board){
         this.board = board;
         printboard();
     }
-
 
 
 
@@ -32,10 +29,7 @@ public class PrintOutToTerminal{
             }
             System.out.println();
         }
-
         System.out.println();
     }
-
-
 }
 

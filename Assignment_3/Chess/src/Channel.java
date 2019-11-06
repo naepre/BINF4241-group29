@@ -1,19 +1,15 @@
-public class Channel implements ChannelInterface{
+public class Channel {
 
     PrintOutToTerminal printOutToTerminal = new PrintOutToTerminal();
+    Scoreboard scoreboard = new Scoreboard();
 
-    //private Object game;
-    private char[][][] board;
-    private Object hitLists;
 
     public void updateBoard(char[][][] board){
-        this.board = board;
         printOutToTerminal.updateBoard(board);
     }
 
     public void updateHitLists(Object hitLists){
-        this.hitLists = hitLists;
-        //printOutScoreBoard.updateHitLists(hitLists);
+        scoreboard.updateHitLists(hitLists);
     }
 
 }
