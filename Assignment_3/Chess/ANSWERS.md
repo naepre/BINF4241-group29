@@ -1,6 +1,12 @@
-PART 1
+To make a move you have to input any move in the algebraic notation.
 
-Assignment 3
+Specify the piecetype you are moving with its first letter in capital! (B = Bishop, K = King, Q = Queen, N = Knight, R = Rook, p = no name input)
+Specify the targeted field, where you want to move to with writing the letters from 'a - h' for the columns and '1 - 8' for the rows. (The chessfield is labeled accordingly.)
+For eating a piece please put in an 'x' before the specification of the targeted field. (Otherwise you are not allowed to do that.)
+You input should contain 2 to 4 characters depending on the piecetype and movetype you want to move.
+
+
+PART 1
 
 Observer (Channel): Explanation
 
@@ -14,7 +20,6 @@ In short: After each board update the game notifies the channel which further no
 Game Class:
 private Channel channel = new Channel();
 
-//call notifyGameChange at the end of a turn in the main.
 public void notifyGameChange(){
     channel.updateBoard(getBoard());
     channel.updateHitLists(getHitList());
@@ -121,10 +126,18 @@ We chose this type of design pattern for several reasons.
 
 
 
-
 PART 2
 
 
 
 
 PART 3
+We decided to implement an observer pattern scoreboard as that easily extends from what we already can do. Specifically, we implemented a class called Scoreboard that subscribes to the observer and receives updated hit lists for both white and black players. For each hit list, we iterate, identifying eaten pieces and increment a score integer accordingly. Finally, the scores are printed.
+Hint: To quickly test this implementation try the following sequence of moves:
+White begins:
+1. e4
+2. e5
+3. Qf3
+4. f6
+5. Qxf6
+6. xf6
