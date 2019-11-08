@@ -1,3 +1,17 @@
+#### Usage:
+  1. To start the game, please run the program.
+  
+  2. First you are ordered to input the white chess player's name! (Any signs are allowed!) 
+     Next you'll have to input the black chess player's name.
+  
+  3. To make a move you have to input any move in the algebraic notation. 
+     - Specify the piecetype you are moving with its first letter in capital! (B = Bishop, K = King, Q = Queen, N = Knight, R = Rook, p = no name input)
+     - Specify the targeted field, where you want to move to with writing the letters from 'a - h' for the columns
+       and '1 - 8' for the rows. (The chessfield is labeled accordingly.)
+     - For eating a piece please put in an 'x' before the specification of the targeted field. (Otherwise you are not allowed to do that.)
+     - You input should contain 2 to 4 characters depending on the piecetype and movetype you want to move.
+
+
 # PART 1
 
 ## Design pattern one: Observer
@@ -15,11 +29,11 @@ We chose this type of design pattern for several reasons.
 An observer class called Channel is instanciated in the subject: Game.
 When the the game class changes state, namely the board variable, it calls updateBoard in Channel, passing along the updated board variable. Channel subsequentially passes the new board variable to it's subscribers, currently PrintOutToTerminal.
 
+**Please see Observer class diagram integrated with the Singleton class diagram down below!**
 
-![observer class diagram](url)
 
-
-![observer sequence diagram](url)
+### Observer Sequence Diagram
+![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram%20part1.jpeg)
 
 
 ## Design pattern two: Singleton
@@ -38,18 +52,22 @@ We chose this type of design pattern for several reasons.
 We created a **private static game object** called uniqueGame and then we created a **public static synchronized function call getInstance()**. This gives us a new game if uniqueGame is null or hands us back the actual uniqueGame.
 
 
+### Observer and Singleton class diagram
+![singleton and observer class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/Observer_And_Singleton_Class_Diagram.jpg)
 
-![singleton class diagram](url)
 
-
-![singleton sequence diagram](url)
+### Singleton sequence diagram
+![singleton sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/singleton%20sequence%20diagram.jpeg)
 
 
 
 
 # PART 2
+The parts highlighted in blue signify the main situations when the board is updated.
+The board is a local variable of the game. (Even though this is probably not the canonical object-oriented principle)
 
-![board sequence diagram](url)
+### Board sequence diagram
+![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/board%20sequence%20diagram.jpeg)
 
 
 
