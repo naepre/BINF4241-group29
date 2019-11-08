@@ -63,11 +63,11 @@ We created a **private static game object** called uniqueGame and then we create
 
 
 # PART 2
-The parts highlighted in blue signify the main situations when the board is updates.
+The parts highlighted in blue signify the main situations when the board is updated.
 The board is a local variable of the game. (Even though this is probably not the canonical object-oriented principle)
 
 ### Board sequence diagram
-![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram.jpeg)
+![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/board%20sequence%20diagram.jpeg)
 
 
 
