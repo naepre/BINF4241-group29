@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -5,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        UserInputTranslater userInputTranslater = new UserInputTranslater();
         //Game game = new Game();
         Game game = Game.getInstance();
         char[][][] board = game.getBoard();
@@ -61,15 +63,9 @@ public class Main {
 
                     //   System.out.println("CURRENT PLAYER: " + playerName + " i: " + i);
 
-                    System.out.println(playerName + ", please enter your move: ");
-                    Scanner scanner = new Scanner(System.in);
-                    String userInput = scanner.nextLine();
-                    while (!Pattern.matches("(([QKNBR]([x][a-h][1-8]|[a-h][1-8]))|([x][a-h][1-8]|[a-h][1-8])|O-O-O|O-O|=)", userInput)) {
-                        System.out.println(playerName + ", please enter a valid move of the form: Kxa6");
-                        System.out.println("KQBNR, only target space for pawn and x to eat.");
-                        scanner = new Scanner(System.in);
-                        userInput = scanner.nextLine();
-                    }
+                    String userInput = userInputTranslater.readUserInput(playerName);
+
+
 /*
                     // System.out.println(userInput.getClass());
                     if (userInput.equals("O-O-O") && playerColor == 'w') {
@@ -142,7 +138,7 @@ public class Main {
                     if (userInput.equals("=")) {
                         System.out.println(oppositePlayerName + "! " + playerName + " offers you a draw! Do you want to accept it? [y/n]");
                         Scanner drawResponse = new Scanner(System.in);
-                        String response = scanner.nextLine();
+                        String response = drawResponse.nextLine();
                         while (!Pattern.matches("y|n", response)) {
                             System.out.println("Please respond with y or n!");
                             drawResponse = new Scanner(System.in);
@@ -156,8 +152,8 @@ public class Main {
                             continue;
                         }
                     } else {
-                        ArrayList userCommand = game.translate(userInput);
-
+                        //ArrayList userCommand = game.translate(userInput);
+                        ArrayList userCommand = userInputTranslater.translate(userInput);
                         //deconstruct the userCommand
                         int moveType = (int) userCommand.get(0);
                         char figureType = (char) userCommand.get(1);
