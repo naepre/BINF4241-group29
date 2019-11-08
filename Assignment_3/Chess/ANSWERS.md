@@ -19,7 +19,7 @@ When the the game class changes state, namely the board variable, it calls updat
 ![observer class diagram](url)
 
 
-![observer sequence diagram](url)
+![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram.jpeg)
 
 
 ## Design pattern two: Singleton
