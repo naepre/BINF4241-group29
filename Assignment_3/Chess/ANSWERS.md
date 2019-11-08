@@ -38,10 +38,11 @@ We chose this type of design pattern for several reasons.
 We created a **private static game object** called uniqueGame and then we created a **public static synchronized function call getInstance()**. This gives us a new game if uniqueGame is null or hands us back the actual uniqueGame.
 
 
-
+### Observer and signleton class diagram
 ![singleton and observer class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/Observer_And_Singleton_Class_Diagram.jpg)
 
 
+### Singleton sequence diagram
 ![singleton sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/singleton%20sequence%20diagram.jpeg)
 
 
