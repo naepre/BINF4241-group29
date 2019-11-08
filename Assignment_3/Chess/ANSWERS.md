@@ -1,3 +1,18 @@
+
+#### Usage:
+
+1. To start the game, please run the program.
+
+2. First you are ordered to input the white chess player's name! (Any signs are allowed!) Next you'll have to input the black chess player's name.
+
+3. To make a move you have to input any move in the algebraic notation.
+
+   3.1 Specify the piecetype you are moving with its first letter in capital! (B = Bishop, K = King, Q = Queen, N = Knight, R = Rook, p     = no name input)
+   3.2 Specify the targeted field, where you want to move to with writing the letters from 'a - h' for the columns and '1 - 8' for the       rows. (The chessfield is labeled accordingly.)
+  3.3 For eating a piece please put in an 'x' before the specification of the targeted field. (Otherwise you are not allowed to do            that.)
+  3.4 You input should contain 2 to 4 characters depending on the piecetype and movetype you want to move.
+
+
 # PART 1
 
 ## Design pattern one: Observer
@@ -38,7 +53,7 @@ We chose this type of design pattern for several reasons.
 We created a **private static game object** called uniqueGame and then we created a **public static synchronized function call getInstance()**. This gives us a new game if uniqueGame is null or hands us back the actual uniqueGame.
 
 
-### Observer and signleton class diagram
+### Observer and Singleton class diagram
 ![singleton and observer class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/Observer_And_Singleton_Class_Diagram.jpg)
 
 
@@ -50,8 +65,9 @@ We created a **private static game object** called uniqueGame and then we create
 
 # PART 2
 The parts highlighted in blue signify the main situations when the board is updates.
+The board is a local variable of the game. (Even though this is probably not the canonical object-oriented principle)
 
-
+### Board sequence diagram
 ![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram.jpeg)
 
 
