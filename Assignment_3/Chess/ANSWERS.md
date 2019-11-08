@@ -19,7 +19,7 @@ When the the game class changes state, namely the board variable, it calls updat
 ![observer class diagram](url)
 
 
-![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram.jpeg)
+![observer sequence diagram](url)
 
 
 ## Design pattern two: Singleton
@@ -48,8 +48,10 @@ We created a **private static game object** called uniqueGame and then we create
 
 
 # PART 2
+The parts highlighted in blue signify the main situations when the board is updates.
 
-![board sequence diagram](url)
+
+![observer sequence diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/observer%20sequence%20diagram.jpeg)
 
 
 
