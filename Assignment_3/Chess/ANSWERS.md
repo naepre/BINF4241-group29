@@ -15,8 +15,7 @@ We chose this type of design pattern for several reasons.
 An observer class called Channel is instanciated in the subject: Game.
 When the the game class changes state, namely the board variable, it calls updateBoard in Channel, passing along the updated board variable. Channel subsequentially passes the new board variable to it's subscribers, currently PrintOutToTerminal.
 
-
-![observer class diagram](url)
+** For the Observer Diagramm please see class diagram for Singleton & Observer down below! **
 
 
 ![observer sequence diagram](url)
@@ -39,7 +38,7 @@ We created a **private static game object** called uniqueGame and then we create
 
 
 
-![singleton class diagram](url)
+![singleton and observer class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_3/Chess/Observer_And_Singleton_Class_Diagram.jpg)
 
 
 ![singleton sequence diagram](url)
