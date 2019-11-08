@@ -15,7 +15,7 @@ We chose this type of design pattern for several reasons.
 An observer class called Channel is instanciated in the subject: Game.
 When the the game class changes state, namely the board variable, it calls updateBoard in Channel, passing along the updated board variable. Channel subsequentially passes the new board variable to it's subscribers, currently PrintOutToTerminal.
 
-** For the Observer Diagramm please see class diagram for Singleton & Observer down below! **
+**For the Observer Diagramm please see class diagram for Singleton & Observer down below!**
 
 
 ![observer sequence diagram](url)
