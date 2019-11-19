@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +8,6 @@ public class MainMenu {
     private int menuType = -1;
 
     public void mainMenu(){
-
 
         ArrayList appliances = new ArrayList();
         appliances.add(oven);
@@ -25,10 +23,12 @@ public class MainMenu {
         int userInput;
 
         do {
+
             userInput = scanner.nextInt();
 
         }while(userInput < 0 || userInput > 5);
 
+        //If user is in main menu, call corresponding submenu. Otherwise, cast the user input command to the corresponding appliance
         if (menuType == -1){
             if (userInput == 0){
                 // call submenu of oven
@@ -39,17 +39,13 @@ public class MainMenu {
             }
         }
         else {
+            //Object applianceToCastTo = appliances.get(userInput);
+            //applianceToCastTo.cmd(userInput);
             if (userInput == 0){
                 oven.cmd(userInput);
             }
         }
         menuType = userInput;
-
-
-
-        //print MAIN MENU
-        //wait for u c
-        //oven.cmd(-1);
 
     }
 
