@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class Smartphone {
 
     public static void main(String[] args){
 
-        Oven oven = new Oven();
+        MainMenu mainMenu = new MainMenu();
 
-        oven.cmd(1);
+        mainMenu.mainMenu();
 
     }
 
