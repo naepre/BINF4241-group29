@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -9,15 +10,27 @@ public class Appliance {
 
     public boolean switchOff(boolean on){ return false; }
 
-    public int setTemperature(){
-        Scanner scanner = new Scanner(System.in);
-        int temperature;
-        do {
-            System.out.println("Please enter a temperature as an integer between 80 - 250 degrees: \n");
-            temperature = scanner.nextInt();
-
-        }while(temperature <= 79 || temperature >= 251); //verify true integer.
-
+    public int setTemperature() {
+        int temperature = 0;
+        boolean correctInput = false;
+        while (correctInput == false) {
+            try {
+                System.out.println("Please enter a temperature as an integer between 80 - 250 degrees: \n");
+                Scanner scanner = new Scanner(System.in);
+                temperature = scanner.nextInt();
+                if (temperature <= 79 || temperature >= 251) {
+                    System.out.println("Please enter a number between 80 and 250!");
+                    correctInput = false;
+                } else {
+                    correctInput = true;
+                }
+            } catch (InputMismatchException exception)
+            //Add import java.util.InputMismatchException; at the top
+            {
+                System.out.println("Error - Please enter an integer");
+            }
+        }
+        System.out.println("Temperature selected: " + temperature);
         return temperature;
     }
 
