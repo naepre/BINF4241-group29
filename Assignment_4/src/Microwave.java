@@ -23,16 +23,15 @@ public class Microwave extends Appliance {
 
         public void cmd(int cmdNumber) {
 
-            if (cmdNumber == -1) {
+            if (cmdNumber == 1) {
                 ArrayList submenu = prepareMicrowaveSubMenu();
                 System.out.println("###### Microwave ######");
                 for (int i = 0; i < submenu.size(); i++) {
                     System.out.println("[" + i + "]" + submenu.get(i));
                 }
-            } else if (cmdNumber == 0) {
-                //Turn microwave on
-                on = switchOn(on);
-            } else {
+            }
+
+            else {
                 if (cmdNumber == 0) {
                     //Set microwave timer
                     timer = new Timer();
@@ -76,7 +75,8 @@ public class Microwave extends Appliance {
             ArrayList microwaveSubMenu = new ArrayList();
 
             if (!on) {
-                microwaveSubMenu.add("on"); //!!!
+                microwaveSubMenu.add("Turn Microwave on");
+                on = switchOn(on);//!!!
             } else {
                 microwaveSubMenu.add("set timer");
                 microwaveSubMenu.add("set temperature");

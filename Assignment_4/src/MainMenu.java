@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Oven oven = new Oven();
+    private WashingMachine washingMachine = new WashingMachine();
+    private Microwave microwave = new Microwave();
+    private Dishwasher dishwasher = new Dishwasher();
 
     private int menuType = -1;
 
@@ -13,7 +16,9 @@ public class MainMenu {
 
         ArrayList appliances = new ArrayList();
         appliances.add(oven);
-        appliances.add("Microwave");
+        appliances.add(microwave);
+        appliances.add(dishwasher);
+        appliances.add(washingMachine);
 
         System.out.println("###### MAIN MENU ######");
         System.out.println("Select an appliance:");
@@ -27,22 +32,26 @@ public class MainMenu {
         do {
             userInput = scanner.nextInt();
 
-        }while(userInput < 0 || userInput > 5);
+            if (menuType == -1) {
+                if (userInput == 0) {
+                    // call submenu of oven
+                    oven.cmd(0);
+                } else if (userInput == 1) {
+                    microwave.cmd(1);
+                }
+                else if (userInput == 2) {
+                    dishwasher.cmd(2);
+                }
+            } else {
+                if (userInput == 0) {
+                    oven.cmd(userInput);
+                }
+            }
+        }
+            while (userInput >= 0) ;
 
-        if (menuType == -1){
-            if (userInput == 0){
-                // call submenu of oven
-                oven.cmd(-1);
-            }
-            else if (userInput == 1){
-                // call submenu of microwave
-            }
-        }
-        else {
-            if (userInput == 0){
-                oven.cmd(userInput);
-            }
-        }
+
+
         menuType = userInput;
 
 

@@ -56,16 +56,16 @@ public class Dishwasher extends Appliance{
 
     public void cmd(int cmdNumber) {
 
-        if (cmdNumber == -1) {
+        if (cmdNumber == 2) {
             ArrayList submenu = prepareDishwasherSubMenu();
             System.out.println("###### Dishwasher ######");
             for (int i = 0; i < submenu.size(); i++) {
                 System.out.println("[" + i + "]" + submenu.get(i));
             }
-        } else if (cmdNumber == 0) {
+        }
             //Turn dishwasher on
-            on = switchOn(on);
-        } else {
+
+        else {
             if (cmdNumber == 0) {
                 //Set dishwasher program
                 if (washing == false) {
@@ -110,7 +110,8 @@ public class Dishwasher extends Appliance{
         ArrayList dishwasherSubMenu = new ArrayList();
 
         if(!on){
-            dishwasherSubMenu.add("on"); //!!!
+            dishwasherSubMenu.add("Turn Dishwasher On");
+            on = switchOn(on);//!!!
         }else {
             dishwasherSubMenu.add("set program");
             dishwasherSubMenu.add("start washing");

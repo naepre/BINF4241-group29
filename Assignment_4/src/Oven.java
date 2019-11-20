@@ -52,17 +52,14 @@ public class Oven extends Appliance {
 
     public void cmd(int cmdNumber){
 
-        if(cmdNumber == -1){
+        if(cmdNumber == 0){
             ArrayList submenu = prepareOvenSubMenu();
             System.out.println("###### OVEN ######");
             for(int i = 0; i< submenu.size();i++){
                 System.out.println("["+i+"]"+submenu.get(i));
             }
         }
-        else if(cmdNumber == 0) {
-            //Turn oven on
-            on = switchOn(on);
-        }
+
         else {
             if(cmdNumber == 0){
                 //Set oven timer
@@ -118,7 +115,8 @@ public class Oven extends Appliance {
         ArrayList ovenSubMenu = new ArrayList();
 
         if(!on){
-            ovenSubMenu.add("on"); //!!!
+            on = switchOn(on);
+            ovenSubMenu.add("Turn Oven On"); //!!!
         }else {
             ovenSubMenu.add("set timer");
             ovenSubMenu.add("set temperature");
