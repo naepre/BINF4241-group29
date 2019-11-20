@@ -72,7 +72,12 @@ public class Oven extends Appliance {
                 temperature = setTemperature();
             }else if(cmdNumber == 2){
                 //Set oven program
-                setProgram();
+                if (cooking == false) {
+                    setProgram();
+                }
+                else {
+                    System.out.println("Please wait for the machine finishing its current program or interrupt it!");
+                }
             }else if(cmdNumber == 3){
                 if(temperature != 0 && timer != null && program != Program.None) {
                     //Start oven cooking

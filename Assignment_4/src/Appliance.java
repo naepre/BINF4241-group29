@@ -10,6 +10,7 @@ public class Appliance {
 
     public boolean switchOff(boolean on){ return false; }
 
+
     public int setTemperature() {
         int temperature = 0;
         boolean correctInput = false;
@@ -33,6 +34,29 @@ public class Appliance {
         System.out.println("Temperature selected: " + temperature);
         return temperature;
     }
+    public int setDegree() {
+        int degree = 0;
+        boolean correctInput = false;
+        while (correctInput == false) {
+            try {
+                System.out.println("Please enter a temperature as an integer between 80 - 250 degrees: \n");
+                Scanner scanner = new Scanner(System.in);
+                degree = scanner.nextInt();
+                if (degree == 20 || degree == 40 || degree == 60 || degree == 80) {
+                    correctInput = true;
+                } else {
+                    System.out.println("Please enter a number between 80 and 250!");
+                    correctInput = false;
+                }
+            } catch (InputMismatchException exception)
+            //Add import java.util.InputMismatchException; at the top
+            {
+                System.out.println("Error - Please enter an integer");
+            }
+        }
+        System.out.println("Temperature selected: " + degree);
+        return degree;
+    }
 
     class Timer implements Runnable{
 
@@ -45,12 +69,12 @@ public class Appliance {
             Scanner scanner = new Scanner(System.in);
             int timeSelected;
             do {
-                System.out.println("Set a time for the timer not lower than 10 seconds [10'000 => 10 sec]: ");
-                timeSelected = scanner.nextInt();
+                System.out.println("Set a time for the timer not lower between 10 & 14400 (4h) seconds: ");
+                timeSelected = 1000 * scanner.nextInt();
 
-            }while(timeSelected < 10000); //verify true integer.
+            }while(timeSelected <= 9999 || timeSelected >= 14401); //verify true integer.
 
-            System.out.println("Timer set to "+ timeSelected + " milliseconds");
+            System.out.println("Timer set to "+ timeSelected/1000 + " seconds");
 
             time = timeSelected;
             running = false;
@@ -62,9 +86,9 @@ public class Appliance {
 
         public void checkTime(){
             if(isRunning()){
-                System.out.println("Timer is at: "+ time); //modify after implementing decreasing version timer
+                System.out.println("Timer is at: "+ time/1000 + " seconds"); //modify after implementing decreasing version timer
             }
-            System.out.println("Last set time: "+ time);
+            System.out.println("Last set time: "+ time/1000 + " seconds");
         }
 
         @Override
@@ -78,7 +102,41 @@ public class Appliance {
             }
         }
     }
+    // Automatic Timer
+    class AutomaticTimer implements Runnable{
 
+        private boolean running;
+        private int time = 0;
+
+        //constructor
+        public AutomaticTimer(int presetTime){
+
+            time = presetTime;
+            running = false;
+        }
+
+        public boolean isRunning(){
+            return  running;
+        }
+
+        public void checkTime(){
+            if(isRunning()){
+                System.out.println("Timer is at: "+ time/1000 + " seconds"); //modify after implementing decreasing version timer
+            }
+            System.out.println("Last set time: "+ time/1000 + " seconds");
+        }
+
+        @Override
+        public void run() {
+            try {
+                running = true;
+                Thread.sleep(time);
+                running = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 }
