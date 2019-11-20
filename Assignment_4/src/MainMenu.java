@@ -45,6 +45,7 @@ public class MainMenu {
             } else {
                 if (userInput == 0) {
                     oven.cmd(userInput);
+                    oven.setProgram();
                 }
             }
         }

@@ -27,7 +27,7 @@ public class Oven extends Appliance {
     }
 
 
-    private void setProgram(){
+    public void setProgram(){
         Scanner scanner = new Scanner(System.in);
         int programSelected;
         do {
