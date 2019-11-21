@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class Oven extends Appliance {
 
@@ -134,6 +133,7 @@ public class Oven extends Appliance {
         for(int i = 0; i< ovenSubMenu.size();i++){
             System.out.println("["+i+"] "+ovenSubMenu.get(i));
         }
+        System.out.println("[9] Main menu");
         System.out.println("Select an action by entering a number: ");
 
     }

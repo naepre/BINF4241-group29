@@ -40,22 +40,20 @@ public class Appliance {
         boolean correctInput = false;
         while (correctInput == false) {
             try {
-                System.out.println("Please enter a temperature as an integer between 80 - 250 degrees: \n");
+                System.out.println("Enter either 20, 40, 60 or 80 degrees: \n");
                 Scanner scanner = new Scanner(System.in);
                 degree = scanner.nextInt();
                 if (degree == 20 || degree == 40 || degree == 60 || degree == 80) {
                     correctInput = true;
                 } else {
-                    System.out.println("Please enter a number between 80 and 250!");
                     correctInput = false;
                 }
             } catch (InputMismatchException exception)
-            //Add import java.util.InputMismatchException; at the top
             {
                 System.out.println("Error - Please enter an integer");
             }
         }
-        System.out.println("Temperature selected: " + degree);
+        System.out.println("Temperature selected: " + degree +"\n");
         return degree;
     }
 
