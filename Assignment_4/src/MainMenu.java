@@ -9,7 +9,7 @@ public class MainMenu {
     private Microwave microwave = new Microwave();
     private Dishwasher dishwasher = new Dishwasher();
 
-    private int menuType = -1;
+    private Object menuType = null;
 
     public void mainMenu(){
 
@@ -21,10 +21,10 @@ public class MainMenu {
         appliances.add(washingMachine);
 
         System.out.println("###### MAIN MENU ######");
-        System.out.println("Select an appliance:");
         for(int i=0;i<appliances.size();i++){
-            System.out.println("["+i+"]"+ appliances.get(i));
+            System.out.println("["+i+"] "+ appliances.get(i).getClass().getName());
         }
+        System.out.println("Select an appliance by entering a number: ");
 
         Scanner scanner = new Scanner(System.in);
         int userInput;
@@ -32,35 +32,17 @@ public class MainMenu {
         do {
             userInput = scanner.nextInt();
 
-            if (menuType == -1) {
+            if (menuType == null) {
                 if (userInput == 0) {
-                    // call submenu of oven
-                    oven.cmd(0);
-                } else if (userInput == 1) {
-                    microwave.cmd(1);
+                    oven.getOvenSubMenu();
+                    menuType = oven;
                 }
-                else if (userInput == 2) {
-                    dishwasher.cmd(2);
-                }
-            } else {
-                if (userInput == 0) {
-                    oven.cmd(userInput);
-                    oven.setProgram();
-                }
+            } else if(menuType == oven){
+                oven.cmd(userInput);
             }
-        }
-            while (userInput >= 0) ;
-
-
+        }while (userInput >= 0); //still needs higher bound 5
 
         menuType = userInput;
-
-
-
-        //print MAIN MENU
-        //wait for u c
-        //oven.cmd(-1);
-
     }
 
 }

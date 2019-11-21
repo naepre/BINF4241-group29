@@ -31,9 +31,10 @@ public class Appliance {
                 System.out.println("Error - Please enter an integer");
             }
         }
-        System.out.println("Temperature selected: " + temperature);
+        System.out.println("Temperature selected: " + temperature + "\n");
         return temperature;
     }
+
     public int setDegree() {
         int degree = 0;
         boolean correctInput = false;
@@ -69,12 +70,12 @@ public class Appliance {
             Scanner scanner = new Scanner(System.in);
             int timeSelected;
             do {
-                System.out.println("Set a time for the timer not lower between 10 & 14400 (4h) seconds: ");
+                System.out.println("Set the timer between 10 & 14400 (4h) seconds: ");
                 timeSelected = 1000 * scanner.nextInt();
 
             }while(timeSelected <= 9999 || timeSelected >= 14401); //verify true integer.
 
-            System.out.println("Timer set to "+ timeSelected/1000 + " seconds");
+            System.out.println("Timer set to "+ timeSelected/1000 + " seconds \n");
 
             time = timeSelected;
             running = false;
@@ -102,6 +103,7 @@ public class Appliance {
             }
         }
     }
+
     // Automatic Timer
     class AutomaticTimer implements Runnable{
 
