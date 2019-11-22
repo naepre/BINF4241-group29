@@ -20,5 +20,5 @@ The Timer inner class which is common across all appliances necessarily needs to
 
 # Class diagram
 
-![class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_4/class_diagram.jpeg)
+![class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_4/class_diagram_4.jpeg)
   
