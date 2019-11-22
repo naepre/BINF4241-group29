@@ -6,6 +6,7 @@ public class Oven extends Appliance {
     private boolean on;
     private int temperature;
     private Timer timer;
+    private Thread thread;
     private enum Program {
         None,
         Grill,
@@ -57,7 +58,12 @@ public class Oven extends Appliance {
                     on = switchOn(on);
                     System.out.println("Oven switched on. \n");
                 }else {
-                    timer = new Timer();
+                    if(cooking != true){
+                        timer = new Timer();
+                        thread = new Thread(timer);
+                    }else{
+                        System.out.println("Please wait for the machine to finish its current program or interrupt it!\n");
+                    }
                 }
                 break;
             case 1:
@@ -71,16 +77,20 @@ public class Oven extends Appliance {
                 }
                 break;
             case 3:
+                //start cooking
                 if(temperature != 0 && timer != null && program != Program.None) {
                     cooking = true;
+                    thread.start();
                     System.out.println("The oven is cooking...\n");
-                    timer.run();
-                    System.out.println("The oven has completed cooking!\n");
+
+                    //this.cooking = false; //Need to think about
+                    //System.out.println("The oven has completed cooking!\n"); //Need to think about
                 } else {
                     System.out.println("Please first set a timer, a temperature and select a program!\n");
                 }
                 break;
             case 4:
+                //check timer
                 if(cooking){
                     timer.checkTime();
                 } else{
@@ -89,8 +99,10 @@ public class Oven extends Appliance {
                 break;
             case 5:
                 //Interrupt the program
-                if (timer.isRunning() && cooking) {
-                    //pause the timer?
+                //if (timer.isRunning() && cooking) {
+                if(thread.isAlive() && cooking){
+                    //interrupt the timer?
+                    thread.interrupt();
                     cooking = false;
                 } else {
                     System.out.println("The oven is not yet cooking!\n");

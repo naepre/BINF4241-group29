@@ -5,6 +5,7 @@ public class Microwave extends Appliance {
     private boolean on;
     private int temperature;
     private Timer timer;
+    private Thread thread;
     private boolean baking;
 
 
@@ -25,33 +26,40 @@ public class Microwave extends Appliance {
                     on = switchOn(on);
                     System.out.println("Microwave switched on. \n");
                 } else {
-                    timer = new Timer();
+                    if(baking != true){
+                        timer = new Timer();
+                        thread = new Thread(timer);
+                    }else{
+                        System.out.println("Please wait for the machine to finish its current program or interrupt it!\n");
+                    }
                 }
                 break;
             case 1:
+                //set temperature
                 temperature = setTemperature();
                 break;
             case 2:
+                //start baking
                 if (temperature != 0 && timer != null) {
                     baking = true;
                     System.out.println("The Microwave is baking...\n ");
-                    timer.run();
+                    thread.start();
                     System.out.println("The Microwave has completed baking! \n");
                 } else {
                     System.out.println("Please first set a timer, a temperature!\n");
                 }
                 break;
             case 3:
+                //check timer
                 if (baking) {
                     timer.checkTime();
-
                 } else {
                     System.out.println("The timer is set to:" + timer + "seconds");
                 }
                 break;
             case 4:
                 //Interrupt the program
-                if (timer.isRunning() && baking) {
+                if (thread.isAlive() && baking) {
                     baking = false;
                 } else {
                     System.out.println("The Microwave is not yet baking!\n");

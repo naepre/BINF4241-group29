@@ -63,19 +63,27 @@ public class Appliance {
         private int time = 0;
 
         //constructor
-        public Timer(){
-
-            Scanner scanner = new Scanner(System.in);
-            int timeSelected;
-            do {
-                System.out.println("Set the timer between 10 & 14400 (4h) seconds: ");
-                timeSelected = 1000 * scanner.nextInt();
-
-            }while(timeSelected <= 9999 || timeSelected >= 14401); //verify true integer.
-
-            System.out.println("Timer set to "+ timeSelected/1000 + " seconds \n");
-
-            time = timeSelected;
+        public Timer() {
+            boolean correctInput = false;
+            int timeSelected = 0;
+            while (correctInput == false) {
+                try {
+                    System.out.println("Set the timer between 10 & 14400 (4h) seconds: ");
+                    Scanner scanner = new Scanner(System.in);
+                    timeSelected = 1000 * scanner.nextInt();
+                    if (timeSelected <= 9999 || timeSelected >= 1440001) {
+                        System.out.println("Please Enter a valid time value");
+                        correctInput = false;
+                    } else {
+                        correctInput = true;
+                        time = timeSelected;
+                    }
+                } catch (InputMismatchException exception)
+                {
+                    System.out.println("Error - Please enter an integer");
+                }
+            }
+            System.out.println("Timer set to " + timeSelected / 1000 + " seconds \n");
             running = false;
         }
 
@@ -94,12 +102,23 @@ public class Appliance {
         public void run() {
             try {
                 running = true;
-                Thread.sleep(time);
+                while(time/1000>0){
+                    time = time - 1000;
+                    //System.out.println("Remaining: "+time/1000+" seconds");
+                    Thread.sleep(1000L);
+                    if(Thread.interrupted()){
+                        System.out.println("TIMER INTERRUPTED");
+                        running = false;
+                    }
+                }
+                System.out.println("TIMER FINISHED, RING-RING!!");
                 running = false;
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("TIMER INTERRUPTED");
+                running = false;
             }
         }
+
     }
 
     // Automatic Timer
@@ -126,6 +145,16 @@ public class Appliance {
             System.out.println("Last set time: "+ time/1000 + " seconds");
         }
 
+        public void checkPercentageCleaningRobot(){
+            if(isRunning()){
+                System.out.println("The battery has " + time/(72 * 1000) + "% remaining."); //modify after implementing decreasing version timer
+            }
+            System.out.println("The battery has " + (100 - time/(72 * 1000)) + " % charged.");
+        }
+        public void checkPercentageRoom(){
+            System.out.println(time/(108 * 1000) + "% of the room still needs to be cleaned."); //modify after implementing decreasing version timer
+        }
+
         @Override
         public void run() {
             try {
@@ -137,6 +166,5 @@ public class Appliance {
             }
         }
     }
-
 
 }
