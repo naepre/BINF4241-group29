@@ -18,17 +18,14 @@ public class Game
         return players;
     }
 
-    public void updatePlayersCurrentPosition(String playerName, int newPosition)
-    {
+    public void updatePlayersCurrentPosition(String playerName, int newPosition) {
         playersCurrentPosition.put(playerName, newPosition);
     }
 
-    public int getPlayersCurrentPosition(String playername)
-    {
+    public int getPlayersCurrentPosition(String playername) {
         int pcp = (int) playersCurrentPosition.get(playername);
         return pcp;
     }
-
 
     public void setCurrentTurn(String currentTurn) {
         this.currentTurn = currentTurn;
