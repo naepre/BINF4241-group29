@@ -10,6 +10,9 @@ In order to fix this issue we had to modify the method in “Player” class whi
 We used “try” and “catch” statements in order to catch any wrong input and then throw and error message, then requiring the user to provide the program a correct input value.
 
 
+....more
+
+
 # PART 2
 ## GameBoardTest.java
 ### Test: markOnBoard()
