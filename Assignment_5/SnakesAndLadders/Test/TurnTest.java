@@ -28,13 +28,12 @@ public class TurnTest {
 
     @org.junit.Test
     public void TestMove() {
-        /**
-         * When the player moves to a square which is not a snake or a ladder
-         */
+      //Arrange
         int[] startpos = {0, 2, 5, 7,10};
         int [] dicenumber = {1,2,3,4,5,6};
         Turn turn = new Turn();
         Object[][] board = square.createSquare();
+        //Act && Assert
         /**
          * When the player moves to a square which is not a snake or a ladder
          */
@@ -60,6 +59,12 @@ public class TurnTest {
          */
         int lastsquare = turn.move(startpos[3],dicenumber[4],board);
         Assert.assertEquals(12,lastsquare);
+        /**
+         * Test when a player exactly lands on an occupied field should go back to beginning
+         */
+        board[7][2] = "Nael";// Player 2 occupies square 7
+        int occupied = turn.move(startpos[1],dicenumber[4],board);
+        Assert.assertEquals(0,occupied);
     }
 
     /**

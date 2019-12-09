@@ -13,7 +13,8 @@ public class main
         Turn turn = new Turn();
 
         // Player position
-        int numberOfPlayers = player.getPlayerCounter();
+        player.getPlayerCounter();
+        int numberOfPlayers = player.numberOfPlayers;
         ArrayList players = player.getPlayerNames(numberOfPlayers);
         for (Object p: players) {
             game.updatePlayersCurrentPosition((String) p, 0);
