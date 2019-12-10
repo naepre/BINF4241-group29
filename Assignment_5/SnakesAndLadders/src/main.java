@@ -13,8 +13,8 @@ public class main
         Turn turn = new Turn();
 
         // Player position
-        player.getPlayerCounter();
-        int numberOfPlayers = player.numberOfPlayers;
+
+        int numberOfPlayers = player.getPlayerCounter();
         ArrayList players = player.getPlayerNames(numberOfPlayers);
         for (Object p: players) {
             game.updatePlayersCurrentPosition((String) p, 0);
@@ -43,28 +43,28 @@ public class main
         {
             for (int i = 0; i < playOrder.size(); i++)
             {
-                    int playerCurrentPosition = game.getPlayersCurrentPosition(playOrder.get(i));
-                    System.out.println("\n");
-                    System.out.println("Player Turn: " + playOrder.get(i));
-                    Object[][] currentBoard = game.getBoard();
-                    int currentRoll = dice.roll();
-                    int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
-                    System.out.println("------Press enter to roll dice------" );
-                    scanner.nextLine();
-                    System.out.println("dice roll :"+currentRoll);
-                    Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, playOrder.get(i), currentBoard);
-                    System.out.println("GAME State " + Arrays.deepToString(newBoard));
-                    game.updatePlayersCurrentPosition(playOrder.get(i), newPosition);
-                    won = game.checkWinCondition();
-                    if ( won == true )
-                    {
-                        break;
-                    }
+                int playerCurrentPosition = game.getPlayersCurrentPosition(playOrder.get(i));
+                System.out.println("\n");
+                System.out.println("Player Turn: " + playOrder.get(i));
+                Object[][] currentBoard = game.getBoard();
+                int currentRoll = dice.roll();
+                int newPosition = turn.move(playerCurrentPosition, currentRoll, currentBoard);
+                System.out.println("------Press enter to roll dice------" );
+                scanner.nextLine();
+                System.out.println("dice roll :"+currentRoll);
+                Object[][] newBoard = turn.updatePlayerPos(playerCurrentPosition, newPosition, playOrder.get(i), currentBoard);
+                System.out.println("GAME State " + Arrays.deepToString(newBoard));
+                game.updatePlayersCurrentPosition(playOrder.get(i), newPosition);
+                won = game.checkWinCondition();
+                if ( won == true )
+                {
+                    break;
                 }
+            }
         }
-            System.out.println("\n");
-            System.out.println(" *************** Player "+ board[12][2] + " has won ***************");
-        }
-
+        System.out.println("\n");
+        System.out.println(" *************** Player "+ board[12][2] + " has won ***************");
     }
+
+}
 

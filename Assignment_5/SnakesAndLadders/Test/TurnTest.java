@@ -1,11 +1,8 @@
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.Assert;
 import org.junit.Before;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import static org.junit.Assert.*;
 
 public class TurnTest {
     ArrayList<String> players = new ArrayList();
@@ -22,13 +19,12 @@ public class TurnTest {
     public void setup() {
         players.add("clive");
         players.add("tim");
-
     }
 
 
     @org.junit.Test
     public void TestMove() {
-      //Arrange
+        //Arrange
         int[] startpos = {0, 2, 5, 7,10};
         int [] dicenumber = {1,2,3,4,5,6};
         Turn turn = new Turn();
@@ -68,37 +64,31 @@ public class TurnTest {
     }
 
     /**
-     * Normal case simply put the player in its appropriate place
+     * Test to check if players position gets updated on the board
      */
 
     @org.junit.Test
     public void updatePlayerPos() {
+
+        //Arrange
         Turn update = new Turn();
         Object[][] board1 = square.createSquare();
         ArrayList<String> copyPlayer = (ArrayList<String>) players.clone();
         board1[0][2] = copyPlayer;
-        System.out.println("fghfghf"+ Arrays.deepToString(board1));
-
-        Object[][] returnedboard = update.updatePlayerPos(0,3,"clive",board1);
-        Object output = returnedboard[3][2] ;
-        Object expected = test[3][2] = "clive" ;
-        Object prevpos =  returnedboard[0][2];
-
         /**
          * Normal case simply update player position according to current-position, new-position and player name
          */
-        Assert.assertEquals(expected,output);
+        //Act
+        Object[][] returnedboard = update.updatePlayerPos(0,3,"clive",board1);
+        Object expected = test[3][2] = "clive" ;
+        //Assert
+        Assert.assertEquals(expected,returnedboard[3][2]);
         /**
-         * Test to see if the a player was removed from its starting postion
+         * Test to see if the a player was removed from its starting position
          */
-        Object playerinstartpos = returnedboard[0][2];
-
-        System.out.println("fghfghf"+ prevpos);
-
-        // Assert.assertEquals(playerinstartpos.);
-
-
-
-
+        //Act
+        ArrayList<String> startCell = (ArrayList<String>) board1[0][2];
+        //Assert
+        Assert.assertFalse(startCell.contains("clive"));
     }
 }
