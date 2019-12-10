@@ -2,9 +2,9 @@
 
 # PART 1
 
-We created tests for methods which had the most functionality and impact on the code. Therefore we avoided testing some getters and setters. Moreover we placed  the Unit test for methods for a particular class inside a separate class in the Test folder 
+We created tests for methods which had the most functionality and impact on the code. Therefore for the most part we avoided testing some getters and setters. Moreover we placed  the Unit test for methods for a particular class inside a separate class in the Test folder. For each method we tested we tried to cover possible scenarios therby also considering corner cases.  
 
-We noticed a bug in our code when we tested the Player Class which requires input from the user. We observed that when a user enters an input which is not requested i.e; When the command line asks the user to input an integer between 2-4 and the user would by mistake provide an input which isn't a number or an integer the program would crash.
+We noticed a bug in our code when we tested the "Player" Class which requires input from the user. We observed that when a user enters an input which is not requested that is, when the command line would ask the user to input an integer between 2-4 and the user would by mistake provide an input which isn't a number or an integer the program would crash.
 
 In order to fix this issue we had to modify the method in “Player” class which takes user input.
 We used “try” and “catch” statements in order to catch any wrong input and then throw and error message, then requiring the user to provide the program a correct input value.
