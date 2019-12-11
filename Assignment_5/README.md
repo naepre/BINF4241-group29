@@ -65,7 +65,9 @@ A. Which input it should accept which it should not.
       a. Dealer:
        - You must have exactly one dealer. 
        - Stays the same for one round.
-       - 
+       - Deals 7 Cards to each player at the beginning.
+       - The player to the left of the dealer is starting player.
+       - Is Player 1 at the first round, changes then to Player 2 and iterates through the amount of players.
       b. Score:
        - Each player needs to have a score. At start it has to be 0.
       c. Deck: 
@@ -76,8 +78,29 @@ A. Which input it should accept which it should not.
             Either a number from 0 - 9, Wild Card, +4 Wild Card, Reverse, Skip, +2 Draw
           c.1.b. Color: 
             blue, red, green, yellow, all
-      
-    III. 
+      d. Discard Pile: 
+        - Contains always of at least 1 card.
+        - At the start take one card of the deck after dealing the cards to the players and put it on the Discard Pile
+        - All cards on it are face up and the cards are stacked on top of each other
+        - Only action you can do with it is play a card onto it or shuffle it into the draw pile.
+      e. Draw Pile: 
+        - The rest of the deck after dealing and making the discard pile.
+        - All cards on it are face down
+        - Only action you can do with it is draw.
+    III. Turn
+      a. Draw a Card
+        - You can only draw a card once per turn and only before playing a card.
+        - Only the player whose turn it is can draw a card.
+        - You can only draw from the Draw Pile. You cannot draw from a player's hand or from the Discard Pile.
+      b. Play a Card
+        - You can only play one card per turn.
+        - You can only play a card if it matches with the last card on the match pile.
+        - Only the player whose turn it is can play a card.
+        - After playing a card the effect of the played card is triggered and afterwards the turn enters automaticaly.
+      c. Say "UNO"
+        - You can only say it if you have two cards before playing a card.
+        - You can only say it during your turn.
+        - 
 
   Declined Inputs:
   
