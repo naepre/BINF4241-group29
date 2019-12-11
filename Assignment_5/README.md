@@ -51,6 +51,7 @@ Note:
 A. Which input it should accept which it should not.
 
   Accepted Inputs:
+    
     I. Players: 
       a. Player:  
         - Enter a playername as an input string for each player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
@@ -62,11 +63,24 @@ A. Which input it should accept which it should not.
       
     II. Start:
       a. Dealer:
-       - You must have exactly one dealer.
+       - You must have exactly one dealer. 
+       - Stays the same for one round.
+       - 
       b. Score:
-       - Each player needs to have a score.
+       - Each player needs to have a score. At start it has to be 0.
+      c. Deck: 
+        Consists of Cards: (1 x '0', 2 x '1' to '9', 2 x '+2 Draw', 2 x 'Skip', 2 x 'Reverse') per Color, 4 x 'Wild Card', 4 x '+4 Wild Card'  
+        c.1. Cards: 
+          Needs a Color and a Type
+          c.1.a. Types: 
+            Either a number from 0 - 9, Wild Card, +4 Wild Card, Reverse, Skip, +2 Draw
+          c.1.b. Color: 
+            blue, red, green, yellow, all
+      
+    III. 
 
   Declined Inputs:
+  
     I. Players: 
        a. Player:  
         - The playername entered should not be empty.
