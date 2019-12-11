@@ -87,21 +87,64 @@ A. Which input it should accept which it should not.
         - The rest of the deck after dealing and making the discard pile.
         - All cards on it are face down
         - Only action you can do with it is draw.
-    III. Turn
+      f. Playerhand
+        - Each player has exactly one playerhand with his cards in it.
+        - The players can only look at their own playerhand face up, the other hands are face down for them. (So they can count the number of cards in other players hands.
+      g. Direction
+        - The direction is per default clockwise and can only be turned by the reverse card
+      h. Start Card
+        - The first card on the discard pile at the beginning of the round is called the start card.
+        - If the start card is a '+4 Wild Card' reshuffle it.
+        - If the start card is an action card, trigger its effect.
+      i. Turn
+        - You have to make at least one action per turn. (Either Draw a Card or Play a Card)
+      j. Winnerscore
+        - The winnerscore is per default 500, but can be changed.
+        - All players have to agree to change the winnerscore.
+        - Once the winnerscore is reached, the ranking according to the score is declared and the game ends.
+      k. Action Card
+        - An action card triggers an action only once when it is played.
+        - 'Reverse': Change Direction to the other side.
+        - 'Skip': The next player skips his turn.
+        - '+2 Draw': The next player draws 2 cards at the beginning of his turn.
+        - 'Wild Card': Choose a color. The next card played must be of this color or a 'Wild Card'.
+        - '+4 Wild Card': Choose a color. The next player draws 4 cards at the beginning of his turn. The next card played must be of this color or a 'Wild Card'. Should only be played if you cannot play any other card matching the color. Other players can challenge the playing player.
+    III. Inputs:
+    Set-Up
+      a. Set number of players
+      b. Set Players
+        b.1. Put in a playername
+        b.2. Put in a playerage
+      c. Set Score
+      d. Accept Score   
+    
+    During Game
       a. Draw a Card
         - You can only draw a card once per turn and only before playing a card.
         - Only the player whose turn it is can draw a card.
         - You can only draw from the Draw Pile. You cannot draw from a player's hand or from the Discard Pile.
       b. Play a Card
-        - You can only play one card per turn.
+        - You can only play one card per turn, no stacking allowed.
         - You can only play a card if it matches with the last card on the match pile.
         - Only the player whose turn it is can play a card.
         - After playing a card the effect of the played card is triggered and afterwards the turn enters automaticaly.
       c. Say "UNO"
         - You can only say it if you have two cards before playing a card.
         - You can only say it during your turn.
-        - 
-
+        - If you ignore it, other players have the possibility to point it out, but only until the next card is played.
+        - If forgotten and pointed out you have to draw +2 cards.
+      d. Point out someone forgot to say "UNO"
+        - You can only say it after someone said UNO.
+        - You can only say it until the next card is played.
+        - You can say it during someone others turn.
+      e. Challenge someone who played a '+4 Wild Card' 
+        - You can only challenge someone until the next card is played.
+        - You can say it during someone others turn.
+        - If the player could play any other card matching the color, he has to draw four cards. Otherwise the challenger draws six cards.
+      f. Declare the color of the next card
+        - Only possible after playing a wild card.
+        - You can only choose one of the four card colors.
+        - You cannot skip this action.
   Declined Inputs:
   
     I. Players: 
