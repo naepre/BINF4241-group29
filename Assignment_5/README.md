@@ -44,3 +44,46 @@ The getCurrentPlayer() function in TicTacToeGameState.java should only return th
 
 
 # PART 3
+
+# 1 Identify how the system should behave:
+Note:
+
+A. Which input it should accept which it should not.
+
+  Accepted Inputs:
+    I. Players: 
+      a. Player:  
+        - Enter a playername as an input string for each player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
+      b. Age:     
+        - Enter an age as an integer between 0 and 150 for each player. A player below 7 is not allowed to play.
+          It should give a message for those players.
+      c. Number of players: 
+        - You have to declare between 2 and 10 players as an integer to start the game.
+      
+    II. Start:
+      a. Dealer:
+       - You must have exactly one dealer.
+      b. Score:
+       - Each player needs to have a score.
+
+  Declined Inputs:
+    I. Players: 
+       a. Player:  
+        - The playername entered should not be empty.
+        - You cannot give two players exactly the same name.
+        - You cannot give one player two names.
+       b. Age:     
+        - The entered age cannot be a string, float or character and cannot be negative or empty. 
+        - You cannot assign more than one age to one player.
+       c. Amount of players:
+        - You cannot declare more than 10 or less than 2 players and start the game. 
+        - You cannot enter a float, string, character, empty, or negative integer.
+        
+B. What it should do with the inputs, and what it should not.
+
+
+
+C. What are the expected outputs, which ones should not happen.
+
+
+
