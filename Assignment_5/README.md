@@ -124,36 +124,40 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
     During Game
     
       a. Draw a Card
-        - You can only draw a card once per turn and only before playing a card.
-        - Only the player whose turn it is can draw a card.
-        - You can only draw from the Draw Pile. You cannot draw from a player's hand or from the Discard Pile.
+        + You can only draw a card once per turn and only before playing a card.
+        + Only the player whose turn it is can draw a card.
+        + You can only draw from the Draw Pile. 
+        - You cannot draw from a player's hand or from the Discard Pile.
         
       b. Play a Card
-        - You can only play one card per turn, no stacking allowed.
-        - You can only play a card if it matches with the last card on the match pile.
-        - Only the player whose turn it is can play a card.
-        - After playing a card the effect of the played card is triggered and afterwards the turn enters automaticaly.
+        + You can only play one card per turn, no stacking allowed.
+        + You can only play a card if it matches with the last card on the match pile.
+        + Only the player whose turn it is can play a card.
+        - You cannot play a card onto a player's hand or onto the Draw Pile.
+        Note: After playing a card the effect of the played card is triggered and afterwards the turn enters automaticaly.
         
       c. Say "UNO"
-        - You can only say it if you have two cards before playing a card.
-        - You can only say it during your turn.
-        - If you ignore it, other players have the possibility to point it out, but only until the next card is played.
-        - If forgotten and pointed out you have to draw +2 cards.
-        
+        + You can only say it if you have two cards before playing a card or one card after playing a card.
+        + You can only say it during your turn.
+        Note: If you ignore it, other players have the possibility to point it out, but only until the next card is played. If they do you have to draw 2 cards.
+
       d. Point out someone forgot to say "UNO"
-        - You can only say it after someone said UNO.
-        - You can only say it until the next card is played.
-        - You can say it during someone others turn.
+        + You can only say it after someone said UNO.
+        + You can only say it until the next card is played.
+        + You can say it during someone others turn.
+        - You cannot say it after another card was played.
+        - You cannot say it without a reason.
         
       e. Challenge someone who played a '+4 Wild Card' 
-        - You can only challenge someone until the next card is played.
-        - You can say it during someone others turn.
-        - If the player could play any other card matching the color, he has to draw four cards. Otherwise the challenger draws six cards.
+        + You can only challenge someone until the next card is played.
+        + You can say it during someone others turn.
+        
+        Note: If the challenged player could play any other card matching the color, he has to draw four cards. Otherwise the challenger draws six cards.
         
       f. Declare the color of the next card
-        - Only possible after playing a wild card.
-        - You can only choose one of the four card colors.
-        - You cannot skip this action.
+        + Only possible after playing a wild card.
+        + You can only choose one of the four card colors.
+        + You cannot skip this action.
 
 B. What it should do with the inputs, and what it should not.
 
