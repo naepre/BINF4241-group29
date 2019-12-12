@@ -141,27 +141,40 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
         + You can only say it during your turn.
         Note: If you ignore it, other players have the possibility to point it out, but only until the next card is played. If they do you have to draw 2 cards.
 
-      d. Point out someone forgot to say "UNO"
+      d. Point out Someone forgot to say "UNO"
         + You can only say it after someone said UNO.
         + You can only say it until the next card is played.
         + You can say it during someone others turn.
         - You cannot say it after another card was played.
         - You cannot say it without a reason.
         
-      e. Challenge someone who played a '+4 Wild Card' 
+      e. Challenge Someone who played a '+4 Wild Card' 
         + You can only challenge someone until the next card is played.
         + You can say it during someone others turn.
         
         Note: If the challenged player could play any other card matching the color, he has to draw four cards. Otherwise the challenger draws six cards.
         
-      f. Declare the color of the next card
+      f. Declare the Color of the Next Card after playing some Type of Wild Card
         + Only possible after playing a wild card.
         + You can only choose one of the four card colors.
         + You cannot skip this action.
 
 B. What it should do with the inputs, and what it should not.
 
-
+    Set-Up
+      
+      a. Set Number of Players
+      b. Set Players
+        b.1. Put in a Playername
+        b.2. Put in a Playerage
+      c. Set Score
+      d. Accept Score
+      
+    During Game
+      a. Draw a Card
+      b. Play a Card
+      c. Say "UNO"
+      d. Point out Someone forgot to say "UNO"
 
 C. What are the expected outputs, which ones should not happen.
 
