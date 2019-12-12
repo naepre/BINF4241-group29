@@ -46,13 +46,18 @@ The getCurrentPlayer() function in TicTacToeGameState.java should only return th
 # PART 3
 
 # 1 Identify how the system should behave:
+
 Note:
+
+  We assumed that the player can give the following inputs to the system. We will go through them according to the structure of the assignment. So for each input we say what the game should accept and what not. Then we say what it should do with the inputs and what not. Finally we say what should be the outputs and what not. The Inputs are split into the set-up inputs and the inputs happening during the game. All noninput functions/methods are assumed to be working correct. Like for example dealing cards to the players just once or correctly and automaticaly reshuffle the Discard Pile into the Draw Pile. We will mention which functions/methods we assumed to be automated.
+  
+  
+
+
 
 A. Which input it should accept which it should not.
 
-  Accepted Inputs:
     
-        III. Inputs:
     Set-Up
       a. Set number of players
         - You have to declare between 2 and 10 players as an integer to start the game.
