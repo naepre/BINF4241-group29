@@ -67,28 +67,32 @@ We assumed that the player can give the following inputs to the system. We will 
       - Draw a Card
       - Play a Card
       - Say "UNO"
-      - Point out someone forgot to say "UNO"
-      - Challenge someone who played a '+4 Wild Card'
-      - Declare the color of the next card after playing some type of wild card.
+      - Point out Someone forgot to say "UNO"
+      - Challenge Someone who played a '+4 Wild Card'
+      - Declare the Color of the Next Card after playing some Type of Wild Card.
+      - Ending the round, counting the points, starting a new round, ending the game and showing the winner is assumed to be automated and working correctly.
 
 
 ### A. Which input it should accept which it should not.
 
+Note: For accepted behaviour/input we denoted it with a '+' for declined behaviour/input with a '-'
     
     Set-Up
-      a. Set number of players
-        - You have to declare between 2 and 10 players as an integer to start the game.
-        - You cannot declare more than 10 or less than 2 players and start the game. 
-        - You cannot enter a float, string, character, empty, or negative integer.
+      a. Set Number of Players
+        + An integer number between '2' and '10' to represent the number of players.
+        - An integer number bigger than '10', smaller than '2' or negative. 
+        - A different type of input like: 'String', 'Character', 'Boolean', 'Float' or an empty input.
+        - You should not be able to start the game without setting the number of players. 
  
       b. Set Players
-        b.1. Put in a playername
-          - Enter a playername as an input string for each player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
-          - The playername entered should not be empty.
+        b.1. Put in a Playername
+          + A string input to represent the name of the player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
+          + Each player needs to have a name.
+          - An empty string input as the playername.
           - You cannot give two players exactly the same name.
           - You cannot give one player two names.
           
-        b.2. Put in a playerage
+        b.2. Put in a Playerage
           - Enter an age as an integer between 0 and 150 for each player. A player below 7 is not allowed to play.
             It should give a message for those players.
           - The entered age cannot be a string, float or character and cannot be negative or empty. 
@@ -127,20 +131,7 @@ We assumed that the player can give the following inputs to the system. We will 
         - Only possible after playing a wild card.
         - You can only choose one of the four card colors.
         - You cannot skip this action.
-  Declined Inputs:
-  
-    I. Players: 
-       a. Player:  
-        - The playername entered should not be empty.
-        - You cannot give two players exactly the same name.
-        - You cannot give one player two names.
-       b. Age:     
-        - The entered age cannot be a string, float or character and cannot be negative or empty. 
-        - You cannot assign more than one age to one player.
-       c. Amount of players:
-        - You cannot declare more than 10 or less than 2 players and start the game. 
-        - You cannot enter a float, string, character, empty, or negative integer.
-        
+
 B. What it should do with the inputs, and what it should not.
 
 
