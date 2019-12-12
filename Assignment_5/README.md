@@ -171,14 +171,36 @@ B. What it should do with the inputs, and what it should not.
       d. Accept Score
       
     During Game
+      
       a. Draw a Card
       b. Play a Card
       c. Say "UNO"
       d. Point out Someone forgot to say "UNO"
+      e. Challenge Someone who played a '+4 Wild Card'
+      f. Declare the Color of the Next Card after playing some Type of Wild Card
+      
 
 C. What are the expected outputs, which ones should not happen.
 
 
+    Set-Up
+      
+      a. Set Number of Players
+      b. Set Players
+        b.1. Put in a Playername
+        b.2. Put in a Playerage
+      c. Set Score
+      d. Accept Score
+      
+    During Game
+      
+      a. Draw a Card
+      b. Play a Card
+      c. Say "UNO"
+      d. Point out Someone forgot to say "UNO"
+      e. Challenge Someone who played a '+4 Wild Card'
+      f. Declare the Color of the Next Card after playing some Type of Wild Card
+      
 
 Objects/Rules
   
