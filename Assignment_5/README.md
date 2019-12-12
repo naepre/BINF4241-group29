@@ -96,7 +96,6 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           + Each player needs to have a name.
           - An empty string input as the playername.
           - You cannot give two players exactly the same name.
-          - You cannot give one player two names.
           
         b.2. Put in a Playerage
           + An integer number between '1' and '150' to represent the age of the player.
@@ -159,14 +158,25 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
         + You can only choose one of the four card colors.
         + You cannot skip this action.
 
-B. What it should do with the inputs, and what it should not.
+### B. What it should do with the inputs, and what it should not.
+
+Note: For accepted behaviour/input we denoted it with a '+' for declined behaviour/input with a '-'
 
     Set-Up
       
       a. Set Number of Players
+        + The program should generate as many players as it was told.
+        - It should not generate any different number of players and it should not generate them more than once per game.
+      
       b. Set Players
         b.1. Put in a Playername
+          + The program should assign the given String to the chosen player as its name.
+          - The program should only assign one name to one player. Not one name to multiple players or multiple names to one player.
+          
         b.2. Put in a Playerage
+          + The program should assign the given integer to the chosen player as its age.
+          - The program should only assign one age to one player. Not one input age to multiple players or multiple ages to one player. 
+            Note: The age of the players can be the same.
       c. Set Score
       d. Accept Score
       
@@ -180,8 +190,9 @@ B. What it should do with the inputs, and what it should not.
       f. Declare the Color of the Next Card after playing some Type of Wild Card
       
 
-C. What are the expected outputs, which ones should not happen.
+### C. What are the expected outputs, which ones should not happen.
 
+Note: For accepted behaviour/input we denoted it with a '+' for declined behaviour/input with a '-'
 
     Set-Up
       
