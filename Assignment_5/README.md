@@ -54,6 +54,7 @@ We assumed that the player can give the following inputs to the system. We will 
    Inputs:
     
     Set-Up:
+    
       - Set Number of Players: Obligatory
       - Set Players: Obligatory
         - Put in a Playername
@@ -63,6 +64,7 @@ We assumed that the player can give the following inputs to the system. We will 
       - Selecting a dealer is assumed to be automated, so no input is needed.
       
     During Game
+    
       - Dealing the cards, selecting the starting player and triggering the action of an action card is assumed to be automated, so no input is needed and it is working correctly.
       - Draw a Card
       - Play a Card
@@ -78,6 +80,7 @@ We assumed that the player can give the following inputs to the system. We will 
 Note: For accepted behaviour/input we denoted it with a '+' for declined behaviour/input with a '-'
     
     Set-Up
+
       a. Set Number of Players
         + An integer number between '2' and '10' to represent the number of players.
         - An integer number bigger than '10', smaller than '2' or negative. 
@@ -85,6 +88,9 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
         - You should not be able to start the game without setting the number of players. 
  
       b. Set Players
+        
+        - You should not be able to start the game without setting the players.
+        
         b.1. Put in a Playername
           + A string input to represent the name of the player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
           + Each player needs to have a name.
@@ -93,40 +99,57 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           - You cannot give one player two names.
           
         b.2. Put in a Playerage
-          - Enter an age as an integer between 0 and 150 for each player. A player below 7 is not allowed to play.
-            It should give a message for those players.
-          - The entered age cannot be a string, float or character and cannot be negative or empty. 
+          + An integer number between '1' and '150' to represent the age of the player.
+          + Each player needs to have an age.
+          + Two players can have to same age.
+          - An integer number bigger than '150', smaller than '1' or negative. 
+          - A different type of input like: 'String', 'Character', 'Boolean', 'Float' or an empty input.
           - You cannot assign more than one age to one player.
+          
       c. Set Score
-        - You can set any number between 1 and 10000
-        - You cannot enter a string, a character, empty or negative integer
-        - You cannot set multiple scores
-      d. Accept Score   
-        - You can decline or accept the score
-        - You cannot skip this input
+        + An integer number between '1' and '10000' to represent the score to win the game.
+        + Two players can have to same age.
+        + Per default 500.
+        - An integer number bigger than '10000', smaller than '1' or negative. 
+        - A different type of input like: 'String', 'Character', 'Boolean', 'Float' or an empty input.
+        - You cannot assign more than one score at a time.
+        
+      d. Accept Score  
+        + Only possibly after setting a score
+        + Each player has to accept the score before starting the game, if the score was set.
+        + You can decline or accept the score
+        - You cannot skip this input, if it is triggered.
+        - You cannot do something else than accepting/delining.
+        
     During Game
+    
       a. Draw a Card
         - You can only draw a card once per turn and only before playing a card.
         - Only the player whose turn it is can draw a card.
         - You can only draw from the Draw Pile. You cannot draw from a player's hand or from the Discard Pile.
+        
       b. Play a Card
         - You can only play one card per turn, no stacking allowed.
         - You can only play a card if it matches with the last card on the match pile.
         - Only the player whose turn it is can play a card.
         - After playing a card the effect of the played card is triggered and afterwards the turn enters automaticaly.
+        
       c. Say "UNO"
         - You can only say it if you have two cards before playing a card.
         - You can only say it during your turn.
         - If you ignore it, other players have the possibility to point it out, but only until the next card is played.
         - If forgotten and pointed out you have to draw +2 cards.
+        
       d. Point out someone forgot to say "UNO"
         - You can only say it after someone said UNO.
         - You can only say it until the next card is played.
         - You can say it during someone others turn.
+        
       e. Challenge someone who played a '+4 Wild Card' 
         - You can only challenge someone until the next card is played.
         - You can say it during someone others turn.
         - If the player could play any other card matching the color, he has to draw four cards. Otherwise the challenger draws six cards.
+        
       f. Declare the color of the next card
         - Only possible after playing a wild card.
         - You can only choose one of the four card colors.
