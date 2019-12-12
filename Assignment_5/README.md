@@ -47,15 +47,32 @@ The getCurrentPlayer() function in TicTacToeGameState.java should only return th
 
 # 1 Identify how the system should behave:
 
-Note:
+### Note:
 
-  We assumed that the player can give the following inputs to the system. We will go through them according to the structure of the assignment. So for each input we say what the game should accept and what not. Then we say what it should do with the inputs and what not. Finally we say what should be the outputs and what not. The Inputs are split into the set-up inputs and the inputs happening during the game. All noninput functions/methods are assumed to be working correct. Like for example dealing cards to the players just once or correctly and automaticaly reshuffle the Discard Pile into the Draw Pile. We will mention which functions/methods we assumed to be automated.
+We assumed that the player can give the following inputs to the system. We will go through them according to the structure of the assignment. So for each input we say what the game should accept and what not. Then we say what it should do with the inputs and what not. Finally we say what should be the outputs and what not. The Inputs are split into the set-up inputs and the inputs happening during the game. All noninput functions/methods are assumed to be working correct. Like for example dealing cards to the players just once or correctly and automaticaly reshuffle the Discard Pile into the Draw Pile. We will mention which functions/methods we assumed to be automated.
   
-  
+   Inputs:
+    
+    Set-Up:
+      - Set Number of Players: Obligatory
+      - Set Players: Obligatory
+        - Put in a Playername
+        - Put in a Playerage
+      - Set Score: Facultatively
+      - Accept Score: Dependent on Set Score
+      - Selecting a dealer is assumed to be automated, so no input is needed.
+      
+    During Game
+      - Dealing the cards, selecting the starting player and triggering the action of an action card is assumed to be automated, so no input is needed and it is working correctly.
+      - Draw a Card
+      - Play a Card
+      - Say "UNO"
+      - Point out someone forgot to say "UNO"
+      - Challenge someone who played a '+4 Wild Card'
+      - Declare the color of the next card after playing some type of wild card.
 
 
-
-A. Which input it should accept which it should not.
+### A. Which input it should accept which it should not.
 
     
     Set-Up
