@@ -219,10 +219,16 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           - It should not give any cards to a wrong player or make similar mistakes as pointed out in 'Draw a Card'.
           
       e. Challenge Someone who played a '+4 Wild Card'
-          + 
-          
-      
+          + The program should check/know if the player playing the card has a different card with matching color to the top card on the discard pile. If yes it should hand the playing player 4 cards for 'cheating'. Otherwise it should give the challenger 6 cards.
+          + It should remember which player challenged whom correctly.
+               
       f. Declare the Color of the Next Card after playing some Type of Wild Card
+          + It should remeber the input color as the only matching color for the wild card.
+          - It should not assign the wrong color or let player disregard the required color.
+       
+      g. End you Turn
+          + It should end the turn of the current player and start the turn of the next player accordingly to the direction.
+          - It should not allow several players to take their turn simultaneously.
       
 
 ### C. What are the expected outputs, which ones should not happen.
@@ -232,78 +238,45 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
     Set-Up
       
       a. Set Number of Players
+          + It should give back a message showing the correct number of players.
+          
       b. Set Players
         b.1. Put in a Playername
+          + It should give back a message showing the playername and its playernumber.
+          
         b.2. Put in a Playerage
+          + It return a message showing the playername, its age and its playernumber.
+          
       c. Set Score
+          + It should return a message showing the score needed to win the game as a proposal.
+          
       d. Accept Score
+          + It should return a message showing that the score was accepted or declined.
+          - Anything else.
       
     During Game
       
       a. Draw a Card
+          + It shows the player who drew the card face up. The other players can only see the card face down.
+          - It should not show any other player the card face up.
+          
       b. Play a Card
+          + It puts the card played face up onto the discard pile.
+          - It does not put the card anywhere else. (I.e. Other players hand, onto the draw pile,....)
+          
       c. Say "UNO"
+          + It shows a message which confirms you said "UNO" to all players.
+          - Any other or no output.
+          
       d. Point out Someone forgot to say "UNO"
+          + It gives the player who forgot to say "UNO" two cards from the top of the draw pile.
+          - It should not give the wrong amont of cards and not to the wrong player.
+          
       e. Challenge Someone who played a '+4 Wild Card'
-      f. Declare the Color of the Next Card after playing some Type of Wild Card
-      
+          + It gives the challenged player 4 cards if he did 'cheat'. If not it gives the challenger 6 cards.
+          - The program should not give the wrong player the wrong amount of cards.
 
-Objects/Rules
-  
-    I. Players: 
-      a. Player:  
-        - Enter a playername as an input string for each player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
-      b. Age:     
-        - Enter an age as an integer between 0 and 150 for each player. A player below 7 is not allowed to play.
-          It should give a message for those players.
-      c. Number of players: 
-        - You have to declare between 2 and 10 players as an integer to start the game.
-      
-    II. Game:
-      a. Dealer:
-       - You must have exactly one dealer. 
-       - Stays the same for one round.
-       - Deals 7 Cards to each player at the beginning.
-       - The player to the left of the dealer is starting player.
-       - Is Player 1 at the first round, changes then to Player 2 and iterates through the amount of players.
-      b. Score:
-       - Each player needs to have a score. At start it has to be 0.
-      c. Deck: 
-        Consists of Cards: (1 x '0', 2 x '1' to '9', 2 x '+2 Draw', 2 x 'Skip', 2 x 'Reverse') per Color, 4 x 'Wild Card', 4 x '+4 Wild Card'  
-        c.1. Cards: 
-          Needs a Color and a Type
-          c.1.a. Types: 
-            Either a number from 0 - 9, Wild Card, +4 Wild Card, Reverse, Skip, +2 Draw
-          c.1.b. Color: 
-            blue, red, green, yellow, all
-      d. Discard Pile: 
-        - Contains always of at least 1 card.
-        - At the start take one card of the deck after dealing the cards to the players and put it on the Discard Pile
-        - All cards on it are face up and the cards are stacked on top of each other
-        - Only action you can do with it is play a card onto it or shuffle it into the draw pile.
-      e. Draw Pile: 
-        - The rest of the deck after dealing and making the discard pile.
-        - All cards on it are face down
-        - Only action you can do with it is draw.
-      f. Playerhand
-        - Each player has exactly one playerhand with his cards in it.
-        - The players can only look at their own playerhand face up, the other hands are face down for them. (So they can count the number of cards in other players hands.
-      g. Direction
-        - The direction is per default clockwise and can only be turned by the reverse card
-      h. Start Card
-        - The first card on the discard pile at the beginning of the round is called the start card.
-        - If the start card is a '+4 Wild Card' reshuffle it.
-        - If the start card is an action card, trigger its effect.
-      i. Turn
-        - You have to make at least one action per turn. (Either Draw a Card or Play a Card)
-      j. Winnerscore
-        - The winnerscore is per default 500, but can be changed.
-        - All players have to agree to change the winnerscore.
-        - Once the winnerscore is reached, the ranking according to the score is declared and the game ends.
-      k. Action Card
-        - An action card triggers an action only once when it is played.
-        - 'Reverse': Change Direction to the other side.
-        - 'Skip': The next player skips his turn.
-        - '+2 Draw': The next player draws 2 cards at the beginning of his turn.
-        - 'Wild Card': Choose a color. The next card played must be of this color or a 'Wild Card'.
-        - '+4 Wild Card': Choose a color. The next player draws 4 cards at the beginning of his turn. The next card played must be of this color or a 'Wild Card'. Should only be played if you cannot play any other card matching the color. Other players can challenge the playing player.
+      f. Declare the Color of the Next Card after playing some Type of Wild Card
+          + It shows the color declared. 
+          - Anything else.
+
