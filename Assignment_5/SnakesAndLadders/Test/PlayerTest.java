@@ -1,33 +1,25 @@
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
-import java.io.PrintStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
 
-import static org.junit.Assert.*;
+
+import java.io.ByteArrayInputStream;
+
 
 public class PlayerTest {
-
-
+    /**
+     * Test to check the input which is received from the user
+     * in order to play the game is correct
+     *
+     */
     @Test
-    public void getPlayerCounter() {
+    public void TestGetPlayerCounter() {
         Player playerno = new Player();
-        playerno.getPlayerCounter();
-        String input = "5";
-        InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-        //Scanner scanner = new Scanner(System.in);
-        System.setIn(stdin);
-
-
-        //int output = playerno.numberOfPlayers;
-        // assertEquals(Integer.parseInt(input),output);
-
-
+        for(int i = 2; i< 5;i++){
+            String input = Integer.toString(i);
+            System.out.println("Testing input: "+ input);
+            System.setIn(new ByteArrayInputStream(input.getBytes()));
+            Assert.assertEquals(Integer.parseInt(input),playerno.getPlayerCounter());
+        }
     }
 
-    @Test
-    public void getPlayerNames() {
-    }
 }

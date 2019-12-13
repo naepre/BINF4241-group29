@@ -31,10 +31,6 @@ public class Game
         this.currentTurn = currentTurn;
     }
 
-    public String getCurrentTurn() {
-        return currentTurn;
-    }
-
     public void setBoard(Object[][] board) {
         this.board = board;
     }

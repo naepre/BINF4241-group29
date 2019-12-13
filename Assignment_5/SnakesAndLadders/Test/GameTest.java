@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class GameTest {
     Game game = new Game();
     Square square = new Square();
@@ -13,36 +12,27 @@ public class GameTest {
                     {8, 0, null},{9, -4, null},{10, 0, null},{11, 0, null}, {12, 0, null}
             };
 
-
-    @Before
-    public void setup() {
-
-
-    }
-
-    @Test
-    public void setPlayers() {
-    }
-
-    @Test
-    public void getPlayers() {
-    }
-
+    /**
+     * Test to check whether players current position which
+     * is stored in a Hash map is updated correctly
+     */
     @Test
     public void TestUpdatePlayersCurrentPosition() {
-
         //Arrange
         game.playersCurrentPosition.put("clive",2);
         game.playersCurrentPosition.put("Nael",6);
         //Act && Assert for player 1 (Clive)
         game.updatePlayersCurrentPosition("clive",5);
         Assert.assertEquals(5,game.playersCurrentPosition.get("clive"));
-
         //Act && Arrange for player 2 (Nael)
         game.updatePlayersCurrentPosition("Nael",3);
         Assert.assertEquals(3,game.playersCurrentPosition.get("Nael"));
     }
 
+    /**
+     * Test to check whether the players current position
+     * is retrieved from the hash map
+     */
     @Test
     public void TestGetPlayersCurrentPosition() {
         //Arrange
@@ -57,27 +47,27 @@ public class GameTest {
         Assert.assertEquals(11,player2pos);
     }
 
+    /**
+     * Test to set players turn
+     *
+     */
     @Test
     public void setCurrentTurn() {
+        game.setCurrentTurn("Simon");
+        Assert.assertEquals("Simon",game.currentTurn);
     }
 
-    @Test
-    public void getCurrentTurn() {
-    }
 
-    @Test
-    public void setBoard() {
-    }
-
-    @Test
-    public void getBoard() {
-    }
-
+    /**
+     * Test to check if method returns true if a player is on the last board square
+     * and false if no player is present in the last board square
+     *
+     * 1.When the player moves to last square
+     * 2.When the last square is empty/null
+     */
     @Test
     public void TestCheckWinCondition() {
-        /**
-         * When the player moves to last square function returns true
-         */
+        //1.
         //Arrange
         game.board = square.createSquare();
         game.board[12][2]= "clive";
@@ -85,9 +75,8 @@ public class GameTest {
         boolean checkwin= game.checkWinCondition();
         //Assert
         Assert.assertEquals(true,checkwin);
-        /**
-         * When the last square is empty/null
-         */
+
+        //2.
         //Arrange
         game.board[12][2]= null;
         //Act
