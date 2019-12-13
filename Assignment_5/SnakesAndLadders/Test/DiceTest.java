@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
+
 public class DiceTest {
     /**
      * Test to check whether the dice always returns a random number between 1 and 6
