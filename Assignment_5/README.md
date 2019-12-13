@@ -292,4 +292,4 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           - Anything else.
 
 # 2. Class Diagram of the Design.
-![class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_5/class_diagram_assignment_5.jpeg)
+![class diagram](https://github.com/naepre/BINF4241_group29/blob/master/Assignment_5/class_diagram_assignment_5.jpg)
