@@ -76,7 +76,7 @@
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="1950" />
-    <option name="height" value="2075" />
+    <option name="height" value="2076" />
   </component>
   <component name="ProjectId" id="1RsMrBFFBQEHDXOy9Z8CYJTtpVM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -113,10 +113,17 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575123735516" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576244110042" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../assignment5-Part2--tictactoe" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -130,7 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DiceTest">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="BINF4241-group29" />
@@ -138,8 +145,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BINF4241-group29" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DiceTest" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
