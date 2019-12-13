@@ -185,6 +185,7 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           
         b.2. Put in a Playerage
           + The program should assign the given integer to the chosen player as its age.
+          + If the age of the player is below 7, the program does not allow him to play the game.
           - The program should only assign one age to one player. Not one input age to multiple players or multiple ages to one player. 
             Note: The age of the players can be the same.
             
