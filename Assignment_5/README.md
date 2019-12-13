@@ -72,6 +72,7 @@ We assumed that the player can give the following inputs to the system. We will 
       - Point out Someone forgot to say "UNO"
       - Challenge Someone who played a '+4 Wild Card'
       - Declare the Color of the Next Card after playing some Type of Wild Card.
+      - End your turn
       - Ending the round, counting the points, starting a new round, ending the game and showing the winner is assumed to be automated and working correctly.
 
 
@@ -138,7 +139,10 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
       c. Say "UNO"
         + You can only say it if you have two cards before playing a card or one card after playing a card.
         + You can only say it during your turn.
-        Note: If you ignore it, other players have the possibility to point it out, but only until the next card is played. If they do you have to draw 2 cards.
+        - The player cannot say several times "UNO" to stack the times he said "UNO" beforehand.
+        Note: 
+        If you ignore it, other players have the possibility to point it out, but only until the next card is played. If they do you have to draw 2 cards.
+        If you draw cards again and get down to one card again, you still have to declare "UNO".
 
       d. Point out Someone forgot to say "UNO"
         + You can only say it after someone said UNO.
@@ -157,7 +161,12 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
         + Only possible after playing a wild card.
         + You can only choose one of the four card colors.
         + You cannot skip this action.
-
+      
+      g. End your Turn
+        + The player can end his turn after drawing a card or playing a card.
+        - No player except the current player can end the turn.
+        - The player cannot end his turn without playing or drawing a card. (Except if he is being skipped. But then he does not actively do his turn.)
+        
 ### B. What it should do with the inputs, and what it should not.
 
 Note: For accepted behaviour/input we denoted it with a '+' for declined behaviour/input with a '-'
@@ -177,16 +186,42 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           + The program should assign the given integer to the chosen player as its age.
           - The program should only assign one age to one player. Not one input age to multiple players or multiple ages to one player. 
             Note: The age of the players can be the same.
+            
       c. Set Score
+          + The program should assign the given integer to the total score needed for a win.
+          - The program should not generate multiple total scores. (I.e. For each player a different maximum score to be needed.)
+          
       d. Accept Score
+          + The program should only safe the proposed total score as the total score after every player accepted it.
+          - The program should not allow just one or some players to accept the proposed total score.
       
     During Game
       
       a. Draw a Card
+          + After getting the input the program should give the player who gave the input the top card of the draw pile (face down) to his hand. 
+          - The program will not give the card to the player if it is not his turn or if he already drew a card or if he already played a card.
+          - The program will not put the card directly onto the discard pile or draw from the discard pile or from some other players hand.
+      
       b. Play a Card
+          + A player can play once per turn any card matching with the current top card on the dicard pile onto it.
+          - The program does not put the played card onto the draw pile or in someone elses hand. 
+          - The program only allows the player to play the card if the card is matching.
+          
+          
       c. Say "UNO"
+          + The program will remember that the player declared "UNO" as long as he has one card in his hand.
+          + If the player has two or more cards at the end of his turn, the program has to reset the "UNO".
+          - The player is not allowed to say "UNO" if he has more than two cards in his hand before playing or if he has more than one card after playing.
+          - The program should not assign the "UNO" to a wrong player. 
+          
       d. Point out Someone forgot to say "UNO"
+          + The program should check if the player did really not said "UNO". If yes it gives the player two card from the top of the draw pile.
+          - It should not give any cards to a wrong player or make similar mistakes as pointed out in 'Draw a Card'.
+          
       e. Challenge Someone who played a '+4 Wild Card'
+          + 
+          
+      
       f. Declare the Color of the Next Card after playing some Type of Wild Card
       
 
