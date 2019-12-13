@@ -86,12 +86,9 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
         + An integer number between '2' and '10' to represent the number of players.
         - An integer number bigger than '10', smaller than '2' or negative. 
         - A different type of input like: 'String', 'Character', 'Boolean', 'Float' or an empty input.
-        - You should not be able to start the game without setting the number of players. 
  
       b. Set Players
-        
-        - You should not be able to start the game without setting the players.
-        
+                
         b.1. Put in a Playername
           + A string input to represent the name of the player. (It can contain symbols and numbers like: "H0Twheel!Boy4000")
           + Each player needs to have a name.
@@ -176,8 +173,12 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
       a. Set Number of Players
         + The program should generate as many players as it was told.
         - It should not generate any different number of players and it should not generate them more than once per game.
+        - You should not be able to start the game without setting the number of players.
       
       b. Set Players
+      
+        - You should not be able to start the game without setting the players.
+      
         b.1. Put in a Playername
           + The program should assign the given String to the chosen player as its name.
           - The program should only assign one name to one player. Not one name to multiple players or multiple names to one player.
@@ -198,15 +199,12 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
     During Game
       
       a. Draw a Card
-          + After getting the input the program should give the player who gave the input the top card of the draw pile (face down) to his hand. 
-          - The program will not give the card to the player if it is not his turn or if he already drew a card or if he already played a card.
-          - The program will not put the card directly onto the discard pile or draw from the discard pile or from some other players hand.
-      
-      b. Play a Card
-          + A player can play once per turn any card matching with the current top card on the dicard pile onto it.
-          - The program does not put the played card onto the draw pile or in someone elses hand. 
-          - The program only allows the player to play the card if the card is matching.
+          + After getting the input the program should verify if he is allowed to draw if yes it will proceed.
+          - The program will not allow the player to draw if it is not his turn or if he already drew a card or if he already played a card.
           
+      b. Play a Card
+          + The program verifies if the card the player wants to play is matching and if he is allowed to still play a card.
+          + The program should not allow other players to play a card if its not their turn.      
           
       c. Say "UNO"
           + The program will remember that the player declared "UNO" as long as he has one card in his hand.
@@ -215,11 +213,11 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
           - The program should not assign the "UNO" to a wrong player. 
           
       d. Point out Someone forgot to say "UNO"
-          + The program should check if the player did really not said "UNO". If yes it gives the player two card from the top of the draw pile.
+          + The program should check if the player did really not said "UNO" and proceed accordingly.
           - It should not give any cards to a wrong player or make similar mistakes as pointed out in 'Draw a Card'.
           
       e. Challenge Someone who played a '+4 Wild Card'
-          + The program should check/know if the player playing the card has a different card with matching color to the top card on the discard pile. If yes it should hand the playing player 4 cards for 'cheating'. Otherwise it should give the challenger 6 cards.
+          + The program should check/know if the player playing the card has a different card with matching color to the top card on the discard pile. 
           + It should remember which player challenged whom correctly.
                
       f. Declare the Color of the Next Card after playing some Type of Wild Card
@@ -239,19 +237,25 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
       
       a. Set Number of Players
           + It should give back a message showing the correct number of players.
+          + It should return a message if the input is wrong.
+          - Anything else.
           
       b. Set Players
         b.1. Put in a Playername
           + It should give back a message showing the playername and its playernumber.
+          + It should return a message if the input is wrong.
           
         b.2. Put in a Playerage
           + It return a message showing the playername, its age and its playernumber.
+          + It should return a message if the input is wrong.
           
       c. Set Score
           + It should return a message showing the score needed to win the game as a proposal.
+          + It should return a message if the input is wrong.
           
       d. Accept Score
           + It should return a message showing that the score was accepted or declined.
+          + It should return a message if the input is wrong.
           - Anything else.
       
     During Game
@@ -259,6 +263,7 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
       a. Draw a Card
           + It shows the player who drew the card face up. The other players can only see the card face down.
           - It should not show any other player the card face up.
+          - The program will not put the card directly onto the discard pile or draw from the discard pile or from some other players hand.
           
       b. Play a Card
           + It puts the card played face up onto the discard pile.
@@ -279,4 +284,10 @@ Note: For accepted behaviour/input we denoted it with a '+' for declined behavio
       f. Declare the Color of the Next Card after playing some Type of Wild Card
           + It shows the color declared. 
           - Anything else.
+       
+      g. End your Turn
+          + Show a message that you ended your turn sucessfully and whose turn it is next.
+          + If you have not played anything and did not draw a card, it should show you that you cannot end your turn.
+          - Anything else.
 
+# 2. Class Diagram of the Design.
